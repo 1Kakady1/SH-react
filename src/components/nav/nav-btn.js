@@ -1,12 +1,11 @@
 import React, { Component } from "react"
-import GeneralBtn from "../gen-btn"
+import Search from '../search/search-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
-//console.log(faSearch);
+
 class NavBtn extends Component {
     render() {
-     const arrayClass = ["btn","search__btn"];
-     console.log(arrayClass);
+     
       return (
         <div className="nav-user">
             <div className="login">
@@ -18,7 +17,7 @@ class NavBtn extends Component {
                 <span className="cart__text">Basket (<span className="cart_count">0</span>)</span>
             </div>
             <div className="search">
-                <GeneralBtn icon="search"  classBtn={arrayClass} title="" />
+                <Search />
             </div>
         </div>
       )

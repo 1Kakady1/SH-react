@@ -5,6 +5,7 @@ import ToggleMenu from "../components/nav/nav-toggle"
 import NavBtn from "../components/nav/nav-btn"
 import Header from "../components/header"
 import Container from "../components/container"
+import Arrivals from "../components/arrivals/index"
 
 export default () => (
 
@@ -23,6 +24,12 @@ export default () => (
                 <NavBtn/>
             </ToggleMenu>
         </Header>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem libero ea perferendis ratione dolores eligendi! Illo assumenda ea, nobis harum molestias nulla quasi, consequatur autem eius sit asperiores optio. Et.lorem Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates aperiam facere animi laboriosam, dolores eius ea possimus illum  laborum impedit, minus necessitatibus debitis. Est in id quisquam consectetur eos!</p>
+        <Arrivals
+            url = "#" 
+            classBtn ="btn btn-arrivals"
+            titleBtn="check new arrivals" 
+            appeal="Hazy Shade of spring"  
+            explanation="Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo."
+        />
     </Container>
 )

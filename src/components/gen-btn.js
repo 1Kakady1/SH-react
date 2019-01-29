@@ -21,6 +21,8 @@ function WhatBtnUse(props){
 
     let buf = null, bufClass= null, bufIcon=null;
 
+    
+
     if(props.iconBtn === "search"){
         bufIcon = faSearch;
     }  else {

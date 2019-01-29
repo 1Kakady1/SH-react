@@ -13,9 +13,7 @@ class ToggleMenu extends Component {
         this.setState(state => ({
             active: !state.active,
           }));
-
     }
-
 
     render() {
       return (
@@ -25,9 +23,10 @@ class ToggleMenu extends Component {
                     <span>menu</span>
                 </button>
             </div>
+
             <div className={"toggle-menu" + (this.state.active ? " toggle-menu_active" : "")}>
                 {this.props.children}
-            </div>   
+            </div>
         </div>
       )
     }
