@@ -1,17 +1,8 @@
 import React from "react"
+import Squares from "./squares"
 
-export default (props) => (
-    <div className="squares">
-        <div className="row">
-            <div className="column">
-                <div className="box"></div>
-            </div>
-            <div className="column">
-                <div className="box"></div>
-            </div>
-            <div className="column">
-                <div className="box"></div>
-            </div>
-        </div>
-    </div>
+console.log(Squares)
+
+export default () => (
+    <Squares/>
 )

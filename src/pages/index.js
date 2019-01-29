@@ -6,6 +6,7 @@ import NavBtn from "../components/nav/nav-btn"
 import Header from "../components/header"
 import Container from "../components/container"
 import Arrivals from "../components/arrivals/index"
+import Squares from "../components/squares/index"
 
 export default () => (
 
@@ -31,5 +32,6 @@ export default () => (
             appeal="Hazy Shade of spring"  
             explanation="Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo."
         />
+        <Squares/>
     </Container>
 )
