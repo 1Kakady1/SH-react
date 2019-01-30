@@ -90,9 +90,10 @@ class Section1 extends Component {
             <Link 
                 to={this.props.url} 
                 state={{pleasant: "reasonably",}}
-                style={{backgroundImage: `url(${urlImg}${this.props.bg})`}}
                 className={"section-link "+(this.props.class)}
             >
+                <div className="fon-link" style={{backgroundImage: `url(${urlImg}${this.props.bg})`}}>
+                </div>
                 {this.HoverIcon()}
                 {this.Title()}
                 {this.Info()}

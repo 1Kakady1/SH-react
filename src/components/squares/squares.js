@@ -1,19 +1,46 @@
 import React from "react"
 import Column from "./column"
 import Section from "./section-1"
+import { StaticQuery, graphql } from "gatsby"
 
 export default () => (
-    <div className="squares">
+    <StaticQuery
+    query={graphql`
+      query SquaresQuery {
+        allMarkdownRemark(
+            filter: {
+              frontmatter: { page: { eq: "home" } }
+            }
+                ){
+                  edges {
+                    node {
+                      fields {
+                        slug
+                      }
+                                
+                     frontmatter{
+                      title
+                      date
+                      page
+                    }
+                    excerpt
+                    }
+                  }
+                }
+      }
+    `}
+    render={data => (
+        <div className="squares">
         <div className="row">
             <Column>
                 <Section 
-                    title="elegant shoes" 
+                    title={data.allMarkdownRemark.edges[0].node.frontmatter.date}
                     bg="404.jpg"
                     info="BRAIDED LEATHER" 
                     url="#" 
                     price="" 
                     usname="" 
-                    class="link_h295" 
+                    class="link_h295 left-hover" 
                     hoverIcon="errow"
                 />
             </Column>
@@ -25,7 +52,7 @@ export default () => (
                     url="#" 
                     price="" 
                     usname="" 
-                    class="link_h295" 
+                    class="link_h295 top-hover" 
                     hoverIcon="errow"
                 />
             </Column>
@@ -37,10 +64,12 @@ export default () => (
                     url="#" 
                     price="" 
                     usname="" 
-                    class="link_h295" 
+                    class="link_h295 right-hover" 
                     hoverIcon="errow"
                 />
             </Column>
         </div>
     </div>
+    )}
+  />
 )

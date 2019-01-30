@@ -265,12 +265,44 @@ button:hover,button,
 .section-link
     width: 100%
     display: flex
+    position: relative
+    overflow: hidden
+    text-decoration: none
+    background-color: #000
     flex-direction: column
     justify-content: center
     align-items: center
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    text-decoration: none
+    z-index: 3
+    &:hover
+        .errow
+            opacity: 1
+            transition: opacity .16s ease-in-out;
+    &.left-hover:hover
+        .fon-link
+            left: -100%
+            transition: left .5s ease-in-out;
+    &.right-hover:hover
+        .fon-link
+            left: 100%;
+            transition: right .5s ease-in-out, left .5s ease-in-out; 
+    &.top-hover:hover
+        .fon-link
+           top: -100%;
+           transition: top .5s ease-in-out; 
+    &.bottom-hover:hover
+        .fon-link
+           top: 100%;
+           transition: top .5s ease-in-out;   
+    .fon-link
+        width: 100%
+        height: 100%
+        z-index: -1
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: absolute
+        left: 0
+        top: 0
+        transition: left .5s ease-in-out, right .5s ease-in-out, top .5s ease-in-out, bottom.5s ease-in-out;
     &__title
         font-family: 'Lato', sans-serif;
         font-style: normal;
@@ -289,8 +321,13 @@ button:hover,button,
         text-align: center;
         letter-spacing: 0.9px;
         text-transform: uppercase;
+    .errow
+        color: #fff
+        opacity: 0
+        transition: opacity .16s ease-in-out;
 .link_h295
-    height: 295px
+    height: 22vw;
+    //height 295px
 @media screen and (max-width: 996px)
     .menu-toggle
         display: -webkit-flex
