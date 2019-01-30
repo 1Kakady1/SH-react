@@ -7,14 +7,38 @@ export default () => (
         <div className="row">
             <Column>
                 <Section 
-                    title="HEATHER GREY BASICS" 
+                    title="elegant shoes" 
                     bg="404.jpg"
-                    info="New Arrival" 
+                    info="BRAIDED LEATHER" 
                     url="#" 
                     price="" 
                     usname="" 
-                    class="" 
-                    hoverIcon=""
+                    class="link_h295" 
+                    hoverIcon="errow"
+                />
+            </Column>
+            <Column>
+                <Section 
+                    title="elegant shoes" 
+                    bg="404.jpg"
+                    info="BRAIDED LEATHER" 
+                    url="#" 
+                    price="" 
+                    usname="" 
+                    class="link_h295" 
+                    hoverIcon="errow"
+                />
+            </Column>
+            <Column>
+                <Section 
+                    title="elegant shoes" 
+                    bg="404.jpg"
+                    info="BRAIDED LEATHER" 
+                    url="#" 
+                    price="" 
+                    usname="" 
+                    class="link_h295" 
+                    hoverIcon="errow"
                 />
             </Column>
         </div>
