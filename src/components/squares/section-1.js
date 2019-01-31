@@ -14,7 +14,14 @@ class Section1 extends Component {
         this.UsName= this.UsName.bind(this);
         this.UsInfo= this.UsInfo.bind(this);
         this.HoverIcon= this.HoverIcon.bind(this);
+        this.RandomColor = this.RandomColor.bind(this);
 
+    }
+
+    RandomColor(){
+        let arrColorClass =["bg-color_1 ","bg-color_2 ","bg-color_3 ","bg-color_4 "],
+            color = arrColorClass[Math.floor(Math.random() * arrColorClass.length)]
+        return color
     }
 
     Title(){
@@ -84,13 +91,14 @@ class Section1 extends Component {
     }
 
     render() {
-    const urlImg = withPrefix('/img/');
+    const urlImg = withPrefix('/img/'),
+          color = this.RandomColor();
       return (
         <div className="section-1">
             <Link 
                 to={this.props.url} 
                 state={{pleasant: "reasonably",}}
-                className={"section-link "+(this.props.class)}
+                className={`section-link ${color}`+(this.props.class)}
             >
                 <div className="fon-link" style={{backgroundImage: `url(${urlImg}${this.props.bg})`}}>
                 </div>
