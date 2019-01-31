@@ -1,7 +1,11 @@
 ---
-title: "Sweet Pandas Eating Sweets"
-date: "2017-08-10"
+title: "Lorem"
+subTitle: "Lorem Lorem"
+price: "100$"
 page: "home"
+position: 8
+image: "photo-1542208998-f6dbbb27a72f.jpg"
+hoverGr: "line"
 ---
 
 Pandas are really sweet.

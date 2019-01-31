@@ -26,7 +26,7 @@ class Section1 extends Component {
 
     Title(){
         let rezylt = null
-        if(this.props.title !== "" && this.props.title !== undefined){
+        if(this.props.title !== "" && this.props.title !== undefined && this.props.title !== null){
             rezylt = <h2 className="section-link__title">{this.props.title}</h2>
         }
 
@@ -35,7 +35,7 @@ class Section1 extends Component {
 
     Info(props){
         let rezylt = null
-        if(this.props.info !== "" && this.props.info !== undefined){
+        if(this.props.info !== "" && this.props.info !== undefined && this.props.info !== null){
             rezylt = <p className="section-link__info">{this.props.info}</p>
         }
 
@@ -44,7 +44,7 @@ class Section1 extends Component {
 
     Price(props){
         let rezylt = null
-        if(this.props.price !== "" && this.props.price !== undefined){
+        if(this.props.price !== "" && this.props.price !== undefined && this.props.price !== null){
             rezylt = <p className="section-link__price">{this.props.price}</p>
         }
 
@@ -53,7 +53,7 @@ class Section1 extends Component {
 
     UsName(props){
         let rezylt = null
-        if(this.props.usname !== "" && this.props.usname !== undefined ){
+        if(this.props.usname !== "" && this.props.usname !== undefined && this.props.usname !== null){
             rezylt = <p className="section-link__usname">{this.props.usname}</p>
         }
 
@@ -62,7 +62,7 @@ class Section1 extends Component {
 
     UsInfo(){
         let rezylt = null
-        if(this.props.usinfo !== "" && this.props.usinfo !== undefined){
+        if(this.props.usinfo !== "" && this.props.usinfo !== undefined && this.props.usinfo !== null){
             rezylt = <p className="section-link__usinfo">{this.props.usinfo}</p>
         }
 
@@ -78,9 +78,9 @@ class Section1 extends Component {
                                 <hr className="line__rigt"/>
                             </div>
                     break;    
-                case 'errow':
-                    rezylt = <div className="errow">
-                        <FontAwesomeIcon icon={faLongArrowAltLeft} className="errow__left" />
+                case 'arrow':
+                    rezylt = <div className="arrow">
+                        <FontAwesomeIcon icon={faLongArrowAltLeft} className="arrow__left" />
                     </div>
                     break;
                 default:

@@ -51,6 +51,7 @@ export default (props) => (
             filter: {
               frontmatter: { page: { eq: "home" } }
             }
+         	 sort: {fields: [frontmatter___position], order: ASC}
                 ){
                   edges {
                     node {
@@ -60,13 +61,15 @@ export default (props) => (
                                 
                      frontmatter{
                       title
-                      sub_title
+                      subTitle
                       usname
                       usinfo
                       price
                       image
                       date
                       page
+                      position
+                      hoverGr
                     }
                     excerpt
                     }
@@ -81,50 +84,110 @@ export default (props) => (
             <Column>
                 <Section 
                     title={data.allMarkdownRemark.edges[0].node.frontmatter.title}
-                    bg="404.jpg"
-                    info="BRAIDED LEATHER" 
-                    url="#" 
-                    price="" 
-                    usname="" 
+                    bg={data.allMarkdownRemark.edges[0].node.frontmatter.image}
+                    info={data.allMarkdownRemark.edges[0].node.frontmatter.subTitle} 
+                    url={data.allMarkdownRemark.edges[0].node.fields.slug} 
+                    price={data.allMarkdownRemark.edges[0].node.frontmatter.price} 
+                    usname={data.allMarkdownRemark.edges[0].node.frontmatter.usname} 
                     class="link_h593 left-hover" 
-                    hoverIcon="errow"
+                    hoverIcon={data.allMarkdownRemark.edges[0].node.frontmatter.hoverGr}
+                />
+                <Section 
+                    title={data.allMarkdownRemark.edges[1].node.frontmatter.title}
+                    bg={data.allMarkdownRemark.edges[1].node.frontmatter.image}
+                    info={data.allMarkdownRemark.edges[1].node.frontmatter.subTitle} 
+                    url={data.allMarkdownRemark.edges[1].node.fields.slug} 
+                    price={data.allMarkdownRemark.edges[1].node.frontmatter.price} 
+                    usname={data.allMarkdownRemark.edges[1].node.frontmatter.usname} 
+                    class="link_h298 left-hover" 
+                    hoverIcon={data.allMarkdownRemark.edges[1].node.frontmatter.hoverGr}
                 />
             </Column>
             <Column>
                 <Section 
-                    title="elegant shoes" 
-                    bg="404.jpg"
-                    info="BRAIDED LEATHER" 
-                    url="#" 
-                    price="" 
-                    usname="" 
-                    class="link_h298 top-hover" 
-                    hoverIcon="errow"
-                />
+                        title={data.allMarkdownRemark.edges[2].node.frontmatter.title}
+                        bg={data.allMarkdownRemark.edges[2].node.frontmatter.image}
+                        info={data.allMarkdownRemark.edges[2].node.frontmatter.subTitle} 
+                        url={data.allMarkdownRemark.edges[2].node.fields.slug} 
+                        price={data.allMarkdownRemark.edges[2].node.frontmatter.price} 
+                        usname={data.allMarkdownRemark.edges[2].node.frontmatter.usname} 
+                        class="link_h298 top-hover" 
+                        hoverIcon={data.allMarkdownRemark.edges[2].node.frontmatter.hoverGr}
+                    />
+                    <Section 
+                        title={data.allMarkdownRemark.edges[3].node.frontmatter.title}
+                        bg={data.allMarkdownRemark.edges[3].node.frontmatter.image}
+                        info={data.allMarkdownRemark.edges[3].node.frontmatter.subTitle} 
+                        url={data.allMarkdownRemark.edges[3].node.fields.slug} 
+                        price={data.allMarkdownRemark.edges[3].node.frontmatter.price} 
+                        usname={data.allMarkdownRemark.edges[3].node.frontmatter.usname} 
+                        class="link_h298 bottom-hover" 
+                        hoverIcon={data.allMarkdownRemark.edges[3].node.frontmatter.hoverGr}
+                    />
+                    <Section 
+                        title={data.allMarkdownRemark.edges[4].node.frontmatter.title}
+                        bg={data.allMarkdownRemark.edges[4].node.frontmatter.image}
+                        info={data.allMarkdownRemark.edges[4].node.frontmatter.subTitle} 
+                        url={data.allMarkdownRemark.edges[4].node.fields.slug} 
+                        price={data.allMarkdownRemark.edges[4].node.frontmatter.price} 
+                        usname={data.allMarkdownRemark.edges[4].node.frontmatter.usname} 
+                        class="link_h298 right-hover" 
+                        hoverIcon={data.allMarkdownRemark.edges[4].node.frontmatter.hoverGr}
+                    />
+            </Column>
+            <Column>
+                    <Section 
+                        title={data.allMarkdownRemark.edges[5].node.frontmatter.title}
+                        bg={data.allMarkdownRemark.edges[5].node.frontmatter.image}
+                        info={data.allMarkdownRemark.edges[5].node.frontmatter.subTitle} 
+                        url={data.allMarkdownRemark.edges[5].node.fields.slug} 
+                        price={data.allMarkdownRemark.edges[5].node.frontmatter.price} 
+                        usname={data.allMarkdownRemark.edges[5].node.frontmatter.usname} 
+                        class="link_h298 bottom-hover" 
+                        hoverIcon={data.allMarkdownRemark.edges[5].node.frontmatter.hoverGr}
+                    />
+                    <Section 
+                        title={data.allMarkdownRemark.edges[6].node.frontmatter.title}
+                        bg={data.allMarkdownRemark.edges[6].node.frontmatter.image}
+                        info={data.allMarkdownRemark.edges[6].node.frontmatter.subTitle} 
+                        url={data.allMarkdownRemark.edges[6].node.fields.slug} 
+                        price={data.allMarkdownRemark.edges[6].node.frontmatter.price} 
+                        usname={data.allMarkdownRemark.edges[6].node.frontmatter.usname} 
+                        class="link_h298 top-hover" 
+                        hoverIcon={data.allMarkdownRemark.edges[6].node.frontmatter.hoverGr}
+                    />
+                    <Section 
+                        title={data.allMarkdownRemark.edges[7].node.frontmatter.title}
+                        bg={data.allMarkdownRemark.edges[7].node.frontmatter.image}
+                        info={data.allMarkdownRemark.edges[7].node.frontmatter.subTitle} 
+                        url={data.allMarkdownRemark.edges[7].node.fields.slug} 
+                        price={data.allMarkdownRemark.edges[7].node.frontmatter.price} 
+                        usname={data.allMarkdownRemark.edges[7].node.frontmatter.usname} 
+                        class="link_h298 left-hover" 
+                        hoverIcon={data.allMarkdownRemark.edges[7].node.frontmatter.hoverGr}
+                    />
             </Column>
             <Column>
                 <Section 
-                    title="elegant shoes" 
-                    bg="404.jpg"
-                    info="BRAIDED LEATHER" 
-                    url="#" 
-                    price="" 
-                    usname="" 
-                    class="link_h298 bottom-hover" 
-                    hoverIcon="errow"
-                />
-            </Column>
-            <Column>
-                <Section 
-                    title="elegant shoes" 
-                    bg="404.jpg"
-                    info="BRAIDED LEATHER" 
-                    url="#" 
-                    price="" 
-                    usname="" 
-                    class="link_h298 right-hover" 
-                    hoverIcon="errow"
-                />
+                        title={data.allMarkdownRemark.edges[8].node.frontmatter.title}
+                        bg={data.allMarkdownRemark.edges[8].node.frontmatter.image}
+                        info={data.allMarkdownRemark.edges[8].node.frontmatter.subTitle} 
+                        url={data.allMarkdownRemark.edges[8].node.fields.slug} 
+                        price={data.allMarkdownRemark.edges[8].node.frontmatter.price} 
+                        usname={data.allMarkdownRemark.edges[8].node.frontmatter.usname} 
+                        class="link_h298 right-hover" 
+                        hoverIcon={data.allMarkdownRemark.edges[8].node.frontmatter.hoverGr}
+                    />
+                    <Section 
+                        title={data.allMarkdownRemark.edges[9].node.frontmatter.title}
+                        bg={data.allMarkdownRemark.edges[9].node.frontmatter.image}
+                        info={data.allMarkdownRemark.edges[9].node.frontmatter.subTitle} 
+                        url={data.allMarkdownRemark.edges[9].node.fields.slug} 
+                        price={data.allMarkdownRemark.edges[9].node.frontmatter.price} 
+                        usname={data.allMarkdownRemark.edges[9].node.frontmatter.usname} 
+                        class="link_h593 right-hover" 
+                        hoverIcon={data.allMarkdownRemark.edges[9].node.frontmatter.hoverGr}
+                    />
             </Column>
         </div>
     </div>
