@@ -249,7 +249,106 @@ button:hover,button,
         text-decoration: none;
         color: #000;
         padding: 20px 12px
+.row
+    display: flex
+    flex-flow: row wrap
+.column
+    width: 100%
+    max-width: 25%
 
+.section-1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+.section-link
+    width: 100%
+    display: flex
+    position: relative
+    overflow: hidden
+    text-decoration: none
+    //background-color: #000
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    z-index: 3
+    &:hover
+        .arrow
+            opacity: 1
+            transition: opacity .16s ease-in-out;
+    &.left-hover:hover
+        .fon-link
+            left: -100%
+            transition: left .5s ease-in-out;
+    &.right-hover:hover
+        .fon-link
+            left: 100%;
+            transition: right .5s ease-in-out, left .5s ease-in-out; 
+    &.top-hover:hover
+        .fon-link
+           top: -100%;
+           transition: top .5s ease-in-out; 
+    &.bottom-hover:hover
+        .fon-link
+           top: 100%;
+           transition: top .5s ease-in-out;   
+    .fon-link
+        width: 100%
+        height: 100%
+        z-index: -1
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: absolute
+        left: 0
+        top: 0
+        transition: left .5s ease-in-out, right .5s ease-in-out, top .5s ease-in-out, bottom.5s ease-in-out;
+        &::before
+            content: ""
+            width: 100%
+            height: 100%
+            background: #0000003b
+            position: absolute
+            top: 0
+            left: 0
+    &__title
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 27px;
+        font-size: 24px;
+        text-align: center;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: #fff
+    &__info
+        font-family: 'Kameron', serif;
+        font-style: italic;
+        font-weight: normal;
+        line-height: 27px;
+        font-size: 18px;
+        text-align: center;
+        letter-spacing: 0.9px;
+        text-transform: uppercase;
+        color: #fff
+    .arrow
+        color: #fff
+        opacity: 0
+        transition: opacity .16s ease-in-out;
+
+.link_h298
+    height: 298px;
+.link_h593
+    height: 593px
+
+.bg-color_1
+    background-color: #606060
+.bg-color_2
+    background-color: #BBBBBB
+.bg-color_3
+    background-color: #CACACA
+.bg-color_4
+    background-color: #DBDBDB
 @media screen and (max-width: 996px)
     .menu-toggle
         display: -webkit-flex
