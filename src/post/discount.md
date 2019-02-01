@@ -4,6 +4,7 @@ usinfo: "Не знаем, что случилось с брендами, но в
 date: "2017-08-10"
 image: "rawpixel-653765-unsplash.jpg"
 page: "home"
+hoverAnimation: "right"
 position: 5
 ---
 

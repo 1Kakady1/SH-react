@@ -113,5 +113,4 @@ class Section1 extends Component {
       )
     }
   }
-  
   export default Section1

@@ -6,6 +6,7 @@ page: "home"
 position: 8
 image: "photo-1542208998-f6dbbb27a72f.jpg"
 hoverGr: "line"
+hoverAnimation: "left"
 ---
 
 Pandas are really sweet.
