@@ -3,16 +3,19 @@ import Column from "./column"
 import Section from "./section-1"
 import { StaticQuery, graphql } from "gatsby"
 
-/*let shift = 0;
+let shift = 0;
 
-function printSection(data){
-    let countFor = 3;
-
-    if(data.allMarkdownRemark.edges[0+shift].node.frontmatter.size === "593" || data.allMarkdownRemark.edges[1+shift].node.frontmatter.size === "593"){
-        countFor = 2
-    }
-        for (let index = shift; index < countFor; index++) {
-            <Section 
+function PrintSection(data){
+    let countFor = 3,
+        arrSection = [];
+        console.log('go')
+        console.log(data.allMarkdownRemark.edges[0].node.frontmatter.title)
+    //if(data.allMarkdownRemark.edges[0+shift].node.frontmatter.size === "593" || data.allMarkdownRemark.edges[1+shift].node.frontmatter.size === "593"){
+    //    countFor = 2
+    //}
+        for (let index = shift, i=0; i < countFor; index++, i++) {
+            if(shift == 9){break}
+            arrSection[i]= <Section key={"section-"+(index.toString())}
                 title={data.allMarkdownRemark.edges[index].node.frontmatter.title}
                 bg={data.allMarkdownRemark.edges[index].node.frontmatter.bg}
                 info={data.allMarkdownRemark.edges[index].node.frontmatter.info} 
@@ -22,26 +25,27 @@ function printSection(data){
                 class="link_h593 left-hover" 
                 hoverIcon="errow"
             />
+            console.log(index)
         }
     
-        shift += countFor;  
-
+        shift += countFor; 
+        console.log("-----------")
+        console.log(shift) 
+        console.log(arrSection) 
+        console.log("-----------")
+        return arrSection
 }
 
-function Content(data) {
+function Content(props) {
+    //console.log(props.data)
+    let arrColumn = []
     for (let index = 0; index < 4; index++) {
-        <Column>
-            {printSection(data)}
+        arrColumn[index] = <Column key={"column-"+(index.toString())}>
+            {PrintSection(props.data)}
         </Column>
     }
+    return arrColumn
 } 
-
-function Column1(props) {
-    const arr =  props.data;
-    const listSection = arr.map((arr) =>
-        console.log(arr.allMarkdownRemark.edges[0].node.frontmatter.title)
-  );
-}*/
 
 export default (props) => (
     <StaticQuery
@@ -80,7 +84,7 @@ export default (props) => (
     render={data => (
         <div className="squares">
         <div className="row">
-            {console.log(data)}
+        <Content data={data}/>
             <Column>
                 <Section 
                     title={data.allMarkdownRemark.edges[0].node.frontmatter.title}
