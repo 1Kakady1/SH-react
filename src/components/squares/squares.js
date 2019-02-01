@@ -43,6 +43,45 @@ function Column1(props) {
   );
 }*/
 
+
+/* v2
+    function printSection(data){
+    let countFor = 3,
+        arrSection = [];
+
+    if(data.allMarkdownRemark.edges[0+shift].node.frontmatter.size === "593" || data.allMarkdownRemark.edges[1+shift].node.frontmatter.size === "593"){
+        countFor = 2
+    }
+        for (let index = shift; index < countFor; index++) {
+          arrSection[] =  <Section 
+                title={data.allMarkdownRemark.edges[index].node.frontmatter.title}
+                bg={data.allMarkdownRemark.edges[index].node.frontmatter.bg}
+                info={data.allMarkdownRemark.edges[index].node.frontmatter.info} 
+                url="#" 
+                price={data.allMarkdownRemark.edges[index].node.frontmatter.price} 
+                usname={data.allMarkdownRemark.edges[index].node.frontmatter.usname} 
+                class="link_h593 left-hover" 
+                hoverIcon="errow"
+            />
+        }
+    
+        shift += countFor;
+        
+        return arrSection
+
+}
+
+function Content(data) {
+    let columnArr = [];
+    for (let index = 0; index < 4; index++) {
+        let buf = printSection(data)
+        columnArr[index] = <Column>{buf}</Column>
+    }
+
+    return columnArr
+} 
+*/
+
 export default (props) => (
     <StaticQuery
     query={graphql`
