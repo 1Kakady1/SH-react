@@ -1,6 +1,6 @@
 ---
 title: "Опт"
-price: "от 2004"
+price: "от 2004$"
 date: "2018-08-10"
 image: "photo-1441984904996-e0b6ba687e04.jpg"
 page: "home"

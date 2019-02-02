@@ -22,10 +22,11 @@ function PrintSection(data){
             arrSection[i]= <Section key={"section-"+(index.toString())}
                 title={data.allMarkdownRemark.edges[index].node.frontmatter.title}
                 bg={data.allMarkdownRemark.edges[index].node.frontmatter.image}
-                info={data.allMarkdownRemark.edges[index].node.frontmatter.subtitle} 
+                info={data.allMarkdownRemark.edges[index].node.frontmatter.subTitle} 
                 url={data.allMarkdownRemark.edges[index].node.fields.slug} 
                 price={data.allMarkdownRemark.edges[index].node.frontmatter.price} 
                 usname={data.allMarkdownRemark.edges[index].node.frontmatter.usname} 
+                usinfo={data.allMarkdownRemark.edges[index].node.frontmatter.usinfo}
                 class={"link_h"+(data.allMarkdownRemark.edges[index].node.frontmatter.classHeight  !== null ? "593" : "298")+
                         " "+(data.allMarkdownRemark.edges[index].node.frontmatter.hoverAnimation)+"-hover"} 
                 hoverIcon={data.allMarkdownRemark.edges[index].node.frontmatter.hoverGr}
@@ -33,7 +34,6 @@ function PrintSection(data){
         }
 
         shift += countFor;
-        console.log(shift)
         return arrSection
     }
 }

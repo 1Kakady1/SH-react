@@ -274,7 +274,7 @@ button:hover,button,
     align-items: center
     z-index: 3
     &:hover
-        .arrow
+        .arrow, .line-wrap.line
             opacity: 1
             transition: opacity .16s ease-in-out;
     &.left-hover:hover
@@ -331,6 +331,38 @@ button:hover,button,
         letter-spacing: 0.9px;
         text-transform: uppercase;
         color: #fff
+    &__usinfo
+        text-align: center;
+        padding: 0px 30px;
+        color: #ffffff
+        font-family: 'Kameron', serif;
+        font-style: italic;
+        font-weight: normal;
+        line-height: 19px;
+        font-size: 14px;
+        text-align: center;
+        letter-spacing: 0.7px;
+    &__usname,&__price
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 19px;
+        font-size: 14px;
+        text-align: center;
+        letter-spacing: 0.7px;
+        color: #FFFFFF;
+    .line-wrap.line
+        display: flex
+        justify-content: space-between
+        width: 100%
+        padding: 0px 60px;
+        opacity: 0
+        transition: opacity .16s ease-in-out;
+        .line__left,.line__rigt
+            width: 20px;
+            color: #fff;
+            background: #fff;
+            height: 2px;
     .arrow
         color: #fff
         opacity: 0
@@ -344,11 +376,11 @@ button:hover,button,
 .bg-color_1
     background-color: #606060
 .bg-color_2
-    background-color: #BBBBBB
+    background-color: #F68236
 .bg-color_3
-    background-color: #CACACA
+    background-color: #1e66ce
 .bg-color_4
-    background-color: #DBDBDB
+    background-color: #007d3f
 
 .sign-up
     width: 100%

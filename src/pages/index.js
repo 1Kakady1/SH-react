@@ -9,6 +9,7 @@ import Arrivals from "../components/arrivals/index"
 import Squares from "../components/squares/index"
 import Title from "../components/title/index"
 import Subscription from "../components/Subscription/index"
+import TopSlider from "../components/top-product/index"
 
 export default () => (
 
@@ -19,8 +20,10 @@ export default () => (
                 { name: "description", content: "Sample" },
                 { name: "keywords", content: "sample, something" },
                 { name: "viewport", content: "width=device-width, initial-scale=1"}
-            ]}
-        /> 
+            ]}>
+            <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+        </Helmet>
         <Header>
             <ToggleMenu>
                 <Nav/>
@@ -42,6 +45,7 @@ export default () => (
             />
             <Subscription btnTitle="add" btnClass={["subscription__btn"]} inputPlacentholder="Ваш e-mail" />
         </div>
+        <TopSlider></TopSlider>
 
     </Container>
 )
