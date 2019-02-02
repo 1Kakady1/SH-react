@@ -349,6 +349,85 @@ button:hover,button,
     background-color: #CACACA
 .bg-color_4
     background-color: #DBDBDB
+
+.sign-up
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    padding-top: 150px;
+
+.content-title
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    &__title
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 35px;
+        font-size: 36px;
+        text-align: center;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: #303030;
+    &__sub-title
+        font-family: 'Kameron', serif;
+        font-style: italic;
+        font-weight: normal;
+        line-height: 35px;
+        font-size: 18px;
+        text-align: center;
+        letter-spacing: 0.9px;
+        color: #606060;
+
+.subscription
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-flow: row wrap;
+    &__input
+        height: 59px;
+        width: 472px
+        border: 1px solid #959595;
+        font-family: 'Lato', sans-serif;
+        font-style: italic;
+        font-weight: normal;
+        line-height: 43px;
+        font-size: 14px;
+        letter-spacing: 0.7px;
+        color: #606060;
+        padding-left: 6px
+        padding-right: 6px
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        &:focus 
+            border-color: #F68236;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.33);
+    &__btn
+        font-family: 'Lato', sans-serif;
+        width: 98px;
+        height: 59px;
+        background: #F68236;
+        border: 1px solid #E67429;
+        box-sizing: border-box;
+        color: #ffffff
+        outline: 0
+        &:hover
+            opacity: 0.6
+    &__sps
+        width: 100%
+        text-align: center
+        font-family: 'Kameron', serif;
+        font-style: italic;
+
+
+
+
 @media screen and (max-width: 996px)
     .menu-toggle
         display: -webkit-flex

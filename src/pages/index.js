@@ -7,6 +7,8 @@ import Header from "../components/header"
 import Container from "../components/container"
 import Arrivals from "../components/arrivals/index"
 import Squares from "../components/squares/index"
+import Title from "../components/title/index"
+import Subscription from "../components/Subscription/index"
 
 export default () => (
 
@@ -33,5 +35,13 @@ export default () => (
             explanation="Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo."
         />
         <Squares/>
+        <div className="sign-up">
+            <Title 
+                title="sign up to receive our updates" 
+                subTitle="Nulla ipsum dolor lacus, suscipit adipiscing. Cum sociis natoque penatibus et ultrices volutpat." 
+            />
+            <Subscription btnTitle="add" btnClass={["subscription__btn"]} inputPlacentholder="Ваш e-mail" />
+        </div>
+
     </Container>
 )
