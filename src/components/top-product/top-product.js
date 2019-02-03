@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+//import Produtc from "./box-prodyct"
+import { StaticQuery, graphql } from "gatsby"
 
-export default class CenterMode extends Component {
+class Carousel extends Component {
+  constructor(props) {
+    super(props)
+
+    //this.ProdList= this.ProdList.bind(this);
+  }
     render() {
       const settings = {
         className: "center",
@@ -10,16 +17,13 @@ export default class CenterMode extends Component {
         centerPadding: "60px",
         slidesToShow: 3,
         speed: 500,
-        autoplay: true,
-        autoplaySpeed: 100
-
+        //autoplay: true,
+        //autoplaySpeed: 100
       };
       return (
-        <div>
-          <h2>Center Mode</h2>
           <Slider {...settings}>
             <div>
-              <h3>1</h3>
+              <h3>1{console.log(this.props.products)}</h3>
             </div>
             <div>
               <h3>2</h3>
@@ -37,7 +41,48 @@ export default class CenterMode extends Component {
               <h3>6</h3>
             </div>
           </Slider>
-        </div>
       );
     }
   }
+
+  export default (props) => (
+    <StaticQuery
+    query={graphql`
+      query ProdQuery {
+        allMarkdownRemark(
+            filter: {
+              frontmatter: { page: { eq: "home" } }
+            }
+         	 sort: {fields: [frontmatter___position], order: ASC}
+                ){
+                  edges {
+                    node {
+                      fields {
+                        slug
+                      }
+                                
+                     frontmatter{
+                      title
+                      subTitle
+                      usname
+                      usinfo
+                      price
+                      image
+                      date
+                      page
+                      position
+                      hoverGr
+                      hoverAnimation
+                      classHeight
+                    }
+                    excerpt
+                    }
+                  }
+            }
+      }
+    `}
+    render={data => (
+      <Carousel products={data} {...props} />
+    )}
+  />
+)
