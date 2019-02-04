@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import Produtc from "./box-prodyct"
 import { StaticQuery, graphql } from "gatsby"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
+
 
 class Carousel extends Component {
   constructor(props) {
@@ -32,16 +35,50 @@ class Carousel extends Component {
   
 
     render() {
+
+      const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+        <button
+          {...props}
+          className={
+            "slick-prev slick-arrow" +
+            (currentSlide === 0 ? " slick-disabled" : "")
+          }
+          aria-label="Previous"
+          aria-disabled={currentSlide === 0 ? true : false}
+          type="button"
+        >
+          <FontAwesomeIcon icon={faCaretLeft}  className="slick-arrow__icon"/>
+        </button>
+      );
+      const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+        <button
+          {...props}
+          className={
+            "slick-next slick-arrow" +
+            (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+          }
+          aria-label="Next"
+          aria-disabled={currentSlide === slideCount - 1 ? true : false}
+          type="button"
+        >
+          <FontAwesomeIcon icon={faCaretRight}  className="slick-arrow__icon"/>
+        </button>
+      );
+    
       const settings = {
-        className: "center",
+        className: "center top-product",
         centerMode: true,
         infinite: true,
         centerPadding: "60px",
         slidesToShow: 3,
         speed: 500,
+        prevArrow: <SlickArrowLeft />,
+        nextArrow: <SlickArrowRight />,
         //autoplay: true,
         //autoplaySpeed: 100
       };
+      
+
       return (
           <Slider key="slider-slick" {...settings}>
             {this.ProdList(this.props.products)}

@@ -456,8 +456,31 @@ button:hover,button,
         text-align: center
         font-family: 'Kameron', serif;
         font-style: italic;
+.top-product
+    background: #BBBBBB
+    .slick-prev, .slick-next
+        background: #D4D4D4;
+        height: 100%;
+        width: 3%;
+        z-index: 1;
+        &:hover
+            background: #F68236
+        &:focus
+            background: #D4D4D4;
+    .slick-arrow
+        &__icon
+            color: #fff;
+            font-size: 56px;
+    .slick-next:before, .slick-prev:before
+        display: none
 
-
+.box-product
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column;
+    .preview
+        width: 100%
 
 
 @media screen and (max-width: 996px)
