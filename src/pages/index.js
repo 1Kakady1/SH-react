@@ -45,7 +45,7 @@ export default () => (
             />
             <Subscription btnTitle="add" btnClass={["subscription__btn"]} inputPlacentholder="Ваш e-mail" />
         </div>
-        <TopSlider></TopSlider>
+        <TopSlider/>
 
     </Container>
 )
