@@ -2,8 +2,10 @@ const path = require(`path`)
 
 module.exports = {
     siteMetadata: {
-      title: `Pandas Eating Lots`,
+      title: `SH`,
       logo:"./src/assets/img/logo.png",
+      social:["vk","fb","tw"],
+      socialUrl:["https://vk.com","https://vk.com","https://vk.com"],
     },
     plugins: [
       {

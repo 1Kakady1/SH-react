@@ -4,6 +4,7 @@ import Nav from "../components/nav/nav"
 import ToggleMenu from "../components/nav/nav-toggle"
 import NavBtn from "../components/nav/nav-btn"
 import Header from "../components/header"
+import Footer from "../components/footer/index"
 import Container from "../components/container"
 import Arrivals from "../components/arrivals/index"
 import Squares from "../components/squares/index"
@@ -46,6 +47,7 @@ export default () => (
             <Subscription btnTitle="add" btnClass={["subscription__btn"]} inputPlacentholder="Ваш e-mail" />
         </div>
         <TopSlider/>
+        <Footer/>
 
     </Container>
 )
