@@ -5,7 +5,7 @@ title: "dwdwdw"
 dimensions: ""
 cat: "man1"
 recomendet: true
-image: ""
+image: "m1.jpg"
 page: "product"
 ---
 

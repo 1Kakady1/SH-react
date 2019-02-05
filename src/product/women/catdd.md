@@ -4,8 +4,8 @@ price: "140"
 title: "dwdwdw"
 dimensions: "dwa"
 recomendet: true
-cat: "man4"
-image: ""
+cat: "women"
+image: "w1.jpg"
 page: "product"
 ---
 

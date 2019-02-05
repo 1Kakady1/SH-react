@@ -71,11 +71,11 @@ class Carousel extends Component {
         infinite: true,
         centerPadding: "60px",
         slidesToShow: 3,
-        speed: 500,
+        speed: 800,
         prevArrow: <SlickArrowLeft />,
         nextArrow: <SlickArrowRight />,
-        //autoplay: true,
-        //autoplaySpeed: 100
+        autoplay: true,
+        autoplaySpeed: 3000
       };
       
 
