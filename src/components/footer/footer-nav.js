@@ -14,7 +14,7 @@ class FooterNav extends Component {
             for (let index = 0; index < arrNav.name.length; index++) {
                 menu[index] = <li className="menu-ft__item item-ft" key={(this.props.kk)+"_"+(index+1)}>
                             <Link to={"/"+ (arrNav.url)} className="item-ft__link link-ft" state={{pleasant: "reasonably",}}>
-                                <span className="link-ft__name">{arrNav.name[index]}()</span>
+                                <span className="link-ft__name">{arrNav.name[index]}</span>
                             </Link>
                          </li>
             }
@@ -24,7 +24,7 @@ class FooterNav extends Component {
 
     render() {
       return (
-            <div className="footr-nav">
+            <div className="footer-nav">
                 <nav className="ft-menu">
                     <h2 className="ft-menu__title">{this.props.navInfo.titleHeader}</h2>
                     <ul className="menu-ft">

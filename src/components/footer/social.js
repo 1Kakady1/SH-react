@@ -1,12 +1,14 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+import {faVk,faFacebookF } from '@fortawesome/free-brands-svg-icons'
 import { StaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 
+
+
 const social ={
     name: ["vk","fb","insta","tel","tw"],
-    iconObj: [faUser, faShoppingBag]
+    iconObj: [faVk, faFacebookF]
 }
 
 
@@ -17,8 +19,8 @@ function Soc(props) {
     for (let j = 0; j < props.data.site.siteMetadata.social.length; j++) {
         for (let i = 0; i < props.data.site.siteMetadata.social.length; i++) {
             if(social.name[i] === props.data.site.siteMetadata.social[j]){
-                socList[index] =<a href={props.data.site.siteMetadata.socialUrl[j]} className="btn">
-                                <FontAwesomeIcon icon={social.iconObj[i]}  className="sdsd"/>
+                socList[index] =<a href={props.data.site.siteMetadata.socialUrl[j]} key={"socLink-"+(index)} className="btn social__btn">
+                                <FontAwesomeIcon icon={social.iconObj[i]} className="sdsd"/>
                             </a>
                 index++
             }

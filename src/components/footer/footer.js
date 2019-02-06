@@ -26,13 +26,13 @@ class Footer extends Component {
                 },
             };
       return (
-        <footer>
+        <footer className="footer">
             <FooterNav key="footer-nav_1" kk="item-ft1" navInfo={navFooter.nav1}/>
             <FooterNav key="footer-nav_2" kk="item-ft2" navInfo={navFooter.nav2}/>
             <FooterNav key="footer-nav_3" kk="item-ft3" navInfo={navFooter.nav3}/>
             <Social
-                title="fefefefe"
-                copyraite="fewsefef"
+                title="social"
+                copyraite="Shoper is made with love in Warsaw, 2014 © All rights reserved. El Passion"
             />
             {this.props.children}
         </footer>
