@@ -9,7 +9,6 @@ import Container from "../components/container"
 import Arrivals from "../components/arrivals/index"
 import Squares from "../components/squares/index"
 import Title from "../components/title/index"
-import MiniCart from "../components/mini-cart/index"
 import Subscription from "../components/Subscription/index"
 import TopSlider from "../components/top-product/index"
 
@@ -31,7 +30,6 @@ export default () => (
                 <Nav/>
                 <NavBtn/>
             </ToggleMenu>
-            <MiniCart></MiniCart>
         </Header>
         <Arrivals
             url = "#" 
