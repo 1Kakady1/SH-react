@@ -1,6 +1,6 @@
 import React,{ Component } from "react"
 import { withPrefix } from 'gatsby'
-
+import { Link } from "gatsby"
 
 class MiniCart extends Component {
     constructor(props) {
@@ -32,6 +32,12 @@ class MiniCart extends Component {
             <div className="mini-cart-info">
                 <span className="mini-cart-info__total--price"> 199$</span>
                 <button className="mini-cart-info__clear--cart">Очистить</button>
+            </div>
+            
+            <div className="in-cart">
+                 <Link to="/cart"  state={{pleasant: "reasonably",}}>
+                    В Корзину
+                 </Link>
             </div>
 
         </div>
