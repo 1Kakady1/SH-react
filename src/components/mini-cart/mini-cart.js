@@ -5,14 +5,18 @@ import { Link } from "gatsby"
 class MiniCart extends Component {
     constructor(props) {
         super(props)
-
-        //this.ListItems = this.ListItems.bind(this);
+        this.miniCartClear = this.miniCartClear.bind(this);
     }
+
+    miniCartClear(){
+        console.log(document.getElementsByClassName("mini-cart-list")[0].childNodes)
+    }
+
 
     render() {
     const urlImg = withPrefix('/img/')
       return (
-        <div className="mini-cart">
+        <div className="mini-cart" key="mini-cart">
             <div className="mini-cart-list">
                 <div className="mini-cart-list__product cart-product">
                     <div className="cart-product-preview">
@@ -31,13 +35,13 @@ class MiniCart extends Component {
 
             <div className="mini-cart-info">
                 <span className="mini-cart-info__total--price"> 199$</span>
-                <button className="mini-cart-info__clear--cart">Очистить</button>
-            </div>
-            
-            <div className="in-cart">
-                 <Link to="/cart"  state={{pleasant: "reasonably",}}>
-                    В Корзину
-                 </Link>
+                <div className="mini-cart-info__wrap ">
+                    <Link to="/cart" className="mini-cart-info__clear--cart" state={{pleasant: "reasonably",}}>
+                        Корзина
+                    </Link>
+                    <button className="mini-cart-info__clear--cart" onClick={() => this.miniCartClear()}>Очистить</button>
+                </div>
+                
             </div>
 
         </div>

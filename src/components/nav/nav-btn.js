@@ -3,6 +3,7 @@ import Search from '../search/search-form'
 import MiniCart from "../mini-cart/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class NavBtn extends Component {
     constructor(props) {
@@ -13,11 +14,13 @@ class NavBtn extends Component {
         };
     
         this.ShowCart = this.ShowCart.bind(this);
+
       }
 
         ShowCart(){
             this.setState(prevState => ({ showCart: !prevState.showCart }));
         }
+
 
     render() {
      
@@ -34,11 +37,20 @@ class NavBtn extends Component {
             <div className="search">
                 <Search />
             </div>
-            {
-                this.state.showCart
-                    ? <MiniCart />
-                    : null
-            }
+            <ReactCSSTransitionGroup
+                transitionName={ {
+                    enter: 'slideInRight',
+                    leave: 'slideOutRight',
+                    appear: 'appear'
+                } }
+            >
+                {
+                    this.state.showCart
+                        ? <MiniCart />
+                        : null
+                }
+            </ReactCSSTransitionGroup>
+
         </div>
       )
     }
