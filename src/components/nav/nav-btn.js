@@ -43,6 +43,9 @@ class NavBtn extends Component {
                     leave: 'slideOutRight',
                     appear: 'appear'
                 } }
+                transitionAppearTimeout={0}
+                transitionEnterTimeout={0}
+                transitionLeaveTimeout={0}
             >
                 {
                     this.state.showCart
