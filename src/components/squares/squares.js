@@ -2,10 +2,11 @@ import React from "react"
 import Column from "./column"
 import Section from "./section-1"
 import { StaticQuery, graphql } from "gatsby"
+import Media from "react-media";
 
 let shift = 0;
 
-function PrintSection(data){
+function PrintSection(data,b){
     let countFor = 3,
         arrSection = []
     if(shift > data.allMarkdownRemark.edges.length-1 ){
@@ -46,7 +47,24 @@ function Content(props) {
         </Column>
     }
     return arrColumn
-} 
+}
+
+function ContentMobile(props){
+
+  function mediaSection(a) {
+    let arrSectiaon = []
+        for (let index = 0; index < 2; index++) {
+          arrSectiaon[index] = PrintSection(a,"section_dn")
+    }
+    return arrSectiaon
+  }
+
+  let mediaColumn = <Column key="column-media" className="column-media">
+    {mediaSection(props.data)}
+  </Column>
+
+  return mediaColumn
+}
 
 
 export default (props) => (
@@ -88,7 +106,18 @@ export default (props) => (
     render={data => (
         <div className="squares">
         <div className="row">
-            <Content data={data}/>
+            
+            <Media query="(max-width: 599px)">
+              {matches =>
+                matches ? (
+                  <div className="mobile-content">
+                    <ContentMobile  data={data}  />
+                  </div>  
+                ) : (
+                  <Content data={data}/>
+                )
+              }
+            </Media>
         </div>
     </div>
     )}

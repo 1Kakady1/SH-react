@@ -142,24 +142,24 @@ button:hover,button,
 	-webkit-transition-delay: 0, 0.3s;
 	transition-delay: 0, 0.3s;
 .menu-toggle__btn
-	border-radius: 17px;
-	display: block;
-	position: relative;
-	overflow: hidden;
-	margin: 0;
-	padding: 0;
-	width: 108px;
-	height: 96px;
-	font-size: 0;
-	text-indent: -9999px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	box-shadow: none;
-	border: 1px solid #ffffff
-	cursor: pointer;
-	-webkit-transition: background 0.3s;
-	transition: background 0.3s;
+    display: block
+    position: relative
+    overflow: hidden
+    margin: 0
+    padding: 0
+    width: 103px
+    height: 77px
+    font-size: 0
+    text-indent: -9999px
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    box-shadow: none
+    border: none
+    background: #8D8D8D
+    cursor: pointer
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
 .menu-toggle__btn:focus
 	outline: none;
 
@@ -194,7 +194,7 @@ button:hover,button,
 .menu-toggle__btn span
 	display: block;
 	position: absolute;
-	top: 45px;
+	top: 35px;
 	left: 18px;
 	right: 18px;
 	height: 6px;
@@ -605,7 +605,7 @@ button:hover,button,
         display: -ms-flex
         display: -o-flex
         display: flex
-        width: 50%
+        width: 100%
         justify-content: flex-end
     .toggle-menu
         flex-direction: column
@@ -623,3 +623,10 @@ button:hover,button,
         display: flex;
         align-items: flex-start;
         width: 100%;
+    .menu-list__item
+        font-size: 2vw;
+        padding-left: 0.25vmax;
+        padding-right: 0.25vmax;
+    .logo-wrap
+        width: 103px;
+        height: 77px;
