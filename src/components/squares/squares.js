@@ -1,4 +1,4 @@
-import React from "react"
+import React,{ Component } from "react"
 import Column from "./column"
 import Section from "./section-1"
 import { StaticQuery, graphql } from "gatsby"
@@ -49,7 +49,7 @@ function Content(props) {
     return arrColumn
 }
 
-function ContentMobile(props){
+/*function ContentMobile(props){
 
   function mediaSection(a) {
     let arrSectiaon = []
@@ -64,6 +64,48 @@ function ContentMobile(props){
   </Column>
 
   return mediaColumn
+}*/
+
+class ContentMobile extends Component {
+  constructor(props) {
+      super(props);
+
+      this.state = {
+        arrowContent: [],
+        load: false
+      };
+
+      this.MediaColumn = this.MediaColumn.bind(this);
+      this.LoadContent = this.LoadContent.bind(this);
+  }
+
+  MediaColumn(a) {
+    let arrSectiaon = []
+        
+        for (let index = 0; index < 4; index++) {
+          arrSectiaon[index] = PrintSection(a,"section_dn")
+    }
+    
+    this.state = { arrowContent: arrSectiaon};
+    return [arrSectiaon[0],arrSectiaon[1]]
+  }
+
+  LoadContent(){
+    this.setState(state => ({
+      load: !state.load
+    }));
+
+  }
+  
+
+  render() {
+      return (
+      <Column key="column-media" className="column-media">
+          {this.state.load ?   this.state.arrowContent : this.MediaColumn(this.props.data)}
+          <button onClick={this.LoadContent}>Еще</button>
+      </Column>
+      )
+    }
 }
 
 
@@ -107,7 +149,7 @@ export default (props) => (
         <div className="squares">
         <div className="row">
             
-            <Media query="(max-width: 599px)">
+            <Media query="(max-width:768px)">
               {matches =>
                 matches ? (
                   <div className="mobile-content">

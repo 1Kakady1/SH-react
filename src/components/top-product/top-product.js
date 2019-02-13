@@ -75,7 +75,21 @@ class Carousel extends Component {
         prevArrow: <SlickArrowLeft />,
         nextArrow: <SlickArrowRight />,
         autoplay: true,
-        autoplaySpeed: 3000
+        autoplaySpeed: 3000,
+        responsive: [
+          {
+            breakpoint: 996,
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
       };
       
 
