@@ -1,6 +1,7 @@
 import React,{ Component } from "react"
 import FooterNav from "./footer-nav";
 import Social from "./social"
+import Media from "react-media";
 
 class Footer extends Component {
     //constructor(props) {
@@ -27,8 +28,16 @@ class Footer extends Component {
             };
       return (
         <footer className="footer">
-            <FooterNav key="footer-nav_1" kk="item-ft1" navInfo={navFooter.nav1}/>
-            <FooterNav key="footer-nav_2" kk="item-ft2" navInfo={navFooter.nav2}/>
+        <Media query="(max-width:768px)">
+              {matches =>
+                matches ? (null ) : (<FooterNav key="footer-nav_1" kk="item-ft1" navInfo={navFooter.nav1}/>)
+              }
+        </Media>
+        <Media query="(max-width:768px)">
+              {matches =>
+                matches ? (null):(<FooterNav key="footer-nav_2" kk="item-ft2" navInfo={navFooter.nav2}/>) 
+              }
+        </Media> 
             <FooterNav key="footer-nav_3" kk="item-ft3" navInfo={navFooter.nav3}/>
             <Social
                 title="social"

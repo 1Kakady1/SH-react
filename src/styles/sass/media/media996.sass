@@ -1,0 +1,43 @@
+@media screen and (max-width: 996px)
+    .menu-toggle
+        display: -webkit-flex
+        display: -moz-flex
+        display: -ms-flex
+        display: -o-flex
+        display: flex
+        width: 100%
+        justify-content: flex-end
+    .toggle-menu
+        flex-direction: column
+        height: 0
+        overflow: hidden
+        transition: height .5s ease-in-out;
+    .toggle-menu.toggle-menu_active
+        transform: scaleY(1)
+        display: flex
+        height: 100%
+        transition: height .5s ease-in-out;
+    .menu-wrap,.menu-list
+        flex-direction: column
+    .menu
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+    .menu-list__item
+        font-size: 2vw;
+        padding-left: 0.25vmax;
+        padding-right: 0.25vmax;
+    .logo-wrap
+        width: 103px;
+        height: 77px;
+    .section-link__title 
+        font-size: 17px;
+    .section-link__usinfo
+        font-size: 12px;
+    .ft-menu .ft-menu__title
+        font-size: 17px;
+    .footer-info .footer-info__copyraite
+        font-size: 13px;
+    .social .social__btn
+        width: 42px;
+        height: 42px;

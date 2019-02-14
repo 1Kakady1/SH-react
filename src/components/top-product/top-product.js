@@ -88,7 +88,15 @@ class Carousel extends Component {
             settings: {
               slidesToShow: 1
             }
+          },          
+          {
+            breakpoint: 460,
+            settings: {
+              slidesToShow: 1,
+              centerPadding: "1px",
+            }
           }
+          
         ]
       };
       

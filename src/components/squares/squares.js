@@ -29,7 +29,8 @@ function PrintSection(data,b){
                 usname={data.allMarkdownRemark.edges[index].node.frontmatter.usname} 
                 usinfo={data.allMarkdownRemark.edges[index].node.frontmatter.usinfo}
                 class={"link_h"+(data.allMarkdownRemark.edges[index].node.frontmatter.classHeight  !== null ? "593" : "298")+
-                        " "+(data.allMarkdownRemark.edges[index].node.frontmatter.hoverAnimation)+"-hover"} 
+                        " "+(data.allMarkdownRemark.edges[index].node.frontmatter.hoverAnimation)+"-hover " 
+                        +(b !== "" ? b : "")} 
                 hoverIcon={data.allMarkdownRemark.edges[index].node.frontmatter.hoverGr}
             />
         }
@@ -82,8 +83,8 @@ class ContentMobile extends Component {
   MediaColumn(a) {
     let arrSectiaon = []
         
-        for (let index = 0; index < 4; index++) {
-          arrSectiaon[index] = PrintSection(a,"section_dn")
+    for (let index = 0; index < 4; index++) {
+          arrSectiaon[index] = index > 1 ? PrintSection(a," animated slideInDown") : PrintSection(a,"")
     }
     
     this.state = { arrowContent: arrSectiaon};
@@ -102,7 +103,7 @@ class ContentMobile extends Component {
       return (
       <Column key="column-media" className="column-media">
           {this.state.load ?   this.state.arrowContent : this.MediaColumn(this.props.data)}
-          <button onClick={this.LoadContent}>Еще</button>
+          {this.state.load ? null :<button className="btn btn_load-media" onClick={this.LoadContent}>Еще</button>}
       </Column>
       )
     }
