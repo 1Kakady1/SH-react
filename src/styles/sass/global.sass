@@ -628,7 +628,7 @@ button:hover,button,
             padding-left: 9px
 .content
     .content__text_about
-        font-family: Lato;
+        font-family: 'Lato', sans-serif;
         font-style: normal;
         line-height: 36px;
         letter-spacing: 1.2px;
@@ -636,6 +636,38 @@ button:hover,button,
     .content__text
         font-size: 18px;
         color: #303030
+
+.nav-site
+    display: flex
+    .bar-link
+        text-decoration: none
+        &:hover
+           .bar-link__name
+                -moz-transition: all 200ms linear
+                -ms-transition: all 200ms linear
+                -o-transition: all 200ms linear
+                -webkit-transition: all 200ms linear
+                transition: all 200ms linear
+                color: #F68236 
+
+.bar-link .bar-link__name,.sl,.url-now .url-now__name
+    -moz-transition: all 200ms linear
+    -ms-transition: all 200ms linear
+    -o-transition: all 200ms linear
+    -webkit-transition: all 200ms linear
+    transition: all 200ms linear
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 43px;
+    font-size: 18px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #606060;
+.sl
+    margin-left: 10px
+    margin-right: 10px
+
     
 
 

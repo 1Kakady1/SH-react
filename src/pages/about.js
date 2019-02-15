@@ -7,6 +7,8 @@ import Header from "../components/header"
 import Footer from "../components/footer/index"
 import Container from "../components/container"
 import About from "../components/about/index"
+import TopSlider from "../components/top-product/index"
+import BarUrl from "../components/nav/nav-url"
 
 
 export default () => (
@@ -28,7 +30,13 @@ export default () => (
                 <NavBtn/>
             </ToggleMenu>
         </Header>
+            <BarUrl>
+                <div className="url-now">
+                    <span className="url-now__name">About</span>
+                </div>
+            </BarUrl>
             <About />
+            <TopSlider/>
         <Footer/>
 
     </Container>
