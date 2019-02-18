@@ -86,8 +86,9 @@ class ContactForm extends Component {
     handleFormSubmit(e) {
       e.preventDefault();
       let userData = this.state.newUser;
-  
-      fetch("http://example.com", {
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+      const url = "http://ajax2.loc/react-ajax.php";
+      fetch(proxyurl + url, {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
@@ -110,8 +111,7 @@ class ContactForm extends Component {
         });
       });
     }
-  
-  
+ 
     render() {
       return (
 
@@ -119,32 +119,37 @@ class ContactForm extends Component {
 
           <Select
             title={"Причина обратной связи?"}
+            classModif={"contact_select"}
             name={"cause"}
             options={this.state.causeOption}
             value={this.state.newUser.cause}
             placeholder={"--------"}
             handleСhange={this.handleInput}
           />
+          <div className="us-info">
+          
+            <Input
+              inputtype={"text"}
+              classmodif={"contact_input"}
+              title={"Имя"}
+              name={"name"}
+              value={this.state.newUser.name}
+              placeholder={""}
+              handlechange={this.handleInput}
+            />
 
-          <Input
-            inputtype={"text"}
-            title={"Имя"}
-            name={"name"}
-            value={this.state.newUser.name}
-            placeholder={""}
-            handlechange={this.handleInput}
-          />
+            <Input
+              inputtype={"email"}
+              classmodif={"contact_input"}
+              name={"email"}
+              title={"Email"}
+              value={this.state.newUser.email}
+              placeholder={""}
+              handlechange={this.handleEmail}
+            />
+            
+          </div>
 
-          <Input
-            inputtype={"email"}
-            name={"email"}
-            title={"Email"}
-            value={this.state.newUser.email}
-            placeholder={""}
-            handlechange={this.handleEmail}
-          />
-        
-         
           <TextArea
             title={"Сообщение"}
             rows={10}
@@ -167,7 +172,7 @@ class ContactForm extends Component {
   }
   
   const buttonStyle = {
-    margin: "10px 10px 10px 10px"
+      width: "100%"
   };
   
   export default ContactForm;

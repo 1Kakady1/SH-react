@@ -9,7 +9,7 @@ const Select = props => {
         name={props.name}
         value={props.value}
         onChange={props.handleСhange}
-        className="form-control"
+        className={"form-control "+(props.classModif)}
         //defaultValue={props.value}
       >
         <option value="" disabled>
