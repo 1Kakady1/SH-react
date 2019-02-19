@@ -4,6 +4,7 @@ import Select from "../comp-form/select"
 import Button from "../comp-form/btn"
 import TextArea from "../comp-form/textarea"
 
+
 class ContactForm extends Component {
     constructor(props) {
       super(props);
@@ -15,6 +16,12 @@ class ContactForm extends Component {
           cause: "Вопрос",
           about: ""
         },
+
+        errorValid: {
+          name: false,
+          email: false,
+          about: false
+        },
   
         causeOption: ["Отзыв", "Вопрос", "Другое"],
       };
@@ -24,10 +31,24 @@ class ContactForm extends Component {
       this.handleFullName = this.handleFullName.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
       this.handleInput = this.handleInput.bind(this);
-
+      this.handCheckEmail = this.handCheckEmail.bind(this);
+      this.handCheckNameMsg = this.handCheckNameMsg.bind(this);
     }
   
-  
+    handCheckEmail(){
+      var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String( this.state.newUser["email"]).toLowerCase()); 
+    }
+
+    handCheckNameMsg(a,b){
+      if(a.length > b){
+        return true
+      } else {
+        return false
+      }
+    }
+
+
     handleFullName(e) {
       let value = e.target.value;
       this.setState(
@@ -69,7 +90,7 @@ class ContactForm extends Component {
     }
   
     handleTextArea(e) {
-      console.log("Inside handleTextArea");
+      ;
       let value = e.target.value;
       this.setState(
         prevState => ({
@@ -85,31 +106,102 @@ class ContactForm extends Component {
   
     handleFormSubmit(e) {
       e.preventDefault();
-      let userData = this.state.newUser;
-      const proxyurl = "https://cors-anywhere.herokuapp.com/";
-      const url = "http://ajax2.loc/react-ajax.php";
-      fetch(proxyurl + url, {
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      }).then(response => {
-        response.json().then(data => {
-            this.setState({
-                newUser: {
-                  name: "",
-                  email: "",
-                  cause: "Вопрос",
-                  about: ""
-                }
-              });
+      
+      if(this.handCheckEmail() === false){
+        this.setState(
+          prevState => ({
+            errorValid: {
+              ...prevState.errorValid,
+              email: true
+            }
+          })
+        );
+      }else {
+        this.setState(
+          prevState => ({
+            errorValid: {
+              ...prevState.errorValid,
+             email: false
+            }
+          })
+        );
+      }
 
-          console.log("Successful" + data);
+      if(this.handCheckNameMsg(this.state.newUser.name,3) === true){
+        this.setState(
+          prevState => ({
+            errorValid: {
+              ...prevState.errorValid,
+             name: false
+            }
+          })
+        );
+      } else {
+        this.setState(
+          prevState => ({
+            errorValid: {
+              ...prevState.errorValid,
+             name: true
+            }
+          })
+        );
+      }
+      
+      if(this.handCheckNameMsg(this.state.newUser.about,6) === true){
+        this.setState(
+          prevState => ({
+            errorValid: {
+              ...prevState.errorValid,
+            about: false
+            }
+          })
+        );
+      } else {
+        this.setState(
+          prevState => ({
+            errorValid: {
+              ...prevState.errorValid,
+              about: true
+            }
+          })
+        );
+      }
 
+      
+      if(this.state.errorValid.name===true && this.state.errorValid.email===true && this.state.errorValid.about===true){
+        console.log("+")
+        let userData = this.state.newUser;
+        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const url = "http://ajax2.loc/react-ajax.php";
+        fetch(url, {
+          method: "POST",
+          mode: "no-cors", // error!!!!!!!!!!!!!!
+          body: JSON.stringify(userData),
+          headers: {
+            Accept: "text/plain",
+            "Content-Type": "text/plain"
+          }
+        }).then(response => {
+          response.text().then(data => {
+              this.setState({
+                  newUser: {
+                    name: "",
+                    email: "",
+                    cause: "Вопрос",
+                    about: ""
+                  },
+                  errorValid: {
+                    name: false,
+                    email: false,
+                    about: false
+                  }
+                });
+
+            console.log("Successful " + data);
+
+          });
         });
-      });
+      }
     }
  
     render() {
@@ -127,10 +219,10 @@ class ContactForm extends Component {
             handleСhange={this.handleInput}
           />
           <div className="us-info">
-          
+
             <Input
               inputtype={"text"}
-              classmodif={"contact_input"}
+              classmodif={"contact_input" + (this.state.errorValid.name === false ? "" : " contact_error")}
               title={"Имя"}
               name={"name"}
               value={this.state.newUser.name}
@@ -140,7 +232,7 @@ class ContactForm extends Component {
 
             <Input
               inputtype={"email"}
-              classmodif={"contact_input"}
+              classmodif={"contact_input"+ (this.state.errorValid.email === false ? "" : " contact_error")}
               name={"email"}
               title={"Email"}
               value={this.state.newUser.email}
@@ -155,6 +247,7 @@ class ContactForm extends Component {
             rows={10}
             value={this.state.newUser.about}
             name={"currentPetInfo"}
+            classModif={this.state.errorValid.about === false ? "" : " contact_error"}
             handleChange={this.handleTextArea}
             placeholder={""}
           />

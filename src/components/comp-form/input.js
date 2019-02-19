@@ -7,7 +7,7 @@ const Input = props => {
         {props.title}
       </label>
       <input
-        className={"form-control "+(props.classmodif)}
+        className={"form-control "+(props.classmodif) }
         id={props.name}
         name={props.name}
         type={props.inputtype}
