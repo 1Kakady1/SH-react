@@ -3,6 +3,8 @@ import Input from "../comp-form/input"
 import Select from "../comp-form/select"
 import Button from "../comp-form/btn"
 import TextArea from "../comp-form/textarea"
+import FormInfo from "../comp-form/form-info"
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 class ContactForm extends Component {
@@ -18,12 +20,15 @@ class ContactForm extends Component {
         },
 
         errorValid: {
-          name: false,
-          email: false,
-          about: false
+          name: null,
+          email: null,
+          about: null
         },
   
         causeOption: ["Отзыв", "Вопрос", "Другое"],
+        disable: false,
+        send: 0,flagEr: 0
+
       };
 
       this.handleTextArea = this.handleTextArea.bind(this);
@@ -57,8 +62,7 @@ class ContactForm extends Component {
             ...prevState.newUser,
             name: value
           }
-        }),
-        () => console.log(this.state.newUser)
+        })
       );
     }
   
@@ -70,8 +74,7 @@ class ContactForm extends Component {
             ...prevState.newUser,
             email: value
           }
-        }),
-        () => console.log(this.state.newUser)
+        })
       );
     }
   
@@ -84,8 +87,7 @@ class ContactForm extends Component {
             ...prevState.newUser,
             [name]: value
           }
-        }),
-        () => console.log(this.state.newUser)
+        })
       );
     }
   
@@ -98,78 +100,31 @@ class ContactForm extends Component {
             ...prevState.newUser,
             about: value
           }
-        }),
-        () => console.log(this.state.newUser)
+        })
       );
     }
   
   
     handleFormSubmit(e) {
       e.preventDefault();
-      
-      if(this.handCheckEmail() === false){
-        this.setState(
-          prevState => ({
-            errorValid: {
-              ...prevState.errorValid,
-              email: true
-            }
-          })
-        );
-      }else {
-        this.setState(
-          prevState => ({
-            errorValid: {
-              ...prevState.errorValid,
-             email: false
-            }
-          })
-        );
-      }
 
-      if(this.handCheckNameMsg(this.state.newUser.name,3) === true){
         this.setState(
           prevState => ({
             errorValid: {
               ...prevState.errorValid,
-             name: false
+            name: this.handCheckNameMsg(this.state.newUser.name,3),
+            email: this.handCheckEmail(),
+            about: this.handCheckNameMsg(this.state.newUser.about,6)
             }
           })
         );
-      } else {
-        this.setState(
-          prevState => ({
-            errorValid: {
-              ...prevState.errorValid,
-             name: true
-            }
-          })
-        );
-      }
-      
-      if(this.handCheckNameMsg(this.state.newUser.about,6) === true){
-        this.setState(
-          prevState => ({
-            errorValid: {
-              ...prevState.errorValid,
-            about: false
-            }
-          })
-        );
-      } else {
-        this.setState(
-          prevState => ({
-            errorValid: {
-              ...prevState.errorValid,
-              about: true
-            }
-          })
-        );
-      }
+     
 
-      
+      console.log(this.state.errorValid)
       if(this.state.errorValid.name===true && this.state.errorValid.email===true && this.state.errorValid.about===true){
-        console.log("+")
+
+        this.setState({disable : !this.state.disable})
+
         let userData = this.state.newUser;
         //const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "http://ajax2.loc/react-ajax.php";
@@ -191,17 +146,20 @@ class ContactForm extends Component {
                     about: ""
                   },
                   errorValid: {
-                    name: false,
-                    email: false,
-                    about: false
-                  }
+                    name: null,
+                    email: null,
+                    about: null
+                  },
+                  disable: !this.state.disable,
+                  send: 0,
+                  flagEr: 0
                 });
 
             console.log("Successful " + data);
 
           });
         });
-      }
+      } 
     }
  
     render() {
@@ -222,7 +180,7 @@ class ContactForm extends Component {
 
             <Input
               inputtype={"text"}
-              classmodif={"contact_input" + (this.state.errorValid.name === false ? "" : " contact_error")}
+              classmodif={"contact_input" + (this.state.errorValid.name === null? "" : this.state.errorValid.name === true? "" : " contact_error")}
               title={"Имя"}
               name={"name"}
               value={this.state.newUser.name}
@@ -232,7 +190,7 @@ class ContactForm extends Component {
 
             <Input
               inputtype={"email"}
-              classmodif={"contact_input"+ (this.state.errorValid.email === false ? "" : " contact_error")}
+              classmodif={"contact_input"+ (this.state.errorValid.email === null ? "" : this.state.errorValid.email === true? "" : " contact_error")}
               name={"email"}
               title={"Email"}
               value={this.state.newUser.email}
@@ -247,17 +205,37 @@ class ContactForm extends Component {
             rows={10}
             value={this.state.newUser.about}
             name={"currentPetInfo"}
-            classModif={this.state.errorValid.about === false ? "" : " contact_error"}
+            classModif={this.state.errorValid.about === null ? "" : this.state.errorValid.about === true? "" : " contact_error"}
             handleChange={this.handleTextArea}
             placeholder={""}
           />
          
           <Button
             action={this.handleFormSubmit}
+            disab={this.state.disable}
             type={"primary"}
             title={"Submit"}
             style={buttonStyle}
           />
+
+        <ReactCSSTransitionGroup
+                transitionName={ {
+                    enter: 'slideInRight',
+                    leave: 'slideOutRight',
+                    appear: 'appear'
+                } }
+                transitionAppearTimeout={0}
+                transitionEnterTimeout={0}
+                transitionLeaveTimeout={0}
+            >
+                {
+                    this.state.disable
+                        ? <FormInfo 
+                            info={1}
+                          />
+                        : null
+                }
+            </ReactCSSTransitionGroup>
         
         </form>
       );
