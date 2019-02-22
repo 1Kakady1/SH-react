@@ -38,9 +38,11 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-media": "^1.9.2",
+    "react-redux": "^6.0.1",
     "react-responsive-modal": "^3.5.1",
     "react-slick": "^0.23.2",
     "react-typography": "^0.16.18",
+    "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
     "typography": "^0.16.18",
     "typography-theme-kirkham": "^0.16.18"

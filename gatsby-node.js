@@ -1,3 +1,7 @@
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
+const _ = require('lodash')
+
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     if (stage === "build-html") {
       actions.setWebpackConfig({
@@ -13,9 +17,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     }
   }
 
-  const path = require(`path`)
-  const { createFilePath } = require(`gatsby-source-filesystem`)
-  
+
   exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
     if (node.internal.type === `MarkdownRemark`) {
@@ -27,36 +29,51 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       })
     }
   }
-  
-  exports.createPages = ({ graphql, actions }) => {
-    const { createPage } = actions
-    return graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
+
+  return graphql(`
+    {
+      allMarkdownRemark(limit: 1000) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+                page
             }
           }
         }
       }
-    `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/blog-post.js`),
-          context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
-        })
+    }
+  `).then(result => {
+    if (result.errors) {
+      result.errors.forEach(e => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
+
+    const posts = result.data.allMarkdownRemark.edges
+
+    posts.forEach(edge => {
+      const id = edge.node.id
+      createPage({
+        path: edge.node.fields.slug,
+        component: path.resolve(
+          `src/templates/${String(edge.node.frontmatter.page)}-post.js`
+        ),
+        // additional data can be passed via context
+        context: {
+          id,
+          slug: edge.node.fields.slug,
+        },
       })
     })
-  }
-
+  })
+}
+  
   exports.onCreatePage = async ({ page, actions }) => {
     const { createPage } = actions
   
