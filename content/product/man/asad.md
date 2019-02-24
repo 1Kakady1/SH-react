@@ -7,6 +7,9 @@ dimensions: ""
 cat: "man3"
 recomendet: true
 image: "w2.jpg"
+gallary: ["404.jpg","404.jpg","404.jpg","404.jpg"]
+sizeProduct: [38,40,41]
+code:  14210160762
 page: "product"
 ---
 

@@ -1,12 +1,11 @@
 ---
 id: 1
-path: "asad"
 price: "140"
 title: "dwdwdw"
 dimensions: ""
-cat: "man3"
+cat: "man1"
 recomendet: true
-image: "w2.jpg"
+image: "m1.jpg"
 page: "product"
 ---
 
