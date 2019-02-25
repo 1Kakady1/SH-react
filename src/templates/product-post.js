@@ -12,13 +12,21 @@ import Footer from "../components/footer/index"
 import Container from "../components/container"
 import TopSlider from "../components/top-product/index"
 import BarUrl from "../components/nav/nav-url"
+import Title from "../components/title/index"
 import { Link } from "gatsby"
 
 
 export default class PostTemplate extends React.Component {
     constructor(props) {
         super(props)
+
+        this.returnContent= this.returnContent.bind(this);
     }
+
+    returnContent(){
+      return this.props.data.markdownRemark.html
+    }
+
   render() {
     const urlImg = withPrefix('/img/')
     const { slug } = this.props.pageContext;
@@ -87,6 +95,10 @@ export default class PostTemplate extends React.Component {
               <SliderV key="sliderV-slick" {...settings}>
                 {listSlide}
               </SliderV>
+              <Title title={post.title} subTitle={"Article number: "+(post.code)} modifClass="product-content_size">
+                <p className="content-title__price">€ {post.price}</p>
+              </Title>
+              <p className="product-content__text" dangerouslySetInnerHTML={{ __html: postNode.html }} />
            </div>
            
             <TopSlider/>
