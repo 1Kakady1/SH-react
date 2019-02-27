@@ -9,7 +9,8 @@ button:hover,button,
 .login__text,.login__text:hover,
 .icon__color-hover,.icon__color-hover:hover,
 .link-ft__name,.link-ft__name:hover,
-.btn-form__primary,.btn-form__primary:hover
+.btn-form__primary,.btn-form__primary:hover,
+.size__item,.size__item:hover
 	-moz-transition: all 200ms linear
 	-ms-transition: all 200ms linear
 	-o-transition: all 200ms linear
@@ -734,20 +735,21 @@ button:hover,button,
          background: #000000;
 
 .slider-vert
-    padding-right: 190px
+    padding-right: 9.8vmax
     .slick-list
         overflow: hidden
-        padding-left: 190px
-        padding-right: 190px
+        padding-left: 9.8vmax
     .slick-dots
         position: absolute
         top: 20px;
-        left: 14%;
+        left: 12vw;
         display: flex!important
         flex-direction: column
     .slick-dots li
         width: 81px;
         height: 66px;
+    .slick-slide
+        width: 62vw !important;
     .dot-custom
         .dot-custom__bg
             border: 1px solid rgba(0, 0, 0, 0.2)
@@ -773,6 +775,90 @@ button:hover,button,
             width: 100%
             height: 600px
 
+.product-content
+    position: relative
+    .product-content
+        &__html-content
+            display: flex
+            flex-direction: column
+            padding-left: 60px
+            padding-right: 60px
+            iframe
+                margin: 0 auto;
+            p
+                font-family: 'Lato', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                line-height: 24px;
+                font-size: 18px;
+                text-align: center;
+                letter-spacing: 0.7px;
+                color: #606060;
+
+.product-cart-send
+    padding-top: 30px
+    padding-bottom: 20px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+.btn-bg
+    background: #F68236;
+    border: 1px solid #E67429;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 43px;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.70154px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    &:hover
+        background: transparent;
+        color: #F68236
+    &_size-1
+        width: 197px;
+        height: 53px;
+
+.size
+    margin: 12px 0 28px 0;
+    display: flex;
+    list-style: none;
+    width: 31%;
+    justify-content: space-between;
+    align-items: center;
+    .size
+        &__item
+            margin: 0;
+            border: 1px solid #959595;
+            box-sizing: border-box;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer
+            font-family: "Lato", sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 43px;
+            text-align: center;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            color: #464542;
+            &:hover
+                border: 1px solid #E67429;
+                color: #E67429
+            &_active
+                background: #E67429
+                color: #fff
+
+.animated-list
+    position: fixed;
+    right: 10vw;
+    z-index: 1;
+    .add-info
+        background: #f68236;
+        color: #fff;
+        padding: 45px;
 
     
 
