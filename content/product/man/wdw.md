@@ -1,9 +1,9 @@
 ---
 id: 1
 price: "140"
-title: "dwdwdw"
+title: "prod2"
 dimensions: ""
-cat: "man1"
+cat: "man"
 recomendet: true
 image: "m1.jpg"
 page: "product"

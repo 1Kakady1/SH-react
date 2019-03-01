@@ -44,6 +44,7 @@ exports.createPages = ({ actions, graphql }) => {
             }
             frontmatter {
                 page
+                cat
             }
           }
         }
@@ -71,6 +72,44 @@ exports.createPages = ({ actions, graphql }) => {
         },
       })
     })
+
+    //  templates cat
+    let bufMan=0
+       ,bufWomen=0;
+
+    const catList = ["man","women"]
+
+    for(let m = 0;m < posts.length; m++){
+
+      if(posts[m].node.frontmatter.cat === catList[0]){
+        bufMan++;
+      }
+      if(posts[m].node.frontmatter.cat === catList[1]){
+        bufWomen++;
+      }
+    }
+
+    const postsPerPage = 1
+    const numPagesArr = [Math.ceil(bufMan / postsPerPage),Math.ceil(bufWomen / postsPerPage)]
+    //const numPages = Math.ceil(bufMan / postsPerPage)
+   // const numPagesW = Math.ceil(bufWomen / postsPerPage)
+
+    
+    for (let index = 0; index < catList.length; index++) {
+
+      Array.from({ length: numPagesArr[index] }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? `/cat/${String(catList[index])}` : `/cat/man/${i + 1}`,
+          component: path.resolve(`./src/templates/cat-${String(catList[index])}.js`),
+          context: {
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+          },
+        })
+      }) 
+
+    }
+
   })
 }
   

@@ -30,7 +30,7 @@ class NavBtn extends Component {
                 <FontAwesomeIcon icon={ faUser } className="icon__color-hover" />
                 <span className="login__text">Log In</span>
             </div>
-            <div className="cart">
+            <div className={"cart "+(this.state.showCart? "cart_active":"")}>
                 <FontAwesomeIcon icon={ faShoppingBag}  className="icon__color-hover"/>
                 <span className="cart__text" onClick={() => this.ShowCart()}>Basket (<span className="cart_count">0</span>)</span>
             </div>

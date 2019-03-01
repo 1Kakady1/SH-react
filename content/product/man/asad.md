@@ -2,9 +2,9 @@
 id: 1
 path: "asad"
 price: "140"
-title: "dwdwdw"
+title: "prod1"
 dimensions: ""
-cat: "man3"
+cat: "man"
 recomendet: true
 image: "w2.jpg"
 gallary: ["404.jpg","404.jpg","404.jpg","404.jpg"]
