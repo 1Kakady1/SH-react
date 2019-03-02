@@ -6,6 +6,7 @@ dimensions: ""
 cat: "man"
 recomendet: true
 image: "m1.jpg"
+code: 1011
 page: "product"
 ---
 

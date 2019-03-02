@@ -89,7 +89,7 @@ exports.createPages = ({ actions, graphql }) => {
       }
     }
 
-    const postsPerPage = 1
+    const postsPerPage = 12
     const numPagesArr = [Math.ceil(bufMan / postsPerPage),Math.ceil(bufWomen / postsPerPage)]
     //const numPages = Math.ceil(bufMan / postsPerPage)
    // const numPagesW = Math.ceil(bufWomen / postsPerPage)
@@ -104,6 +104,8 @@ exports.createPages = ({ actions, graphql }) => {
           context: {
             limit: postsPerPage,
             skip: i * postsPerPage,
+            numPages: numPagesArr[index],
+            currentPage: i + 1
           },
         })
       }) 
