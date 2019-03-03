@@ -19,6 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "cors": "^2.8.5",
     "gatsby": "^2.0.76",
+    "gatsby-cli": "^2.4.12",
     "gatsby-image": "^2.0.27",
     "gatsby-plugin-catch-links": "^2.0.9",
     "gatsby-plugin-create-client-paths": "^2.0.3",

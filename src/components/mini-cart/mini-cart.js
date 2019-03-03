@@ -16,6 +16,8 @@ class MiniCart extends Component {
                           }
 
                         ],
+
+                        summa: 10
         };
         this.miniCartClear = this.miniCartClear.bind(this);
     }
@@ -34,7 +36,22 @@ class MiniCart extends Component {
         }
 
         prodList.appendChild(div);
+        
 
+        this.setState({
+                    ProductList: [{
+                                    name: "",
+                                    cat: "",
+                                    image: "",
+                                    price: 0,
+                                    id: "",
+                                    key: ""
+                                }
+
+                                ],
+
+                                summa: 0
+                });
 
     }
 
@@ -53,14 +70,14 @@ class MiniCart extends Component {
                         <span className="cart-product-info__cat">wdawwddawd</span>
                     </div>
                     <div className="price-wrap">
-                            <div className="price">12$</div>
+                            <div className="price">{this.state.price}</div>
                     </div>
                     <button className="cart-product__del">X</button>
                 </div>
             </div>
 
             <div className="mini-cart-info">
-                <span className="mini-cart-info__total--price"> 199$</span>
+                <span className="mini-cart-info__total--price">{this.state.summa}</span>
                 <div className="mini-cart-info__wrap ">
                     <Link to="/cart" className="mini-cart-info__clear--cart" state={{pleasant: "reasonably",}}>
                         Корзина
