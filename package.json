@@ -43,6 +43,7 @@
     "react-responsive-modal": "^3.5.1",
     "react-slick": "^0.23.2",
     "react-typography": "^0.16.18",
+    "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
     "typography": "^0.16.18",

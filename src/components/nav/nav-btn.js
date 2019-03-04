@@ -1,9 +1,14 @@
 import React, { Component } from "react"
+
 import Search from '../search/search-form'
 import MiniCart from "../mini-cart/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+// import {createStore} from "redux"
+// import {Provider} from "react-redux"
+// import rootReducer from "../../redux/rootReducer";
 
 class NavBtn extends Component {
     constructor(props) {
@@ -24,6 +29,7 @@ class NavBtn extends Component {
 
     render() {
      
+    //const store = createStore(rootReducer)
       return (
         <div className="nav-user">
             <div className="login">

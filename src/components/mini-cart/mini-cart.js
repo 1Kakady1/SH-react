@@ -1,88 +1,47 @@
 import React,{ Component } from "react"
 import { withPrefix } from 'gatsby'
 import { Link } from "gatsby"
+import {connect} from "react-redux"
 
 class MiniCart extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            ProductList: [{
-                            name: "",
-                            cat: "",
-                            image: "",
-                            price: 0,
-                            id: "",
-                            key: ""
-                          }
-
-                        ],
-
-                        summa: 10
-        };
-        this.miniCartClear = this.miniCartClear.bind(this);
     }
-
-    miniCartClear(){
-
-        let prodListChild= document.getElementsByClassName("mini-cart-list")[0].childNodes,
-            prodList= document.getElementsByClassName("mini-cart-list")[0],
-            div = document.createElement('div');
-
-            div.className = "mini-cart-list__null ";
-            div.innerHTML = "<span class='mini-cart-list__null--text'>Корзина пуста</span>"
-
-        for (let index = 0; index < prodListChild.length; index++) {
-            prodListChild[index].remove()
-        }
-
-        prodList.appendChild(div);
-        
-
-        this.setState({
-                    ProductList: [{
-                                    name: "",
-                                    cat: "",
-                                    image: "",
-                                    price: 0,
-                                    id: "",
-                                    key: ""
-                                }
-
-                                ],
-
-                                summa: 0
-                });
-
-    }
-
 
     render() {
+    console.log(this.props)  
     const urlImg = withPrefix('/img/')
+
+    const cartList = Array.from(this.props.ProductList).reverse().map((cartItem,index) =>  
+        <div className="mini-cart-list__product cart-product" key={"cart-product-"+(cartItem.name.toString())}>
+            <div className="cart-product-preview">
+                <img src={(urlImg)+"/"+(cartItem.image)} className="cart-product-preview__img" alt={cartItem.name.toString()}/>
+            </div>
+            <div className="cart-product-info">
+                <h4 className="cart-product-info__name">{cartItem.name}</h4>
+                <span className="cart-product-info__cat">{cartItem.cat}</span>
+            </div>
+            <div className="price-wrap">
+                    <div className="price">{cartItem.price}</div>
+            </div>
+            <button className="cart-product__del" onClick={this.props.onDelItem.bind(this,index)}>X {index}</button>
+        </div>
+    );
+    
       return (
         <div className="mini-cart" key="mini-cart">
+        
             <div className="mini-cart-list">
-                <div className="mini-cart-list__product cart-product" key={"cart-product-"+1}>
-                    <div className="cart-product-preview">
-                        <img src={(urlImg)+"/404.jpg"} className="cart-product-preview__img" alt="prod"/>
-                    </div>
-                    <div className="cart-product-info">
-                        <h4 className="cart-product-info__name">dwdadawd</h4>
-                        <span className="cart-product-info__cat">wdawwddawd</span>
-                    </div>
-                    <div className="price-wrap">
-                            <div className="price">{this.state.price}</div>
-                    </div>
-                    <button className="cart-product__del">X</button>
-                </div>
+                {this.props.summa === 0 ? <div className="cart-null">Корзина пуста</div> : cartList}
             </div>
 
             <div className="mini-cart-info">
-                <span className="mini-cart-info__total--price">{this.state.summa}</span>
+                <span className="mini-cart-info__total--price">{this.props.summa}</span>
                 <div className="mini-cart-info__wrap ">
                     <Link to="/cart" className="mini-cart-info__clear--cart" state={{pleasant: "reasonably",}}>
                         Корзина
                     </Link>
-                    <button className="mini-cart-info__clear--cart" onClick={() => this.miniCartClear()}>Очистить</button>
+                    <button className="mini-cart-info__clear--cart" onClick={this.props.onClear}>Очистить</button>
                 </div>
                 
             </div>
@@ -92,4 +51,18 @@ class MiniCart extends Component {
     }
   }
 
-  export default MiniCart
+  function mapStateToProps(state){
+    return {
+        ProductList: state.ProductList,
+        summa: state.Summa
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return{
+        onDelItem: itemID => dispatch({type:'DELETE_PRODUCT_CART',payload: itemID}),
+        onClear: () => dispatch({type:'CLEAR_CART'})
+    }
+}
+
+  export default connect(mapStateToProps,mapDispatchToProps)(MiniCart)
