@@ -18,7 +18,6 @@ export default class CenterMode extends Component {
                 <span className="cat-link__cat">{this.props.cat}</span>
                 <h2 className="cat-link__name">{this.props.title}</h2>
             </a>
-            <button className="box-product__add-btn btn" data-prod-id={this.props.prodId}>Добавить ({this.props.price})</button>
         </div>
       );
     }

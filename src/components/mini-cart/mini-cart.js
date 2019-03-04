@@ -12,8 +12,8 @@ class MiniCart extends Component {
     console.log(this.props)  
     const urlImg = withPrefix('/img/')
 
-    const cartList = Array.from(this.props.ProductList).reverse().map((cartItem,index) =>  
-        <div className="mini-cart-list__product cart-product" key={"cart-product-"+(cartItem.name.toString())}>
+    const cartList = Array.from(this.props.ProductList).map((cartItem,index) =>  
+        <div className="mini-cart-list__product cart-product" key={"cart-product-"+(cartItem.name.toString())+"-"+(Math.random())}>
             <div className="cart-product-preview">
                 <img src={(urlImg)+"/"+(cartItem.image)} className="cart-product-preview__img" alt={cartItem.name.toString()}/>
             </div>
@@ -32,7 +32,7 @@ class MiniCart extends Component {
         <div className="mini-cart" key="mini-cart">
         
             <div className="mini-cart-list">
-                {this.props.summa === 0 ? <div className="cart-null">Корзина пуста</div> : cartList}
+                {this.props.ProductList.lenght === 0 || this.props.summa === 0 ? <div className="cart-null">Корзина пуста</div> : cartList}
             </div>
 
             <div className="mini-cart-info">
