@@ -24,7 +24,7 @@ class MiniCart extends Component {
             <div className="price-wrap">
                     <div className="price">{cartItem.price}</div>
             </div>
-            <button className="cart-product__del" onClick={this.props.onDelItem.bind(this,index)}>X {index}</button>
+            <button className="cart-product__del" onClick={this.props.onDelItem.bind(this,index)}>X</button>
         </div>
     );
     
@@ -53,8 +53,9 @@ class MiniCart extends Component {
 
   function mapStateToProps(state){
     return {
-        ProductList: state.ProductList,
-        summa: state.Summa
+        ProductList: state.cart.ProductList,
+        summa: state.cart.Summa,
+        countPropd: state.counter.countProd
     }
 }
 

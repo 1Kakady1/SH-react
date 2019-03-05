@@ -5,10 +5,8 @@ import MiniCart from "../mini-cart/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {connect} from "react-redux"
 
-// import {createStore} from "redux"
-// import {Provider} from "react-redux"
-// import rootReducer from "../../redux/rootReducer";
 
 class NavBtn extends Component {
     constructor(props) {
@@ -38,7 +36,7 @@ class NavBtn extends Component {
             </div>
             <div className={"cart "+(this.state.showCart? "cart_active":"")}>
                 <FontAwesomeIcon icon={ faShoppingBag}  className="icon__color-hover"/>
-                <span className="cart__text" onClick={() => this.ShowCart()}>Basket (<span className="cart_count">0</span>)</span>
+                <span className="cart__text" onClick={() => this.ShowCart()}>Basket (<span className="cart_count">{this.props.countProd}</span>)</span>
             </div>
             <div className="search">
                 <Search />
@@ -65,4 +63,10 @@ class NavBtn extends Component {
     }
   }
   
-  export default NavBtn
+function mapStateToProps(state){
+    return {
+        countProd: state.cart.countProd
+    }
+}
+
+export default connect(mapStateToProps)(NavBtn)
