@@ -108,11 +108,11 @@ export default function cart(state=initalState,action){
                     break
                 }
             }
-            console.log(bufArr)
+    
             if(flagPush === true) {
                 bufArr.push(action.payload);
             } 
-            console.log(newProd.price)
+  
             return {
                 //Summa: state.Summa +  (newProd.price/countPrice),
                 Summa: state.Summa +  newProd.constPrice,

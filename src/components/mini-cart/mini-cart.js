@@ -9,7 +9,7 @@ class MiniCart extends Component {
     }
 
     render() {
-    console.log(this.props)  
+    console.log(this.props.ProductList)  
     const urlImg = withPrefix('/img/')
 
     const cartList = Array.from(this.props.ProductList).map((cartItem,index) =>  

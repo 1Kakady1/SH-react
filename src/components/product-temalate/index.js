@@ -63,7 +63,7 @@ handleClickOutside(e) {
 }
 
   render() {
-    console.log(this.props)
+    //console.log(this.props)
     const urlImg = withPrefix('/img/')
     const ModalInfo =()=> (<div className="add-info">Укажите размер</div>);
     const post = this.props.dataContent;
@@ -72,7 +72,7 @@ handleClickOutside(e) {
     let  arrContent = [{
         name: post.title,
         cat: post.cat,
-        image: post.img,
+        image: post.image,
         price: parseInt(post.price),
         constPrice: parseInt(post.price),
         code: post.code,
@@ -103,9 +103,7 @@ handleClickOutside(e) {
     <SliderVerItem key={galItem.toString()} imageGal={galItem} itemKey={galItem.toString()}/>);
     const listSize =post.sizeProduct.map((size) =>
     <li className="size__item" key={size.toString()}>{size.toString()}</li>);
-    console.log("============")
-    console.log(arrContent[0].constPrice)
-    console.log("============")
+
     return (
         <React.Fragment>
             <div className="product-content">
@@ -138,7 +136,7 @@ handleClickOutside(e) {
               <ul className="size">
                   {listSize}
               </ul>
-              <button className="btn-bg btn-bg_size-1" onClick={ this.state.size === null ? this.addCartNotNull:this.props.addCart.bind(this, arrContent[0])  }> Добавить </button>
+              <button className="btn-bg btn-bg_size-1" onClick={ this.state.size === null ? this.addCartNotNull:this.props.addCart.bind(this, ...arrContent)  }> Добавить </button>
            </div>
         </React.Fragment>      
     );
