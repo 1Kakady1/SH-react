@@ -20,7 +20,7 @@ export default class TemplateCat extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
     const { currentPage, numPages } = this.props.pageContext
-    console.log(currentPage); console.log(numPages);
+    
     return (
         <Container modifPad="prod-post_padding">
           <Helmet
@@ -46,7 +46,7 @@ export default class TemplateCat extends React.Component {
                     </span>
                   </div>
               </BarUrl>
-              <Title title={"Мужское"} subTitle={" Все товары для мужчин"}/>
+              <Title title={"Женское"} subTitle={" Все товары для женщин"}/>
               <ProductListOfCat 
                 data = {posts} 
                 optionsPrice={["Цена","20-30","30-50","50-100","больше 100"]}

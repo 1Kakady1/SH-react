@@ -63,7 +63,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.page)}-post.js`
+          `src/templates/post.js`
         ),
         // additional data can be passed via context
         context: {
@@ -111,6 +111,8 @@ exports.createPages = ({ actions, graphql }) => {
       }) 
 
     }
+
+    
 
   })
 }

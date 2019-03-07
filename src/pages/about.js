@@ -33,7 +33,7 @@ export default () => (
                 </Header>
                     <BarUrl>
                         <div className="url-now">
-                            <span className="url-now__name">About</span>
+                            <span className="url-now__name">О нас</span>
                         </div>
                     </BarUrl>
                     <About />

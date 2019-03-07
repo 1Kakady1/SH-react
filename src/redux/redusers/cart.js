@@ -55,6 +55,7 @@ const initalState = {
     ],
     Summa: 270,
 }*/
+import {CLEAR_CART,DELETE_PRODUCT_CART,ADD_IN_CART} from '../actions/actionsType'
 
 const initalState = {
     ProductList: [],
@@ -66,13 +67,13 @@ const initalState = {
 export default function cart(state=initalState,action){
     
     switch (action.type){
-        case 'CLEAR_CART':
+        case CLEAR_CART:
             return {
                 ProductList: [],
                 Summa: 0,
                 countProd: 0
             }
-        case 'DELETE_PRODUCT_CART':
+        case DELETE_PRODUCT_CART:
             let  bufRev = state.ProductList;
             let j = 0, len = state.ProductList.length,spl=[];
 
@@ -93,7 +94,7 @@ export default function cart(state=initalState,action){
                 ProductList: spl,
                 countProd: state.countProd - bufRev[action.payload].count
             }
-        case 'ADD_IN_CART':
+        case ADD_IN_CART:
             let bufArr = state.ProductList,
                 newProd = action.payload,
                 flagPush = true,countPrice = 1;

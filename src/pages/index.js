@@ -32,17 +32,17 @@ export default () => (
             </ToggleMenu>
         </Header>
         <Arrivals
-            url = "#" 
+            url = "product/man/sport-cost-1/" 
             classBtn ="btn btn-arrivals"
-            titleBtn="check new arrivals" 
-            appeal="Hazy Shade of spring"  
-            explanation="Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo."
+            titleBtn="смотреть" 
+            appeal="Скидка на выходные"  
+            explanation="подпишитесь, чтобы получать наши обновления"
         />
         <Squares/>
         <div className="sign-up">
             <Title 
-                title="sign up to receive our updates" 
-                subTitle="Nulla ipsum dolor lacus, suscipit adipiscing. Cum sociis natoque penatibus et ultrices volutpat." 
+                title="ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧИТЬ НАШИ ОБНОВЛЕНИЯ" 
+                subTitle="Будь первым, кто унает о новинках" 
             />
             <Subscription btnTitle="add" btnClass={["subscription__btn"]} inputPlacentholder="Ваш e-mail" />
         </div>

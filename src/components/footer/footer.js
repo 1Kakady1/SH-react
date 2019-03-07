@@ -11,9 +11,9 @@ class Footer extends Component {
     render() {
         let  navFooter = {
                 nav1: {
-                    url: ["woman", "men", "kids", "comming", "soon"],
-                    name: ["Woman", "Men", "Kids", "Comming", "Soon"],
-                    titleHeader: "collection"
+                    url: ["cat/woman", "cat/men", "cat", ],
+                    name: ["Женское", "Можское", "Все категории",],
+                    titleHeader: "Категории"
                 },
                 nav2: {
                     url: ["#","#","#","#","#"],
@@ -21,9 +21,9 @@ class Footer extends Component {
                     titleHeader: "site"
                 },
                 nav3: {
-                    url: ["about","#","#","contact"],
-                    name: ["About us","Shipping Metods","Career","Contact"],
-                    titleHeader: "shop"
+                    url: ["about","contact"],
+                    name: ["О нас","Контакты"],
+                    titleHeader: "Информация"
                 },
             };
       return (
@@ -33,15 +33,18 @@ class Footer extends Component {
                 matches ? (null ) : (<FooterNav key="footer-nav_1" kk="item-ft1" navInfo={navFooter.nav1}/>)
               }
         </Media>
+        {/*
         <Media query="(max-width:768px)">
               {matches =>
                 matches ? (null):(<FooterNav key="footer-nav_2" kk="item-ft2" navInfo={navFooter.nav2}/>) 
               }
         </Media> 
+        */
+        }
             <FooterNav key="footer-nav_3" kk="item-ft3" navInfo={navFooter.nav3}/>
             <Social
-                title="social"
-                copyraite="Shoper is made with love in Warsaw, 2014 © All rights reserved. El Passion"
+                title="Социальные сети"
+                copyraite="Shoper 2019 © Все права защищены"
             />
             {this.props.children}
         </footer>

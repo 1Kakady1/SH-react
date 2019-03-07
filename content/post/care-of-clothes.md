@@ -6,6 +6,7 @@ usinfo: ""
 price: "$99.9"
 date: "2017-08-10"
 image: "photo-1531450664978-9be7f46cb497.jpg"
+gallary: ["k1.jpg","404.jpg","k1.jpg","404.jpg","k1.jpg","404.jpg","k1.jpg","404.jpg","k1.jpg","404.jpg"]
 page: "home"
 position: 10
 hoverGr: "arrow"

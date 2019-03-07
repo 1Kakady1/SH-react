@@ -2,6 +2,7 @@ import React,{ Component } from "react"
 import { withPrefix } from 'gatsby'
 import { Link } from "gatsby"
 import {connect} from "react-redux"
+import {delCart,clearCart} from "../../redux/actions/actions"
 
 class MiniCart extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class MiniCart extends Component {
     }
 
     render() {
-    console.log(this.props.ProductList)  
+    //console.log(this.props.ProductList)  
     const urlImg = withPrefix('/img/')
 
     const cartList = Array.from(this.props.ProductList).map((cartItem,index) =>  
@@ -61,8 +62,8 @@ class MiniCart extends Component {
 
 function mapDispatchToProps(dispatch) {
     return{
-        onDelItem: itemID => dispatch({type:'DELETE_PRODUCT_CART',payload: itemID}),
-        onClear: () => dispatch({type:'CLEAR_CART'})
+        onDelItem: itemID => dispatch(delCart(itemID)),
+        onClear: () => dispatch(clearCart())
     }
 }
 

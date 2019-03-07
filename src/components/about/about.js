@@ -5,30 +5,39 @@ import Title from "../title/index"
 export default () => (
     <div className="container-about">
         <Title
-            title="About" 
-            subTitle="Lorem ipsum dolor sit amet enim. Etiam ullamcorp uspendisse a pellentesque." 
+            title="О нас" 
+            subTitle="Узнайте нас лучше" 
          />
         <div className="about-wrap">
-            <About img="404.jpg" alt="abot img 1">
+            <About img="about1.jpg" alt="abot img 1">
+               
+                    <h2 className="about_h2">Наши преимущества:</h2>
+  
                 <p className="content__text content__text_about">
-                    Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices posuere cubilia Curae, Nulla ipsum dolor lacus, suscipit adipiscing
+                   - Тщательный отбор продукции, которую мы вам предлагаем <br/>
+                   Прежде чем начать свою работу, мы детально и внимательно изучили спрос и пожелания потребителей, ведь каждый хочет приобрести за разумную цену качественное и красивое изделие.
+                    Основное правило нашей работы – пополнение и расширение ассортимента товара, основанное на анализе спроса покупателей.
                 </p>
                 <p className="content__text content__text_about">
-                    Cum sociis natoque penatibus et ultrices volutpat. Nullam wisi ultricies a, gravida vitae, dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae, ultricies eu, faucibus quis, porttitor eros cursus lectus, pellentesque eget, bibendum a, gravida ullamcorper quam. Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc, accumsan congue. Lorem ipsum primis in nibh vel risus. Sed vel lectus. Ut sagittis, ipsum dolor quam.
+                   - Серьёзный отбор поставщиков и производителей <br/>
+                   Полагаем, вы согласитесь с тем, что основными стандартами качества для домашнего текстиля являются их стойкость к износу и не меняющиеся со временем форма и яркость расцветки.  Собрав всю информацию о производителях, для сотрудничества мы выбрали только тех, которые предлагают товар с отличными характеристиками по оптимальной цене.
                 </p>
                 <p className="content__text content__text_about">
-                    Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices posuere cubilia Curae, Nulla ipsum dolor lacus, suscipit adipiscing
+                   - Предоставление качественных услуг <br/>
+                   Команда интернет-магазина «SH» нацелена на предоставление только качественных услуг.  Уверенны, что, купив у нас однажды, вы захотите делать покупки ещё не один раз. Звоните-пишите. Мы готовы вам это доказать не на словах, а на деле.
                 </p>
+
             </About>
-            <About img="404.jpg" alt="abot img 2">
+            <About img="about2.jpg" alt="abot img 2">
                 <p className="content__text content__text_about">
-                    Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices posuere cubilia Curae, Nulla ipsum dolor lacus, suscipit adipiscing
+                Команда, которая хочет и готова ответить на все ваши, даже самые каверзные и не удобные вопросы, относительно интересующих вас товаров. Можете даже не покупать у нас постельное белье, плед или подушку. Звоните поговорить, задать вопросы. Мы рады слышать всех. А там вы поймете, что сделали правильный выбор и станете нашим постоянным другом и любимым клиентом. 
                 </p>
                 <p className="content__text content__text_about">
-                    Cum sociis natoque penatibus et ultrices volutpat. Nullam wisi ultricies a, gravida vitae, dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae, ultricies eu, faucibus quis, porttitor eros cursus lectus, pellentesque eget, bibendum a, gravida ullamcorper quam. Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc, accumsan congue. Lorem ipsum primis in nibh vel risus. Sed vel lectus. Ut sagittis, ipsum dolor quam.
+                    На первый взгляд ответ простой – купить товары для дома, постельное белье, плед или подушку. Но это только на первый взгляд. Главное, что мы вам предлагаем – это дружбу и честные партнерские отношения. Мы всегда готовы посоветовать и предложить вам именно тот товар, который нужен вам. Мы подберем нашим любимым клиентам только то, что купили бы сами для себя. Ведь мы ваш любимый интернет магазин «SH».
                 </p>
                 <p className="content__text content__text_about">
-                    Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices posuere cubilia Curae, Nulla ipsum dolor lacus, suscipit adipiscing
+                Каждую неделю в нашем магазине новые акции, уникальные и выгодные для вас предложения. Подписывайтесь и следите за нашими новостями в социальных сетях! <br/>         
+                Хотите удивить друзей, пополнив свой дом нужными и в то же время радующими глаз вещами не выходя из дома? Делайте покупки в нашем интернет-магазине «SH» – это быстро, практично и удобно!
                 </p>
             </About>
         </div>

@@ -3,6 +3,7 @@ import SliderV from "react-slick";
 import { withPrefix } from 'gatsby'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {connect} from "react-redux"
+import {addCart} from "../../redux/actions/actions"
 
 import SliderVerItem from "../sliderV-item/index"
 import Title from "../title/index"
@@ -152,7 +153,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch) {
   return{
-      addCart: arrContent => dispatch({type:'ADD_IN_CART',payload: arrContent}),
+      addCart: arrContent => dispatch(addCart(arrContent)),
   }
 }
 
