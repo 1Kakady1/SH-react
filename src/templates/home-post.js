@@ -26,7 +26,7 @@ export default class PostTemplate extends React.Component {
     if (!post.id) {
       post.id = slug;
     }
-    console.log("post")
+
     return (
 
       <Container modifPad="prod-post_padding">
@@ -50,7 +50,6 @@ export default class PostTemplate extends React.Component {
                 <Link to={"/"+(post.cat)} className="bar-link"  state={{pleasant: "reasonably",}}>
                     <span className="bar-link__name">{post.cat}</span>
                 </Link>
-                <div className="sl">/</div>
                 <div className="url-now">
                   <span className="url-now__name">
                       {post.title}

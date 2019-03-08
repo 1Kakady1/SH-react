@@ -26,7 +26,7 @@ class MiniCart extends Component {
                 <span className="cart-product-info__cat">{cartItem.cat}</span>
             </div>
             <div className="price-wrap">
-                    <div className="price">{cartItem.price}</div>
+                    <div className="price">{cartItem.price} <span>€</span></div>
             </div>
             <button className="cart-product__del" onClick={this.props.onDelItem.bind(this,index)}>X</button>
         </div>
@@ -39,7 +39,7 @@ class MiniCart extends Component {
             </div>
 
             <div className="mini-cart-info">
-                <span className="mini-cart-info__total--price">{this.props.Summa}</span>
+                <span className="mini-cart-info__total--price">{this.props.Summa} <span>€</span></span>
                 <div className="mini-cart-info__wrap ">
                     <Link to="/cart" className="mini-cart-info__clear--cart" state={{pleasant: "reasonably",}}>
                         Корзина

@@ -61,6 +61,9 @@ export default class Gallary extends React.Component {
 
       return (
         <div className="gallary">
+            <div className="gallary__title">
+              <h3>Галерея:</h3>
+            </div>
             <div className="gallary-list">
                 {gallaryList}
             </div> 

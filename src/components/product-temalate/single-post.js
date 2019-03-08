@@ -9,11 +9,11 @@ const infoPost = props => {
     return (
         <React.Fragment>
             <div className="product-content">
-              <Title title={post.title} subTitle={"Article number: "+(post.code)} modifClass="product-content_size">
+              <Title title={post.title}  modifClass="product-content_size">
               </Title>
               <div className="product-content__html-content" dangerouslySetInnerHTML={{ __html: postNode.html }} />
            </div>
-           <Gallary gallaryImg ={post.gallary}/>
+           {post.gallary ===  null || post.gallary ===  undefined ? null :<Gallary gallaryImg ={post.gallary}/>}
         </React.Fragment>      
     );
 
