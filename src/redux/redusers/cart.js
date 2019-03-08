@@ -55,7 +55,7 @@ const initalState = {
     ],
     Summa: 270,
 }*/
-import {CLEAR_CART,DELETE_PRODUCT_CART,ADD_IN_CART} from '../actions/actionsType'
+import {CLEAR_CART,DELETE_PRODUCT_CART,ADD_IN_CART,SESSION_LOAD} from '../actions/actionsType'
 
 const initalState = {
     ProductList: [],
@@ -88,7 +88,7 @@ export default function cart(state=initalState,action){
             if(state.ProductList.length -1  === 0){
                 spl = []
             }
-            
+
             return {
                 Summa: state.Summa - bufRev[action.payload].price ,
                 ProductList: spl,
@@ -113,15 +113,22 @@ export default function cart(state=initalState,action){
             if(flagPush === true) {
                 bufArr.push(action.payload);
             } 
-  
             return {
                 //Summa: state.Summa +  (newProd.price/countPrice),
                 Summa: state.Summa +  newProd.constPrice,
                 ProductList: bufArr,
                 countProd: state.countProd + 1
             }
+        case SESSION_LOAD:
+            //console.log("session ok")
+            const arrSession = action.payload
+            console.log('session',arrSession.cart)
+            return {
+                Summa: arrSession.cart.Summa ,
+                ProductList: arrSession.cart.ProductList ,
+                countProd: arrSession.cart.countProd
+            }
         default:
            return state 
     }
-    
 }

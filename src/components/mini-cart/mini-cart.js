@@ -4,13 +4,16 @@ import { Link } from "gatsby"
 import {connect} from "react-redux"
 import {delCart,clearCart} from "../../redux/actions/actions"
 
+
+
 class MiniCart extends Component {
     constructor(props) {
         super(props)
+
     }
 
     render() {
-    //console.log(this.props.ProductList)  
+ 
     const urlImg = withPrefix('/img/')
 
     const cartList = Array.from(this.props.ProductList).map((cartItem,index) =>  
@@ -31,13 +34,12 @@ class MiniCart extends Component {
     
       return (
         <div className="mini-cart" key="mini-cart">
-        
             <div className="mini-cart-list">
-                {this.props.ProductList.lenght === 0 || this.props.summa === 0 ? <div className="cart-null">Корзина пуста</div> : cartList}
+                {this.props.ProductList.lenght === 0 || this.props.Summa === 0 ? <div className="cart-null">Корзина пуста</div> : cartList}
             </div>
 
             <div className="mini-cart-info">
-                <span className="mini-cart-info__total--price">{this.props.summa}</span>
+                <span className="mini-cart-info__total--price">{this.props.Summa}</span>
                 <div className="mini-cart-info__wrap ">
                     <Link to="/cart" className="mini-cart-info__clear--cart" state={{pleasant: "reasonably",}}>
                         Корзина
@@ -55,7 +57,7 @@ class MiniCart extends Component {
   function mapStateToProps(state){
     return {
         ProductList: state.cart.ProductList,
-        summa: state.cart.Summa,
+        Summa: state.cart.Summa,
         countPropd: state.counter.countProd
     }
 }
@@ -63,7 +65,7 @@ class MiniCart extends Component {
 function mapDispatchToProps(dispatch) {
     return{
         onDelItem: itemID => dispatch(delCart(itemID)),
-        onClear: () => dispatch(clearCart())
+        onClear: () => dispatch(clearCart()),
     }
 }
 

@@ -26,7 +26,7 @@ export default class PostTemplate extends React.Component {
     if (!post.id) {
       post.id = slug;
     }
-
+    console.log("prod")
     return (
 
       <Container modifPad="prod-post_padding">

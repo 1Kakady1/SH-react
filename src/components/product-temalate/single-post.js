@@ -1,5 +1,4 @@
 import React from "react";
-import { withPrefix } from 'gatsby'
 
 import Title from "../title/index"
 import Gallary from "../gallary/index"

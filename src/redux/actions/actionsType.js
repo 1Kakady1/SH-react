@@ -1,3 +1,4 @@
 export const  CLEAR_CART = 'CLEAR_CART'
 export const  DELETE_PRODUCT_CART = 'DELETE_PRODUCT_CART'
 export const  ADD_IN_CART = 'ADD_IN_CART'
+export const  SESSION_LOAD = 'SESSION_LOAD'
