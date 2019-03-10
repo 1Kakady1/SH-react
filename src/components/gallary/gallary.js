@@ -23,9 +23,9 @@ export default class Gallary extends React.Component {
         document.removeEventListener('click', this.onOpenModal, false);
       }
       
-      componentWillMount() {
-        document.addEventListener('click', this.onOpenModal, false);
-      }
+      // componentWillMount() {
+      //   document.addEventListener('click', this.onOpenModal, false);
+      // }
   
     //onOpenModal = () => {
     //  this.setState({ open: true });

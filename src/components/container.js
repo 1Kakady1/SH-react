@@ -7,7 +7,7 @@ import SessionCreate from "../components/session/index"
 
 const loggerMiddleware = store => next => action =>{
     const result = next(action)
-    console.log("Middleware ",store.getState())
+    //console.log("Middleware ",store.getState())
     return result
 }
 
@@ -17,7 +17,6 @@ store.subscribe (throttle(() => {
     console.log("store", JSON.stringify(store.getState()))
     const serializedState = JSON.stringify(store.getState());
     localStorage.setItem('cart_user', serializedState);
-    //console.log(store.getState())
   },1000));
 
 console.log(store.getState())

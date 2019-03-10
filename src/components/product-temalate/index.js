@@ -29,7 +29,9 @@ componentWillUnmount() {
 }
 
 componentWillMount() {
-  document.addEventListener('click', this.handleClickOutside, false);
+  if (typeof window !== `undefined`) {
+    document.addEventListener('click', this.handleClickOutside, false);
+  }
 }
 
 addCartNotNull(){
@@ -100,10 +102,15 @@ handleClickOutside(e) {
       verticalSwiping: true,
     };
 
-    const listSlide =post.gallary.map((galItem) =>
-    <SliderVerItem key={galItem.toString()} imageGal={galItem} itemKey={galItem.toString()}/>);
-    const listSize =post.sizeProduct.map((size) =>
-    <li className="size__item" key={size.toString()}>{size.toString()}</li>);
+    const listSlide = post.gallary !== null ? post.gallary.map((galItem) =>
+      <SliderVerItem key={galItem.toString()} imageGal={galItem} itemKey={galItem.toString()}/>)
+        : 
+      null
+    ;
+    const listSize =  post.sizeProduct=== null ?
+        null
+      :
+      post.sizeProduct.map((size) =><li className="size__item" key={size.toString()}>{size.toString()}</li>);
 
     return (
         <React.Fragment>
@@ -123,22 +130,31 @@ handleClickOutside(e) {
                     this.state.modalShow ? <ModalInfo/> : null
                   }
               </ReactCSSTransitionGroup>
-              <SliderV key="sliderV-slick" {...settings}>
-                {listSlide}
-              </SliderV>
+              { listSlide === null ? 
+                <div className="sliderV-item"><img src={(urlImg)+post.image} alt=""/></div>
+                :
+                <SliderV key="sliderV-slick" {...settings}>
+                    {listSlide}
+                </SliderV>
+                }
               <Title title={post.title} subTitle={"Article number: "+(post.code)} modifClass="product-content_size">
                 <p className="content-title__price">€ {post.price}</p>
               </Title>
               <div className="product-content__html-content" dangerouslySetInnerHTML={{ __html: postNode.html }} />
            </div>
-
-           <div className="product-cart-send">
+          {
+            listSize === null ? 
+            <div className="productNone">Товара закончисля.</div>
+              :
+            <div className="product-cart-send">
               <h2 className="title-size"> Размер </h2>
               <ul className="size">
                   {listSize}
               </ul>
               <button className="btn-bg btn-bg_size-1" onClick={ this.state.size === null ? this.addCartNotNull:this.props.addCart.bind(this, ...arrContent)  }> Добавить </button>
            </div>
+          }
+
         </React.Fragment>      
     );
   }
