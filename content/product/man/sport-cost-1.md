@@ -5,9 +5,9 @@ price: "190"
 title: "Спортивный костюм"
 dimensions: ""
 cat: "Мужское"
-recomendet: true
-image: "kg.jpg"
-gallary: ["kg.jpg","k1.jpg","k2.jpg","k3.jpg"]
+recomendet: false
+image: "k3.jpg"
+gallary: ["k3.jpg","k1.jpg","k2.jpg","k4.png"]
 sizeProduct: [10,60,25]
 code:  1000
 page: "product"

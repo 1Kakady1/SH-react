@@ -104,7 +104,7 @@ export const catAllListQuery = graphql`
   query catAllListQuery {
     catMan:allMarkdownRemark(
       filter: {
-          frontmatter: { cat: { eq: "man" } }
+          frontmatter: { cat: { eq: "Мужское" } }
         }
     sort: { fields: [frontmatter___date], order: DESC }
     limit: 4
@@ -126,7 +126,7 @@ export const catAllListQuery = graphql`
 
   catWomen:allMarkdownRemark(
       filter: {
-          frontmatter: { cat: { eq: "women" } }
+          frontmatter: { cat: { eq: "Женское" } }
         }
     sort: { fields: [frontmatter___date], order: DESC }
     limit: 4

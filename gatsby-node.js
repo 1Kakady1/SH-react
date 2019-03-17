@@ -77,14 +77,14 @@ exports.createPages = ({ actions, graphql }) => {
     let bufMan=0
        ,bufWomen=0;
 
-    const catList = ["man","women"]
+    const catList = ["man","women"],catListRu=["Мужское","Женское"]
 
     for(let m = 0;m < posts.length; m++){
 
-      if(posts[m].node.frontmatter.cat === catList[0]){
+      if(posts[m].node.frontmatter.cat === catListRu[0]){
         bufMan++;
       }
-      if(posts[m].node.frontmatter.cat === catList[1]){
+      if(posts[m].node.frontmatter.cat === catListRu[1]){
         bufWomen++;
       }
     }
@@ -99,7 +99,7 @@ exports.createPages = ({ actions, graphql }) => {
 
       Array.from({ length: numPagesArr[index] }).forEach((_, i) => {
         createPage({
-          path: i === 0 ? `/cat/${String(catList[index])}` : `/cat/man/${i + 1}`,
+          path: i === 0 ? `/cat/${String(catList[index])}` : '/cat/'+String(catList[index])+'/'+ (i + 1)+'',
           component: path.resolve(`./src/templates/cat-${String(catList[index])}.js`),
           context: {
             limit: postsPerPage,
