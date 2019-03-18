@@ -15,6 +15,19 @@
     &_w104
         width: 100%
         max-width: 104px
+    &_w183
+        width: 100%
+        max-width: 183px
+    &_w160
+        width: 100%
+        max-width: 160px
+    &_w149
+        width: 100%
+        max-width: 149px
+    &_row
+        flex-flow: row nowrap!important
+        align-items: center!important;
+        justify-content: flex-start!important;
 
 .cart-wrap
     margin-right: auto;
@@ -49,4 +62,36 @@
                 width: 103px;
                 height: 100%;
                 margin-bottom: 0
-            
+            &__del
+                color: #303030;
+                background: transparent;
+                font-size: 16px
+                border: none
+                &:hover
+                    color: rgb(246, 130, 54);
+
+.counter
+  .counter
+      &__add,&__sub  
+            width: 18px;
+            height: 18px;
+            color: #ffffff
+            background: #303030;
+            border: none
+            text-align: center
+            text-align: center;
+            font-size: 14px;
+            outline: none
+            &:hover
+                background: rgb(246, 130, 54);
+.cart-list__code,.cart-table-list__item,.cart-list__count,.cart-table-list__del
+    family: 'Lato', sans-serif;
+
+.cart-list__title
+    font-family: 'Kameron', serif;    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: #303030;

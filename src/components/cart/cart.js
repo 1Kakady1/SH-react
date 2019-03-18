@@ -1,79 +1,78 @@
 import React from "react"
 import { withPrefix } from 'gatsby'
 import {connect} from "react-redux"
-import {delCart,clearCart} from "../../redux/actions/actions"
+import {delCart,clearCart,cartCounterAdd,cartCounterSub} from "../../redux/actions/actions"
 
 class Cart extends React.Component {
     constructor(props) {
         super(props)
     }
 
+    printSize(arrSize){
+        let str = ""
+        arrSize.forEach(sizeItem => {
+            str +=sizeItem + ","
+        });
+
+        return str.substring(0, str.length - 1)
+    }
+
+    consoleLog(a,msg){
+        console.log(msg,a)
+    }
+
     render() {
  
     const urlImg = withPrefix('/img/')
 
-    // const cartList = Array.from(this.props.ProductList).map((cartItem,index) =>  
-    //     <div className="cart-product cart-product__list" key={"cart-product-"+(cartItem.name.toString())+"-"+(Math.random())}>
-            
-    //     </div>
-    // );
+     const cartList = Array.from(this.props.ProductList).map((cartItem,index) =>  
+                    <div className="cart-table-list  cart-table_position" key={"cart-table-list-"+(cartItem.name.toString())+"-"+(Math.random())}>
+                        <div className="cart-table-list__item cart-table_w126">
+                            <img src={(urlImg)+(cartItem.image)} className="cart-table-list__img" alt={cartItem.name}/>
+                        </div>
+                        <div className="cart-table-list__item cart-table_w504">
+                            <h2 className="cart-list__title">{cartItem.name}</h2>
+                            <span className="cart-list__code">{cartItem.code}</span>
+                        </div>
+                        <div className="cart-table-list__item cart-table_w183">
+                            {
+                                //this.consoleLog(cartItem.size,"size")
+                                cartItem.size.length === 1 ? cartItem.size : this.printSize(cartItem.size)
+                            }
+                        </div>
+                        <div className="cart-table-list__item cart-table_w183">
+                            <span className="cart-list__count">{cartItem.count}</span>
+                            {
+                                cartItem.size.length === 1 ?
+                                    <div className="counter">
+                                        <button className="counter__sub" onClick={this.props.onDelItem.bind(this,index)}>-</button>
+                                        <button className="counter__add" onClick={this.props.onDelItem.bind(this,index)}>+</button>
+                                    </div>
+                                        :
+                                    null
+                            }
+
+                        </div>
+                        <div className="cart-table-list__item cart-table_w126 cart-table_row"> {cartItem.price} <span>€</span></div>
+                        <div className="cart-table-list__item cart-table_w104">
+                            <button className="cart-table-list__del" onClick={this.props.onDelItem.bind(this,index)}>X</button>
+                        </div>
+                    </div>
+     );
     
       return (
         <div className="cart-table">
             <div className="cart-table-title cart-table_position">
                 <div className="cart-table-title__item cart-table_w126">Продукт</div>
                 <div className="cart-table-title__item cart-table_w504">Описание</div>
-                <div className="cart-table-title__item cart-table_w158">Цвет</div>
-                <div className="cart-table-title__item cart-table_w104">Размер</div>
-                <div className="cart-table-title__item cart-table_w104">Кол.</div>
-                <div className="cart-table-title__item cart-table_w126">Цена</div>
+                <div className="cart-table-title__item cart-table_w183">Размер</div>
+                <div className="cart-table-title__item cart-table_w183">Кол.</div>
+                <div className="cart-table-title__item cart-table_w126 ">Цена</div>
                 <div className="cart-table-title__item cart-table_w104">Убрать</div>
             </div>
 
             <div className="product-cart-wrap">
-
-                <div className="cart-table-list  cart-table_position">
-                    <div className="cart-table-list__item cart-table_w126">
-                        <img src={(urlImg)+"404.jpg"} className="cart-table-list__img" alt=""/>
-                    </div>
-                    <div className="cart-table-list__item cart-table_w504">
-                        <h2 className="cart-list__title">Name nmae </h2>
-                        <span className="cart-list__code"> 00000</span>
-                    </div>
-                    <div className="cart-table-list__item cart-table_w158">fefef</div>
-                    <div className="cart-table-list__item cart-table_w104">fefe</div>
-                    <div className="cart-table-list__item cart-table_w104">
-                        <span className="cart-list__count">1</span>
-                        <div className="counter">
-                            <button className="counter__add">+</button>
-                            <button className="counter__sub">-</button>
-                        </div>
-                    </div>
-                    <div className="cart-table-list__item cart-table_w126"> 110 $ </div>
-                    <div className="cart-table-list__item cart-table_w104"><button className="cart-table-list__del">x</button></div>
-                </div>
-
-                <div className="cart-table-list  cart-table_position">
-                    <div className="cart-table-list__item cart-table_w126">
-                        <img src={(urlImg)+"404.jpg"} className="cart-table-list__img" alt=""/>
-                    </div>
-                    <div className="cart-table-list__item cart-table_w504">
-                        <h2 className="cart-list__title">Name nmae </h2>
-                        <span className="cart-list__code"> 00000</span>
-                    </div>
-                    <div className="cart-table-list__item cart-table_w158">fefef</div>
-                    <div className="cart-table-list__item cart-table_w104">fefe</div>
-                    <div className="cart-table-list__item cart-table_w104">
-                        <span className="cart-list__count">1</span>
-                        <div className="counter">
-                            <button className="counter__add">+</button>
-                            <button className="counter__sub">-</button>
-                        </div>
-                    </div>
-                    <div className="cart-table-list__item cart-table_w126"> 110 $ </div>
-                    <div className="cart-table-list__item cart-table_w104"><button className="cart-table-list__del">x</button></div>
-                </div>
-
+                {cartList}
             </div>
 
         </div>
@@ -93,6 +92,8 @@ function mapDispatchToProps(dispatch) {
     return{
         onDelItem: itemID => dispatch(delCart(itemID)),
         onClear: () => dispatch(clearCart()),
+        onCartCounterAdd: itemID => dispatch(cartCounterAdd(itemID)),
+        onCartCounterSub: itemID => dispatch(cartCounterSub(itemID)),
     }
 }
 
