@@ -760,7 +760,7 @@ button:hover,button,
         flex-direction: column
     .slick-dots li
         width: 81px;
-        height: 66px;
+        height: 81px;
     .slick-slide
         width: 62vw !important;
     .dot-custom
@@ -926,8 +926,9 @@ button:hover,button,
     justify-content: center
     .pagination
         &__link:not(.pagination_active)
-            background: #303030;
-            color: #fff
+            background: transparent;
+            color: #606060
+            border: 1px solid #606060;
         &__link
             width: 28px;
             height: 28px;
@@ -935,15 +936,15 @@ button:hover,button,
             text-decoration: none
             margin: 0 10px 0 10px
             &:hover
-                color: #606060;
-                border: 1px solid #606060;
+                color: #fff;
+                background: #f68236;
+                border: 1px solid #f68236;
                 box-sizing: border-box;
-                background: transparent;
     &_active
-        color: #606060;
-        border: 1px solid #606060;
+        color: #fff;
+        background: #f68236;
+        border: 1px solid #f68236;
         box-sizing: border-box;
-        background: transparent;
 
 .filter
     display: flex;
@@ -952,6 +953,7 @@ button:hover,button,
     padding: 34px 0 50px 0;
 
 .form-control-cat
+    background: transparent;
     border-bottom: 1px solid #303030;
     border-top: none;
     border-left: none;
@@ -981,3 +983,4 @@ button:hover,button,
 @import gallary/gallary
 @import animation
 @import media/media
+@import fix

@@ -69,7 +69,7 @@ export const manListQuery = graphql`
   query womenListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
         filter: {
-            frontmatter: { cat: { eq: "women" } }
+            frontmatter: { cat: { eq: "Женское" } }
           }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit

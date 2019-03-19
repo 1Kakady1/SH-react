@@ -7,7 +7,7 @@ dimensions: ""
 cat: "Мужское"
 recomendet: false
 image: "k2.jpg"
-gallary: ["k2.jpg","kп.jpg","k1.jpg","k3.jpg"]
+gallary: ["k2.jpg","k4.png","k1.jpg","k3.jpg"]
 sizeProduct: [40]
 code:  1002
 page: "product"

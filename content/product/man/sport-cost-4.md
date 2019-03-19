@@ -6,8 +6,8 @@ title: "Спортивный костюм"
 dimensions: ""
 cat: "Мужское"
 recomendet: false
-image: "k3.jpg"
-gallary: ["k3.jpg","kп.jpg","k1.jpg","k3.jpg"]
+image: "k4.png"
+gallary: ["k4.png","k2.jpg","k3.jpg","k1.jpg"]
 sizeProduct: [40,66]
 code:  1004
 page: "product"

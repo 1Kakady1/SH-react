@@ -131,7 +131,7 @@ handleClickOutside(e) {
                   }
               </ReactCSSTransitionGroup>
               { listSlide === null ? 
-                <div className="sliderV-item"><img src={(urlImg)+post.image} alt=""/></div>
+                <div className="sliderV-item"><img src={(urlImg)+post.image} className="sliderV-item__preview" alt=""/></div>
                 :
                 <SliderV key="sliderV-slick" {...settings}>
                     {listSlide}
@@ -144,11 +144,11 @@ handleClickOutside(e) {
            </div>
           {
             listSize === null ? 
-            <div className="productNone">Товара закончисля.</div>
+            <div className="productNone">Товар закончисля.</div>
               :
             <div className="product-cart-send">
               <h2 className="title-size"> Размер </h2>
-              <ul className="size">
+              <ul className="size" style={listSize.length === 1? {justifyContent: 'center'} : null}>
                   {listSize}
               </ul>
               <button className="btn-bg btn-bg_size-1" onClick={ this.state.size === null ? this.addCartNotNull:this.props.addCart.bind(this, ...arrContent)  }> Добавить </button>
