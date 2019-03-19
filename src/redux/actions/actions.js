@@ -1,4 +1,5 @@
-import {CLEAR_CART,DELETE_PRODUCT_CART,ADD_IN_CART,SESSION_LOAD} from "./actionsType"
+import {CLEAR_CART,DELETE_PRODUCT_CART,ADD_IN_CART,SESSION_LOAD,CART_COUNTER_ADD,
+    CART_COUNTER_SUB} from "./actionsType"
 
 export function clearCart(){
     return{
@@ -24,5 +25,19 @@ export function sessionLoad(sessionCart){
     return{
         type: SESSION_LOAD,
         payload: sessionCart
+    }
+}
+
+export function cartCounterAdd(countIndex){
+    return{
+        type: CART_COUNTER_ADD,
+        payload: countIndex
+    }
+}
+
+export function cartCounterSub(countIndex){
+    return{
+        type: CART_COUNTER_SUB,
+        payload: countIndex
     }
 }

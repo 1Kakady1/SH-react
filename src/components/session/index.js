@@ -45,7 +45,7 @@ class SessionCreate extends Component {
     render() {
     
     let session = this.state.session
-    console.log("r", session)
+    //console.log("r", session)
       return (
         <div className="sessionCreate-wrap" >
             {this.state.session === null ? <button className="sessionCreate"></button> : <button className="sessionCreate" onClick={this.props.sessionLoad.bind(this,session)}></button>}
