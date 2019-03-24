@@ -2,6 +2,7 @@ import React,{ Component } from "react"
 import FooterNav from "./footer-nav";
 import Social from "./social"
 import Media from "react-media";
+import ReactWOW from 'react-wow'
 
 class Footer extends Component {
     //constructor(props) {
@@ -27,6 +28,7 @@ class Footer extends Component {
                 },
             };
       return (
+        <ReactWOW animation='slideInUp'>
         <footer className="footer">
         <Media query="(max-width:768px)">
               {matches =>
@@ -48,6 +50,7 @@ class Footer extends Component {
             />
             {this.props.children}
         </footer>
+        </ReactWOW>
       )
     }
   }

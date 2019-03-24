@@ -55,7 +55,7 @@ const initalState = {
     ],
     Summa: 270,
 }*/
-import {CLEAR_CART,DELETE_PRODUCT_CART,ADD_IN_CART,SESSION_LOAD} from '../actions/actionsType'
+import {CLEAR_CART,DELETE_PRODUCT_CART,ADD_IN_CART,SESSION_LOAD,CART_COUNTER_ADD,CART_COUNTER_SUB} from '../actions/actionsType'
 
 const initalState = {
     ProductList: [],
@@ -128,6 +128,48 @@ export default function cart(state=initalState,action){
                 ProductList: arrSession.cart.ProductList ,
                 countProd: arrSession.cart.countProd
             }
+
+        case CART_COUNTER_ADD:
+            let jj = 0, lenAdd = state.ProductList.length,sumOne=0;
+            while(jj<lenAdd ){
+                if(action.payload === jj){
+
+                    sumOne = state.ProductList[jj].price/state.ProductList[jj].count;
+                    state.ProductList[jj].price +=  sumOne;
+                    state.ProductList[jj].count+=1;
+                    
+                    break;
+                }
+
+                jj++
+            }
+
+            return {
+                Summa:  state.Summa + sumOne ,
+                ProductList: state.ProductList,
+                countProd: state.countProd + 1
+            } 
+        case CART_COUNTER_SUB:
+            let jm = 0, lenSub= state.ProductList.length,sumOneSub=0;
+           
+            while(jm<lenSub ){
+                if(action.payload === jm && state.ProductList[jm].count > 1){
+
+                    sumOneSub = state.ProductList[jm].price/state.ProductList[jm].count;
+                    state.ProductList[jm].price -=  sumOneSub;
+                    state.ProductList[jm].count-=1;
+
+                    return {
+                        Summa:  state.Summa - sumOneSub ,
+                        ProductList: state.ProductList,
+                        countProd: state.countProd - 1
+                    }
+                }
+
+                jm++
+            }
+
+            return  state 
         default:
            return state 
     }
