@@ -78,6 +78,10 @@ class Cart extends React.Component {
                         <div className="product-cart-wrap">
                             {cartList}
                         </div>
+
+                        <div className="cart-table-total cart-table_position">
+                            <div className="cart-table-total__full">Всего: <span>{this.props.Summa} €</span></div>
+                        </div>
         
                     </div>
             }
