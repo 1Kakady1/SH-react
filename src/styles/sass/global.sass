@@ -706,9 +706,10 @@ button:hover,button,
 
 .form-group__usinfo
     width: 47%
-    &:nth-child(1)
+    &:nth-child(1),&:nth-child(3)
         margin-right: 6%;
-
+.form-group_margin
+    margin-right: 6%;
 .contact_error
     border: 1px solid red!important
 
@@ -984,6 +985,13 @@ button:hover,button,
     display: flex;
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
+
+.term
+    display: flex
+    justify-content: center
+    align-items: center
+    &__good
+        margin-left: 10px
 
 @import mini-cart
 @import gallary/gallary

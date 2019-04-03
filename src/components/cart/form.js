@@ -1,13 +1,11 @@
 import React, { Component } from "react"
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Modal from 'react-responsive-modal'
+
 import Input from "../comp-form/input"
-import Select from "../comp-form/select"
 import Button from "../comp-form/btn"
-import TextArea from "../comp-form/textarea"
 import FormInfo from "../comp-form/form-info"
 import CheckBox from "../comp-form/checkbox"
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
-
 
 class OrderForm extends Component {
     constructor(props) {
@@ -16,17 +14,28 @@ class OrderForm extends Component {
       this.state = {
         newUser: {
           name: "",
+          surname: "",
           email: "",
+          adr: "",
+          phone: "",
+          indexCode: "",
+          city:""
         },
 
         errorValid: {
           name: null,
+          surname: null,
           email: null,
-          about: null
+          adr: null,
+          phone: null,
+          indexCode: null,
+          city:null
         },
         disable: false,
-        send: 0,flagEr: 0
-
+        send: 0,
+        flagEr: 0,
+        check: false,
+        open: false,
       };
 
       this.handleEmail = this.handleEmail.bind(this);
@@ -34,12 +43,18 @@ class OrderForm extends Component {
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
       this.handleInput = this.handleInput.bind(this);
       this.handCheckEmail = this.handCheckEmail.bind(this);
+      this.handCheckPhone = this.handCheckPhone.bind(this);
       this.handCheckNameMsg = this.handCheckNameMsg.bind(this);
     }
-  
+
     handCheckEmail(){
       var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String( this.state.newUser["email"]).toLowerCase()); 
+    }
+
+    handCheckPhone(){
+      var re = /^[\d]{1}\ \([\d]{2,3}\)\ [\d]{2,3}-[\d]{2,3}-[\d]{2,3}$/;
+      return re.test(String( this.state.newUser["phone"]).toLowerCase()); 
     }
 
     handCheckNameMsg(a,b){
@@ -78,6 +93,7 @@ class OrderForm extends Component {
     handleInput(e) {
       let value = e.target.value;
       let name = e.target.name;
+      console.log(name);
       this.setState(
         prevState => ({
           newUser: {
@@ -88,20 +104,6 @@ class OrderForm extends Component {
       );
     }
   
-    handleTextArea(e) {
-      ;
-      let value = e.target.value;
-      this.setState(
-        prevState => ({
-          newUser: {
-            ...prevState.newUser,
-            about: value
-          }
-        })
-      );
-    }
-  
-  
     handleFormSubmit(e) {
       e.preventDefault();
 
@@ -111,13 +113,16 @@ class OrderForm extends Component {
               ...prevState.errorValid,
             name: this.handCheckNameMsg(this.state.newUser.name,3),
             email: this.handCheckEmail(),
-            about: this.handCheckNameMsg(this.state.newUser.about,6)
+            surname: this.handCheckNameMsg(this.state.newUser.name,3),
+            adr: this.handCheckNameMsg(this.state.newUser.name,3),
+            phone: this.handCheckPhone(),
+            city:this.handCheckNameMsg(this.state.newUser.name,3)
             }
           })
         );
      
 
-      console.log(this.state.errorValid)
+      
       if(this.state.errorValid.name===true && this.state.errorValid.email===true && this.state.errorValid.about===true){
 
         this.setState({disable : !this.state.disable})
@@ -140,11 +145,19 @@ class OrderForm extends Component {
                     name: "",
                     fname: "",
                     email: "",
-                    adr: ""
+                    adr: "",
+                    phone: "",
+                    indexCode: 0,
+                    city:""
                   },
                   errorValid: {
                     name: null,
+                    fname: null,
                     email: null,
+                    adr: null,
+                    phone: null,
+                    indexCode: 0,
+                    city: null
                   },
                   disable: !this.state.disable,
                   send: 0,
@@ -154,8 +167,21 @@ class OrderForm extends Component {
         });
       } 
     }
+
+    handleInputCheck= () => {
+      this.setState({ check: !this.state.check });
+    };
+
+    onOpenModal = () => {
+      this.setState({ open: true });
+    };
+  
+    onCloseModal = () => {
+      this.setState({ open: false });
+    };
  
     render() {
+      const { open } = this.state;
       return (
 
         <form className="container-fluid" onSubmit={this.handleFormSubmit}>
@@ -165,9 +191,9 @@ class OrderForm extends Component {
 
           <Input
               inputtype={"text"}
-              classmodif={"contact_input" + (this.state.errorValid.name === null? "" : this.state.errorValid.name === true? "" : " contact_error")}
+              classmodif={"contact_input" + (this.state.errorValid.surname === null? "" : this.state.errorValid.surname === true? "" : " contact_error")}
               title={"Фамилия"}
-              name={"fname"}
+              name={"surname"}
               value={this.state.newUser.fname}
               placeholder={""}
               handlechange={this.handleInput}
@@ -188,13 +214,13 @@ class OrderForm extends Component {
          <div className="adr">
             <Input
                 inputtype={"text"}
-                classmodif={"contact_input"}
+                classmodif={"contact_input" + (this.state.errorValid.adr === null? "" : this.state.errorValid.adr === true? "" : " contact_error")}
                 orderwrapper={"adr_input"}
                 name={"adr"}
                 title={"Адрес"}
                 value={this.state.newUser.adr}
                 placeholder={""}
-                handlechange={this.handleEmail}
+                handlechange={this.handleInput}
             />
          </div>
 
@@ -202,40 +228,40 @@ class OrderForm extends Component {
 
           <Input
               inputtype={"text"}
-              classmodif={"contact_input" + (this.state.errorValid.name === null? "" : this.state.errorValid.name === true? "" : " contact_error")}
-              title={"Фамилия"}
-              name={"fname"}
-              value={this.state.newUser.fname}
+              classmodif={"contact_input" + (this.state.errorValid.city === null? "" : this.state.errorValid.city === true? "" : " contact_error")}
+              title={"Город"}
+              name={"city"}
+              value={this.state.newUser.city}
               placeholder={""}
               handlechange={this.handleInput}
             />
 
             <Input
-              inputtype={"text"}
-              classmodif={"contact_input" + (this.state.errorValid.name === null? "" : this.state.errorValid.name === true? "" : " contact_error")}
-              title={"Имя"}
-              name={"name"}
-              value={this.state.newUser.name}
+              inputtype={"number"}
+              classmodif={"contact_input" + (this.state.errorValid.indexCode === null? "" : this.state.errorValid.indexCode === true? "" : " contact_error")}
+              title={"Почтовый индекс"}
+              name={"indexCode"}
+              value={this.state.newUser.indexCode}
               placeholder={""}
               handlechange={this.handleInput}
             />
 
             <Input
-              inputtype={"text"}
-              classmodif={"contact_input" + (this.state.errorValid.name === null? "" : this.state.errorValid.name === true? "" : " contact_error")}
-              title={"Имя"}
-              name={"name"}
-              value={this.state.newUser.name}
+              inputtype={"tel"}
+              classmodif={"contact_input" + (this.state.errorValid.phone === null? "" : this.state.errorValid.phone === true? "" : " contact_error")}
+              title={"Телефон"}
+              name={"phone"}
+              value={this.state.newUser.phone}
               placeholder={""}
               handlechange={this.handleInput}
             />
 
             <Input
-              inputtype={"text"}
-              classmodif={"contact_input" + (this.state.errorValid.name === null? "" : this.state.errorValid.name === true? "" : " contact_error")}
-              title={"Имя"}
-              name={"name"}
-              value={this.state.newUser.name}
+              inputtype={"email"}
+              classmodif={"contact_input" + (this.state.errorValid.email === null? "" : this.state.errorValid.email === true? "" : " contact_error")}
+              title={"Email"}
+              name={"email"}
+              value={this.state.newUser.email}
               placeholder={""}
               handlechange={this.handleInput}
             />
@@ -244,21 +270,59 @@ class OrderForm extends Component {
 
           <div className="term">
             <CheckBox
-                classmodif={"mm"}
-                title={"dd"}
+                classmodif={"term__checked"}
                 name={"term"}
-                handlechange={this.handleInput}
+                orderwrapper={"form-tern-checked"}
+                handlechange={this.handleInputCheck}
+                on_open_modal={this.onOpenModal}
                 />
+                <span className="term__good" onClick={this.onOpenModal} >Я согласен с пользовательским соглашением</span>
           </div>
+          {
+                    <ReactCSSTransitionGroup
+                    transitionName={ {
+                        enter: 'slideInUp',
+                        leave: 'slideOutDown',
+                        appear: 'appear'
+                    } }
+                    transitionAppearTimeout={0}
+                    transitionEnterTimeout={0}
+                    transitionLeaveTimeout={0}
+                >
+                    {
+                        this.state.check === true ?
+                        <Button
+                          action={this.handleFormSubmit}
+                          disab={this.state.disable}
+                          type={"primary"}
+                          title={"Оформить"}
+                          style={buttonStyle}
+                        />
+                        :
+                        null
+                    }
+                </ReactCSSTransitionGroup>
+          }
 
-         
-          <Button
-            action={this.handleFormSubmit}
-            disab={this.state.disable}
-            type={"primary"}
-            title={"Submit"}
-            style={buttonStyle}
-          />
+          <Modal open={open} onClose={this.onCloseModal} center>
+            <p>
+              Настоящий документ «Пользовательское соглашение» представляет собой предложение ООО «_____» (далее — «Администрация»), заключить договор на изложенных ниже условиях Соглашения.
+              <br/>
+              1. Общие положения Пользовательского соглашения
+              1.1. В настоящем документе и вытекающих или связанным с ним отношениях Сторон применяются следующие термины и определения:
+              <br/>
+              а) Платформа — программно-аппаратные средства, интегрированные с Сайтом Администрации;
+              <br/>
+              б) Пользователь — дееспособное физическое лицо, присоединившееся к настоящему Соглашению в собственном интересе либо выступающее от имени и в интересах представляемого им юридического лица.
+              <br/>
+              в) Сайт Администрации/ Сайт — интернет-сайты, размещенные в домене ________.ru и его поддоменах.
+              <br/>
+              г) Сервис — комплекс услуг и лицензия, предоставляемые Пользователю с использованием Платформы.
+              <br/>
+              д) Соглашение — настоящее соглашение со всеми дополнениями и изменениями.
+              <br/>
+            </p>
+          </Modal>
 
         <ReactCSSTransitionGroup
                 transitionName={ {
