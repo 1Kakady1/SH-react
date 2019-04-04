@@ -45,8 +45,8 @@ class Cart extends React.Component {
                             {
                                 cartItem.size.length === 1 ?
                                     <div className="counter">
-                                        <button className="counter__sub" onClick={this.props.onDelItem.bind(this,index)}>-</button>
-                                        <button className="counter__add" onClick={this.props.onDelItem.bind(this,index)}>+</button>
+                                        <button className="counter__sub" onClick={this.props.onCartCounterSub.bind(this,index)}>-</button>
+                                        <button className="counter__add" onClick={this.props.onCartCounterAdd.bind(this,index)}>+</button>
                                     </div>
                                         :
                                     null
@@ -61,21 +61,31 @@ class Cart extends React.Component {
      );
     
       return (
-        <div className="cart-table">
-            <div className="cart-table-title cart-table_position">
-                <div className="cart-table-title__item cart-table_w126">Продукт</div>
-                <div className="cart-table-title__item cart-table_w504">Описание</div>
-                <div className="cart-table-title__item cart-table_w183">Размер</div>
-                <div className="cart-table-title__item cart-table_w183">Кол.</div>
-                <div className="cart-table-title__item cart-table_w126 ">Цена</div>
-                <div className="cart-table-title__item cart-table_w104">Убрать</div>
-            </div>
+        <React.Fragment>
+            {this.props.ProductList.lenght === 0 || this.props.Summa === 0 ? 
+                <div className="cart-null">Корзина пуста</div> 
+                    : 
+                    <div className="cart-table">
+                        <div className="cart-table-title cart-table_position">
+                            <div className="cart-table-title__item cart-table_w126">Продукт</div>
+                            <div className="cart-table-title__item cart-table_w504">Описание</div>
+                            <div className="cart-table-title__item cart-table_w183">Размер</div>
+                            <div className="cart-table-title__item cart-table_w183">Кол.</div>
+                            <div className="cart-table-title__item cart-table_w126 ">Цена</div>
+                            <div className="cart-table-title__item cart-table_w104">Убрать</div>
+                        </div>
+            
+                        <div className="product-cart-wrap">
+                            {cartList}
+                        </div>
 
-            <div className="product-cart-wrap">
-                {cartList}
-            </div>
-
-        </div>
+                        <div className="cart-table-total cart-table_position">
+                            <div className="cart-table-total__full">Всего: <span>{this.props.Summa} €</span></div>
+                        </div>
+        
+                    </div>
+            }
+        </React.Fragment>
       )
     }
   }

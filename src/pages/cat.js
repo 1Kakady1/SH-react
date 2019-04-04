@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql , Link } from "gatsby"
-
+import ReactWOW from 'react-wow'
 import Helmet from "react-helmet";
 
 import Nav from "../components/nav/nav"
@@ -67,32 +67,35 @@ export default class TemplateCat extends React.Component {
                     </span>
                   </div>
               </BarUrl>
-              <Title title={"Мужское"}>
-                <Link 
-                    to="/cat/man" 
-                    className="content-title__sub-title link__cat"  
-                    state={{pleasant: "reasonably",}
-                  }>
-                  Смотрет все товары данной категории
-                </Link>
-              </Title>
-              <div className="product-cat">
-                {manList}
-              </div>
+              <ReactWOW animation='slideInUp'>
+                <Title title={"Мужское"}>
+                  <Link 
+                      to="/cat/man" 
+                      className="content-title__sub-title link__cat"  
+                      state={{pleasant: "reasonably",}
+                    }>
+                    Смотрет все товары данной категории
+                  </Link>
+                </Title>
+                <div className="product-cat">
+                  {manList}
+                </div>
+              </ReactWOW>
               
-              <Title title={"Женское"}>
-                <Link 
-                    to="/cat/women" 
-                    className="content-title__sub-title link__cat"  
-                    state={{pleasant: "reasonably",}
-                  }>
-                  Смотрет все товары данной категории
-                </Link>
-              </Title>
-              <div className="product-cat">
-                {womenList}
-              </div>
-              
+              <ReactWOW animation='slideInUp'>
+                <Title title={"Женское"}>
+                  <Link 
+                      to="/cat/women" 
+                      className="content-title__sub-title link__cat"  
+                      state={{pleasant: "reasonably",}
+                    }>
+                    Смотрет все товары данной категории
+                  </Link>
+                </Title>
+                <div className="product-cat">
+                  {womenList}
+                </div>
+              </ReactWOW>
               <TopSlider/>
           <Footer/>
       </Container>   

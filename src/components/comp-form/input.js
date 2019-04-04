@@ -1,8 +1,18 @@
 import React from "react";
 
+function defClass(a){
+  let cls = "form-group form-group__usinfo";
+  if(a !== undefined){ 
+    cls= a;
+  }
+
+  return  cls
+}
+
+
 const Input = props => {
   return (
-    <div className="form-group form-group__usinfo">
+    <div className={defClass(props.orderwrapper)}>
       <label htmlFor={props.name} className="form-label">
         {props.title}
       </label>

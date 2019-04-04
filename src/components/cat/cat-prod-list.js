@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import CartProd from "./cat-prod-item"
 import Select from "./cat-select"
+import ReactWOW from 'react-wow'
 
 export default class ProdList extends Component {
     constructor(props) {
@@ -43,7 +44,7 @@ handleSort(){return true}
             );
            // console.log("rend")
         return (
-            <React.Fragment>
+            <React.Fragment><ReactWOW animation='fadeInUp'>  
 
                 <div className="filter">
                     <Select
@@ -73,7 +74,7 @@ handleSort(){return true}
                     {productList}
                 </div>
 
-            </React.Fragment>
+                </ReactWOW></React.Fragment>
         )
       }
   

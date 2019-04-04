@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet";
 
+
 import ProductListOfCat from "../components/cat/index"
 import Nav from "../components/nav/nav"
 import ToggleMenu from "../components/nav/nav-toggle"
@@ -47,10 +48,10 @@ export default class TemplateCat extends React.Component {
               </BarUrl>
               <Title title={"Мужское"} subTitle={" Все товары для мужчин"}/>
               <ProductListOfCat 
-                data = {posts} 
-                optionsPrice={["Цена","20-30","30-50","50-100","больше 100"]}
-                optionsColor={["Цвет","Синий","Черный","Красный"]}
-                optionsSize={["Размер","30-40","50-70","больше 70"]}
+                  data = {posts} 
+                  optionsPrice={["Цена","20-30","30-50","50-100","больше 100"]}
+                  optionsColor={["Цвет","Синий","Черный","Красный"]}
+                  optionsSize={["Размер","30-40","50-70","больше 70"]}
               />
               <Pagination         
                   numPages={numPages} 
