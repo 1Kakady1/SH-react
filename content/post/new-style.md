@@ -1,6 +1,6 @@
 ---
 title: "Новый стиль"
-price: "192$"
+price: "от 192$"
 date: "2017-08-10"
 image: "photo-1483181957632-8bda974cbc91.jpg"
 page: "home"

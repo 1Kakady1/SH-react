@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Modal from 'react-responsive-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch} from '@fortawesome/free-solid-svg-icons'
-
+//https://github.com/gatsby-contrib/gatsby-plugin-elasticlunr-search
 export default class Search extends Component {
   state = {
     open: false,
