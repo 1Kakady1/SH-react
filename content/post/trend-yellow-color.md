@@ -2,6 +2,7 @@
 title: "Тренд сезона"
 subTitle: "белый цвет"
 date: "2017-08-10"
+path: "trend-yellow-color"
 image: "tr-w.jpg"
 gallary: ["tr-w.jpg","tr-w.jpeg","tr-w.jpg","tr-w.jpg","tr-w.jpg","tr-w.jpg"]
 page: "home"

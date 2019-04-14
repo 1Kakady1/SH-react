@@ -1,6 +1,7 @@
 ---
 id: 21
 price: "130"
+path: "rubashka-j"
 title: "Рубашка женская"
 dimensions: "dwa"
 recomendet: true

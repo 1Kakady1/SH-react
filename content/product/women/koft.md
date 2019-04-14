@@ -1,7 +1,8 @@
 ---
 id: 20
+path: "koft"
 price: "140"
-title: "dwdwdw"
+title: "Кофта"
 dimensions: "dwa"
 recomendet: true
 cat: "Женское"

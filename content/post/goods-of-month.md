@@ -1,5 +1,6 @@
 ---
 title: "C Новым Годом!!!"
+path: "goods-of-month"
 date: "2017-08-10"
 image: "fotoddawda.jpg"
 page: "home"

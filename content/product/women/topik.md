@@ -1,6 +1,7 @@
 ---
 id: 25
 price: "330"
+path: "topik"
 title: "Платье"
 dimensions: ""
 recomendet: true

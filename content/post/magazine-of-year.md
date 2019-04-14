@@ -1,5 +1,6 @@
 ---
 title: "Мир уже не тот"
+path: "magazine-of-year"
 subTitle: "новый стиль"
 date: "2017-08-10"
 image: "photo-1541538163723-f934de551e77.jpg"

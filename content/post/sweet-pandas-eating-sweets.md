@@ -2,6 +2,7 @@
 title: "Панды"
 subTitle: ""
 price: "---"
+path: "sweet-pandas-eating-sweets"
 page: "home"
 position: 8
 image: "photo-1542208998-f6dbbb27a72f.jpg"

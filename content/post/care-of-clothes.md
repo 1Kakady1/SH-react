@@ -1,5 +1,6 @@
 ---
 title: "Лучшая цена"
+path: "care-of-clothes"
 subTitle: ""
 usname: ""
 usinfo: ""

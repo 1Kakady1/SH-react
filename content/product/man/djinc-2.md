@@ -1,6 +1,6 @@
 ---
 id: 5
-path: "djinc-1"
+path: "djinc-2"
 price: "80"
 title: "Джинсы мужские с потертостями"
 dimensions: ""
