@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { StaticQuery, Link } from "gatsby"
 import { graphql } from "gatsby"
 import { Index } from "elasticlunr"
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch} from '@fortawesome/free-solid-svg-icons'
 //https://github.com/gatsby-contrib/gatsby-plugin-elasticlunr-search
@@ -37,26 +37,50 @@ class Search extends Component {
     return (
       <div>
         <button className="btn search__btn" onClick={this.searchShow} ><FontAwesomeIcon icon={faSearch} className="genBtn_hover" /></button>
-        {this.state.open === false ? 
+        <ReactCSSTransitionGroup
+                transitionName={ {
+                    enter: 'slideInUp',
+                    leave: 'slideOutDown',
+                    appear: 'appear'
+                } }
+                transitionAppearTimeout={0}
+                transitionEnterTimeout={0}
+                transitionLeaveTimeout={0}
+            >
+
+            {this.state.open === false ? 
               null 
               
               :
         
               <div className="search-list">
                 <input type="text" value={this.state.query} onChange={this.search} />
+                <ul>
+                <ReactCSSTransitionGroup
+                transitionName={ {
+                    enter: 'slideInUp',
+                    leave: 'slideOutDown',
+                    appear: 'appear'
+                } }
+                transitionAppearTimeout={0}
+                transitionEnterTimeout={0}
+                transitionLeaveTimeout={0}
+              >
                 {this.state.query.length >3 ?
-                            <ul>
-                            {this.state.results.map(page => (
+                            this.state.results.map(page => (
                               <li key={(page.id)+"key"}>
                                 <Link to={"/"+this.currPAgeUrl(page.cat)+"/" + page.path}>{page.title}</Link>
                               </li>
-                            ))}
-                          </ul>
+                            ))
                           :
                           null
                 }
+                </ReactCSSTransitionGroup>
+                </ul>
               </div>
-        }
+          }
+
+            </ReactCSSTransitionGroup>
 
       </div>
     )

@@ -1,0 +1,109 @@
+# BEGIN LSCACHE
+# END LSCACHE
+# BEGIN NON_LSCACHE
+# END NON_LSCACHE
+php_value memory_limit 512M
+php_value upload_max_filesize 128M
+php_value post_max_size 128M
+php_value max_execution_time 300
+php_value max_input_time 300
+php_value max_input_vars 5000
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} !robots.txt
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ http://sh.adr.com.ua%{REQUEST_URI} [L,NE,R=301]
+</IfModule>
+
+
+## BEGIN GZIP Compression ##
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/x-httpd-php
+AddOutputFilterByType DEFLATE application/x-httpd-fastphp
+AddOutputFilterByType DEFLATE image/svg+xml
+SetOutputFilter DEFLATE
+</IfModule>
+
+<ifModule mod_gzip.c>
+mod_gzip_on Yes
+mod_gzip_dechunk Yes
+mod_gzip_item_include file \.(html?|txt|css|js|php|pl)$
+mod_gzip_item_include mime ^application/x-javascript.*
+mod_gzip_item_include mime ^text/.*
+mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+mod_gzip_item_exclude mime ^image/.*
+mod_gzip_item_include handler ^cgi-script$
+</ifModule>
+## END GZIP Compression ##
+
+## BEGIN Vary: Accept-Encoding Header ##
+<IfModule mod_headers.c>
+<FilesMatch "\.(js|css|xml|gz)$">
+Header append Vary: Accept-Encoding
+</FilesMatch>
+</IfModule>
+## END Vary: Accept-Encoding Header ##
+
+## BEGIN Leverage Browser Caching (Expires Caching) ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 2591000 seconds"
+<FilesMatch \.(gif|png|jpg|jpeg|ogg|mp4|mkv|flv|swf|wmv|asf|asx|wma|wax|wmx|wm)$>
+    #ExpiresDefault "access plus 2591000 seconds"
+	Header set Cache-Control "max-age=31536000"
+</FilesMatch>
+# Cache Images
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+# Cache other content types (Flash, CSS, JS, HTML, XML)
+ExpiresByType application/x-shockwave-flash "access plus 1 year"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType text/javascript "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType application/x-javascript "access plus 1 year"
+ExpiresByType text/html "access plus 604800 seconds"
+ExpiresByType application/xhtml+xml "access plus 604800 seconds"
+ExpiresByType video/ogg "access plus 1 year"
+#ExpiresByType video/mp4 "access plus 1 year"
+ExpiresByType video/webm "access plus 1 year"
+ExpiresByType video/x-msvideo "access plus 1 year"
+ExpiresByType video/mpeg "access plus 1 year"
+ExpiresByType video/quicktime "access plus 1 year"
+ExpiresByType video/x-la-asf "access plus 1 year"
+ExpiresByType video/x-ms-asf "access plus 1 year"
+ExpiresByType x-world/x-vrml "access plus 1 year"
+</IfModule>
+## END Leverage Browser Caching (Expires Caching) ##
+
+## BEGIN Disable ETag header ##
+#Header unset Pragma
+#Header unset ETag
+#FileETag None
+## END Disable ETag header ##
+
+### NOCACHE COOKIES start ###
+#RewriteCond %{HTTP_COOKIE} popup_booklet_seen
+#RewriteRule .* - [E=Cache-Control:no-cache]
+### NOCACHE COOKIES end ###
+# BEGIN LiteSpeed
+<IfModule Litespeed>
+SetEnv noabort 1
+</IfModule>
+# END LiteSpeed
