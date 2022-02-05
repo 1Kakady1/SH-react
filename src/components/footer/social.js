@@ -12,7 +12,7 @@ const social ={
 }
 
 
-function Soc(props) {
+function SocialList(props) {
     let socList = [],
         index = 0
 
@@ -52,14 +52,14 @@ export default props => (
                 {props.copyraite}
             </h3>
             <div className="social">
-                <Soc data={data} {...props}  />
+                <SocialList data={data} {...props}  />
             </div>
         </div>
 }
   />
 )
 
-Soc.propTypes = {
+SocialList.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

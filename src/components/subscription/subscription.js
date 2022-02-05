@@ -19,13 +19,6 @@ class Subscription extends Component {
                 active: !state.active,
               })); 
         }, 8000);
-
-        /** 
-         *
-         *  ajax
-         * 
-        **/
-
     }
 
     render() {

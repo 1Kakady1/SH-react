@@ -1,24 +1,22 @@
-import React,{ Component } from "react"
+import React from "react"
 import Column from "./column"
-import Section from "./section-1"
+import Section from "./section"
 import { StaticQuery, graphql } from "gatsby"
 import Media from "react-media";
 
-let shift = 0;
-
-function PrintSection(data,b){
+function PrintSection(data,classAnimation = "",objectOffset){
     let countFor = 3,
         arrSection = []
-    if(shift > data.allMarkdownRemark.edges.length-1 ){
+    if(objectOffset.offset > data.allMarkdownRemark.edges.length-1 ){
         return null
     } else {
 
     
-    if(data.allMarkdownRemark.edges[0+shift].node.frontmatter.classHeight === 593 ||
-         data.allMarkdownRemark.edges[1+shift].node.frontmatter.classHeight === 593){
+    if(data.allMarkdownRemark.edges[0+objectOffset.offset].node.frontmatter.classHeight === 593 ||
+         data.allMarkdownRemark.edges[1+objectOffset.offset].node.frontmatter.classHeight === 593){
             countFor = 2
     }
-        for (let index = shift, i=0; i < countFor; index++, i++) {
+        for (let index = objectOffset.offset, i=0; i < countFor; index++, i++) {
             
             arrSection[i]= <Section key={"section-"+(index.toString())}
                 title={data.allMarkdownRemark.edges[index].node.frontmatter.title}
@@ -30,44 +28,49 @@ function PrintSection(data,b){
                 usinfo={data.allMarkdownRemark.edges[index].node.frontmatter.usinfo}
                 class={"link_h"+(data.allMarkdownRemark.edges[index].node.frontmatter.classHeight  !== null ? "593" : "298")+
                         " "+(data.allMarkdownRemark.edges[index].node.frontmatter.hoverAnimation)+"-hover " 
-                        +(b !== "" ? b : "")} 
+                        +(classAnimation !== "" ? classAnimation : "")} 
                 hoverIcon={data.allMarkdownRemark.edges[index].node.frontmatter.hoverGr}
             />
         }
-
-        shift += countFor;
+        objectOffset.setOffset(objectOffset.offset + countFor);
         return arrSection
     }
 }
 
-function Content(props) {
+
+class Content extends React.PureComponent {
+  constructor(props) {
+      super(props);
+      this.offset = 0;
+      this.PrintContent = this.PrintContent.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return !JSON.stringify(nextProps.data) === !JSON.stringify(this.props.data);
+   }
+
+  PrintContent() {
     let arrColumn = []
     for (let index = 0; index < 4; index++) {
         arrColumn[index] = <Column key={"column-"+(index.toString())}>
-            {PrintSection(props.data)}
+            {this.props.printSection(this.props.data,"",{
+              offset: this.offset,
+              setOffset: (offset)=>{
+                this.offset = offset;
+              }
+            })}
         </Column>
     }
     return arrColumn
 }
 
-/*function ContentMobile(props){
-
-  function mediaSection(a) {
-    let arrSectiaon = []
-        for (let index = 0; index < 2; index++) {
-          arrSectiaon[index] = PrintSection(a,"section_dn")
+  render() {
+      return this.PrintContent()
     }
-    return arrSectiaon
-  }
+}
 
-  let mediaColumn = <Column key="column-media" className="column-media">
-    {mediaSection(props.data)}
-  </Column>
 
-  return mediaColumn
-}*/
-
-class ContentMobile extends Component {
+class ContentMobile extends React.PureComponent {
   constructor(props) {
       super(props);
 
@@ -75,20 +78,28 @@ class ContentMobile extends Component {
         arrowContent: [],
         load: false
       };
-
+      this.offset = 0;
       this.MediaColumn = this.MediaColumn.bind(this);
       this.LoadContent = this.LoadContent.bind(this);
   }
-
+  shouldComponentUpdate(nextProps, nextState) {
+    return !JSON.stringify(nextProps.data) === !JSON.stringify(this.props.data);
+   }
   MediaColumn(a) {
     let arrSectiaon = []
         
     for (let index = 0; index < 4; index++) {
-          arrSectiaon[index] = index > 1 ? PrintSection(a," animated slideInDown") : PrintSection(a,"")
+          arrSectiaon[index] =  PrintSection(a, index > 1 ? "animated slideInDown" : "",{
+            offset: this.offset,
+            setOffset: (offset)=>{
+              this.offset = offset;
+            }
+          }) 
     }
     
     this.state = { arrowContent: arrSectiaon};
     return [arrSectiaon[0],arrSectiaon[1]]
+
   }
 
   LoadContent(){
@@ -157,7 +168,7 @@ export default (props) => (
                     <ContentMobile  data={data}  />
                   </div>  
                 ) : (
-                  <Content data={data}/>
+                  <Content data={data} printSection={PrintSection}/>
                 )
               }
             </Media>

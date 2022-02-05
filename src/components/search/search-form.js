@@ -5,7 +5,7 @@ import { Index } from "elasticlunr"
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch} from '@fortawesome/free-solid-svg-icons'
-//https://github.com/gatsby-contrib/gatsby-plugin-elasticlunr-search
+
 class Search extends Component {
 
   constructor(props) {
@@ -16,7 +16,7 @@ class Search extends Component {
       open: false,
     }
 
-    this.currPAgeUrl = this.currPAgeUrl.bind(this);
+    this.currPageUrl = this.currPageUrl.bind(this);
     this.searchShow= this.searchShow.bind(this);
   }
 
@@ -24,7 +24,7 @@ class Search extends Component {
      this.setState({ open: !this.state.open });
    };
 
-  currPAgeUrl(cat){
+  currPageUrl(cat){
       switch (cat){
        case "Мужское": return "product/man" ;
        case "Женское": return "product/woman";
@@ -69,7 +69,7 @@ class Search extends Component {
                 {this.state.query.length >3 ?
                             this.state.results.map(page => (
                               <li key={(page.id)+"key"}>
-                                <Link to={"/"+this.currPAgeUrl(page.cat)+"/" + page.path}>{page.title}</Link>
+                                <Link to={"/"+this.currPageUrl(page.cat)+"/" + page.path}>{page.title}</Link>
                               </li>
                             ))
                           :
@@ -92,8 +92,7 @@ class Search extends Component {
         Index.load(this.props.searchIndex)
 
   search = evt => {
-    const query = evt.target.value
-    //if(query.length > 3 ){
+      const query = evt.target.value
       this.index = this.getOrCreateIndex()
       const docStr = this.index.documentStore.docs
       let arrRez = [], i = 0;
@@ -117,7 +116,6 @@ class Search extends Component {
           results: this.index.search(query, {}).map(({ ref }) => this.index.documentStore.getDoc(ref)),
           })
       }
-    //}
   }
 
 }

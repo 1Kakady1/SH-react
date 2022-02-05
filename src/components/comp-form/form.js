@@ -1,8 +1,4 @@
 import React, { Component } from "react"
-import Input from "./input"
-import Select from "./select"
-import Button from "./btn"
-import TextArea from "./textarea"
 
 class ContactForm extends Component {
     constructor(props) {
@@ -70,7 +66,6 @@ class ContactForm extends Component {
     }
   
     handleTextArea(e) {
-      console.log("Inside handleTextArea");
       let value = e.target.value;
       this.setState(
         prevState => ({
@@ -139,9 +134,5 @@ class ContactForm extends Component {
       );
     }
   }
-  
-  const buttonStyle = {
-    margin: "10px 10px 10px 10px"
-  };
   
   export default ContactForm;

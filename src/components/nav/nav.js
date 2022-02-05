@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-//import generalSass from '../styles/sass/general.sass'
 
 export default () => (
     <nav className="menu">

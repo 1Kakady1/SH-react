@@ -21,15 +21,12 @@ export default class ProdList extends Component {
     
     }
 
-handlePrice(){return true}
-handleColor(){return true}
-handleSize(){return true}
-handleSort(){return true}
+    //TODO: Add filters
+    handlePrice(){return true}
+    handleColor(){return true}
+    handleSize(){return true}
+    handleSort(){return true}
 
-    //componentDidMount(){
-    //    this.state.productList = productList;
-    //    console.log(this.state.productList)
-    //}
 
     render() {
         const catProdList = this.props.data
@@ -42,7 +39,7 @@ handleSort(){return true}
                         prodUrl={prodItem.node.fields.slug}
                 />
             );
-           // console.log("rend")
+
         return (
             <React.Fragment><ReactWOW animation='fadeInUp'>  
 
@@ -51,21 +48,18 @@ handleSort(){return true}
                         classModif={"contact_select"}
                         name={"price"}
                         options={this.props.optionsPrice}
-                        //value={}
                         handleСhange={this.handlePrice}
                     />
                     <Select
                         classModif={"contact_select"}
                         name={"color"}
                         options={this.props.optionsColor}
-                        //value={}
                         handleСhange={this.handleColor}
                     />
                     <Select
                         classModif={"contact_select"}
                         name={"size"}
                         options={this.props.optionsSize}
-                        //value={}
                         handleСhange={this.handleSize}
                     />
                 </div>

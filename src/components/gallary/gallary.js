@@ -1,6 +1,7 @@
 import React from "react"
 import { withPrefix } from 'gatsby'
 import Modal from 'react-responsive-modal'
+import 'react-responsive-modal/styles.css'
 
 export default class Gallary extends React.Component {
     state = {
@@ -23,14 +24,6 @@ export default class Gallary extends React.Component {
         document.removeEventListener('click', this.onOpenModal, false);
       }
       
-      // componentWillMount() {
-      //   document.addEventListener('click', this.onOpenModal, false);
-      // }
-  
-    //onOpenModal = () => {
-    //  this.setState({ open: true });
-   // };
-  
     onCloseModal = () => {
       this.setState({ open: false });
     };
@@ -39,8 +32,6 @@ export default class Gallary extends React.Component {
         e.preventDefault();
 
         let target = e.target
-           // gallaryItem = document.getElementsByClassName('gallary__link-item');
-      console.log(target)
         if (target.className==='gallary__link-item' || target.className==='gallary__img-item') {
             console.log(target)
           this.setState(state => ({
@@ -67,7 +58,7 @@ export default class Gallary extends React.Component {
             <div className="gallary-list">
                 {gallaryList}
             </div> 
-            <Modal open={open} onClose={this.onCloseModal} little>
+            <Modal open={open} onClose={this.onCloseModal} center blockScroll={true}>
                 <img src={this.state.img}/>
             </Modal>  
         </div>

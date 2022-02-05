@@ -3,9 +3,9 @@ import SliderV from "react-slick";
 import { withPrefix } from 'gatsby'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {connect} from "react-redux"
-import {addCart,sessionStart} from "../../redux/actions/actions"
+import {addCart} from "../../redux/actions/actions"
 
-import SliderVerItem from "../sliderV-item/index"
+import SliderVerticalItem from "../slider-vertical-item/index"
 import Title from "../title/index"
 
 
@@ -66,7 +66,6 @@ handleClickOutside(e) {
 }
 
   render() {
-    //console.log(this.props)
     const urlImg = withPrefix('/img/')
     const ModalInfo =()=> (<div className="add-info">Укажите размер</div>);
     const post = this.props.dataContent;
@@ -103,7 +102,7 @@ handleClickOutside(e) {
     };
 
     const listSlide = post.gallary !== null ? post.gallary.map((galItem) =>
-      <SliderVerItem key={galItem.toString()} imageGal={galItem} itemKey={galItem.toString()}/>)
+      <SliderVerticalItem key={galItem.toString()} imageGal={galItem} itemKey={galItem.toString()}/>)
         : 
       null
     ;
@@ -170,7 +169,6 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch) {
   return{
       addCart: arrContent => dispatch(addCart(arrContent)),
-      //sessionStart: sessionCart => dispatch(sessionStart(sessionCart)),
   }
 }
 

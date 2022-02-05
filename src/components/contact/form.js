@@ -37,7 +37,7 @@ class ContactForm extends Component {
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
       this.handleInput = this.handleInput.bind(this);
       this.handCheckEmail = this.handCheckEmail.bind(this);
-      this.handCheckNameMsg = this.handCheckNameMsg.bind(this);
+      this.handCheckLenMsg = this.handCheckLenMsg.bind(this);
     }
   
     handCheckEmail(){
@@ -45,12 +45,8 @@ class ContactForm extends Component {
       return re.test(String( this.state.newUser["email"]).toLowerCase()); 
     }
 
-    handCheckNameMsg(a,b){
-      if(a.length > b){
-        return true
-      } else {
-        return false
-      }
+    handCheckLenMsg(msg,len){
+        return msg.length > len ? true : false
     }
 
 
@@ -112,25 +108,25 @@ class ContactForm extends Component {
           prevState => ({
             errorValid: {
               ...prevState.errorValid,
-            name: this.handCheckNameMsg(this.state.newUser.name,3),
+            name: this.handCheckLenMsg(this.state.newUser.name,3),
             email: this.handCheckEmail(),
-            about: this.handCheckNameMsg(this.state.newUser.about,6)
+            about: this.handCheckLenMsg(this.state.newUser.about,6)
             }
           })
         );
      
 
-      console.log(this.state.errorValid)
+
       if(this.state.errorValid.name===true && this.state.errorValid.email===true && this.state.errorValid.about===true){
 
         this.setState({disable : !this.state.disable})
 
         let userData = this.state.newUser;
-        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
+
         const url = "http://ajax2.loc/react-ajax.php";
         fetch(url, {
           method: "POST",
-          mode: "no-cors", // error!!!!!!!!!!!!!!
+          mode: "no-cors",
           body: JSON.stringify(userData),
           headers: {
             Accept: "text/plain",

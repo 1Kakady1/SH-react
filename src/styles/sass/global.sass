@@ -1,8 +1,15 @@
+.header
+	display: flex
+	margin-top: 20px
+	padding-bottom: 32px
+	border-bottom: 2px solid #b7b4b4
+	position: relative
 .container
-        margin-right: auto
-        margin-left: auto
-        padding: 33px 180px
-        overflow: hidden
+	margin-right: auto
+	margin-left: auto
+	padding: 33px 180px
+	overflow: hidden
+
 a, a:hover,
 button:hover,button,
 .cart__text, .cart__text:hover,
@@ -27,156 +34,158 @@ button:hover,button,
 	cursor: pointer
 
 .logo-wrap
-    width: 60px
-    height: 60px
-    margin-right: 45px;
-    .logo
-        width: 100%
-        height: 100%
+	width: 60px
+	height: 60px
+	margin-right: 45px
+	.logo
+		width: 100%
+		height: 100%
 
 .menu
-    display: flex
-    align-items: center
-    width: 40%;
-    &-list
-        display: flex
-        margin: 0;
-        width: 100%
-        &__item
-            list-style: none
-            font:
-                size: 1vw
-                family: 'Lato', sans-serif;
-            padding-left: 1.25vmax
-            padding-right: 1.25vmax
-            a
-                text-decoration: none
-                color: #303030
-                &:hover
-                    color: #E67429
+	display: flex
+	align-items: center
+	width: 40%
+	&-list
+		display: flex
+		margin: 0
+		width: 100%
+		&__item
+			list-style: none
+			font:
+				size: 1vw
+				family: 'Lato', sans-serif
+			padding-left: 1.25vmax
+			padding-right: 1.25vmax
+			a
+				text-decoration: none
+				color: #303030
+				&:hover
+					color: #E67429
 .login, .cart
-    display: flex
-    align-items: center
-    padding-left: 5px;
-    padding-right: 8px;
-    margin-left: 15px;
-    &__text
-        padding-left: 14px;
-        font:
-             size: 19px
-             family: 'Lato', sans-serif;
-    &:hover
-        .icon__color-hover
-            color: #F68236
-        .cart__text, .login__text
-            color: #F68236
+	display: flex
+	align-items: center
+	padding-left: 5px
+	padding-right: 8px
+	margin-left: 15px
+	&__text
+		padding-left: 14px
+		font:
+			size: 19px
+			family: 'Lato', sans-serif
+	&:hover
+		.icon__color-hover
+			color: #F68236
+		.cart__text, .login__text
+			color: #F68236
 
 .cart .cart__text:hover
-    color: #F68236
+	color: #F68236
 
 .nav-user
-    display: flex
-    width: 54%;
-    justify-content: flex-end;
+	display: flex
+	width: 54%
+	justify-content: flex-end
 
 .search
-    display: flex;
-    align-items: center;
-    padding-left: 30px
-    position: relative
-    &__btn
-        width: 54px;
-        height: 55px;
-    &-list
-        position: absolute;
-        background: rgba(255, 255, 255, 0.95);
-        top: 105px;
-        right: 0;
-        z-index: 20;
-        width: 486px;
-        padding: 11px;
-        box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.33);
-        input
-            width: 100%
-            margin-top: 5px
-            margin-bottom: 5px
-            border: 1px solid #959595;
-            font-family: 'Lato', sans-serif;
-            font-style: italic;
-            font-weight: normal;
-            line-height: 43px;
-            font-size: 14px;
-            letter-spacing: 0.7px;
-            color: #606060;
-            padding-left: 6px;
-            padding-right: 6px;
-            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-            &:focus
-                border-color: #F68236;
-                outline: 0;
-                box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.33);
-        a
-            text-decoration: none
-            font-family: 'Lato', sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            color: #303030;
-            &:hover
-                color: #f68236
-        ul
-            list-style: none;
-        ul li
-            padding-left: 20px;
-            position: relative;
-            margin: 10px;
-        ul li:before
-            content: '✔';
-            position: absolute; top: 0; left: 0;
-            color: #f68236;
+	display: flex
+	align-items: center
+	padding-left: 30px
+	position: relative
+	&__btn
+		width: 54px
+		height: 55px
+	&-list
+		position: absolute
+		background: rgba(255, 255, 255, 0.95)
+		top: 105px
+		right: 0
+		z-index: 20
+		width: 486px
+		padding: 11px
+		box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.33)
+		input
+			width: 100%
+			margin-top: 5px
+			margin-bottom: 5px
+			border: 1px solid #959595
+			font-family: 'Lato', sans-serif
+			font-style: italic
+			font-weight: normal
+			line-height: 43px
+			font-size: 14px
+			letter-spacing: 0.7px
+			color: #606060
+			padding-left: 6px
+			padding-right: 6px
+			transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+			&:focus
+				border-color: #F68236
+				outline: 0
+				box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.33)
+		a
+			text-decoration: none
+			font-family: 'Lato', sans-serif
+			font-style: normal
+			font-weight: bold
+			color: #303030
+			&:hover
+				color: #f68236
+		ul
+			list-style: none
+		ul li
+			padding-left: 20px
+			position: relative
+			margin: 10px
+		ul li:before
+			content: '✔'
+			position: absolute
+			top: 0
+			left: 0
+			color: #f68236
 .btn
-    border: 1px solid #959595;
-    box-sizing: border-box;
-    outline: 0
-    background: transparent;
-    &:hover
-         color: #fff!important
-         background: #F68236
-         border-color: #F68236;
+	border: 1px solid #959595
+	box-sizing: border-box
+	outline: 0
+	background: transparent
+	&:hover
+		color: #fff!important
+		background: #F68236
+		border-color: #F68236
 
 .menu-toggle
-    display: none
-    &_active
-        display: flex!important
+	display: none
+	&_active
+		display: flex!important
 
 .menu-wrap
-    width: 100%;
-    display: flex;
+	width: 100%
+	display: flex
 .toggle-menu
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+	display: flex
+	justify-content: space-around
+	width: 100%
 
 .menu-toggle__htx 
 	background-color: transparent
  
 .menu-toggle__htx  span
-	-webkit-transition: background 0 0.3s;
-	transition: background 0 0.3s;
+	-webkit-transition: background 0 0.3s
+	transition: background 0 0.3s
  
 .menu-toggle__htx  span::before,
 .menu-toggle__htx  span::after
-	-webkit-transition-duration: 0.3s, 0.3s;
-	transition-duration: 0.3s, 0.3s;
-	-webkit-transition-delay: 0.3s, 0;
-	transition-delay: 0.3s, 0;
+	-webkit-transition-duration: 0.3s, 0.3s
+	transition-duration: 0.3s, 0.3s
+	-webkit-transition-delay: 0.3s, 0
+	transition-delay: 0.3s, 0
  
 .menu-toggle__htx  span::before
-	-webkit-transition-property: top, -webkit-transform;
-	transition-property: top, transform;
+	-webkit-transition-property: top, -webkit-transform
+	transition-property: top, transform
  
 .menu-toggle__htx  span::after
-	-webkit-transition-property: bottom, -webkit-transform;
-	transition-property: bottom, transform;
+	-webkit-transition-property: bottom, -webkit-transform
+	transition-property: bottom, transform
 
 .menu-toggle__htx.menu-toggle_active
 	background-color: #55b2f3
@@ -192,853 +201,853 @@ button:hover,button,
  
 .menu-toggle__htx.menu-toggle_active span::after
 	bottom: 0
-	-webkit-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg)
+	-ms-transform: rotate(-45deg)
+	transform: rotate(-45deg)
  
 .menu-toggle__htx.menu-toggle_active span::before,
 .menu-toggle__htx.menu-toggle_active span::after
-	-webkit-transition-delay: 0, 0.3s;
-	transition-delay: 0, 0.3s;
+	-webkit-transition-delay: 0, 0.3s
+	transition-delay: 0, 0.3s
 .menu-toggle__btn
-    display: block
-    position: relative
-    overflow: hidden
-    margin: 0
-    padding: 0
-    width: 103px
-    height: 77px
-    font-size: 0
-    text-indent: -9999px
-    -webkit-appearance: none
-    -moz-appearance: none
-    appearance: none
-    box-shadow: none
-    border: none
-    background: #8D8D8D
-    cursor: pointer
-    -webkit-transition: background 0.3s;
-    transition: background 0.3s;
+	display: block
+	position: relative
+	overflow: hidden
+	margin: 0
+	padding: 0
+	width: 103px
+	height: 77px
+	font-size: 0
+	text-indent: -9999px
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	box-shadow: none
+	border: none
+	background: #8D8D8D
+	cursor: pointer
+	-webkit-transition: background 0.3s
+	transition: background 0.3s
 .menu-toggle__btn:focus
-	outline: none;
+	outline: none
 
 
 .menu-toggle__btn span
-	display: block;
-	position: absolute;
-	top: 45px;
-	left: 18px;
-	right: 18px;
-	height: 6px;
-	background: white;
+	display: block
+	position: absolute
+	top: 45px
+	left: 18px
+	right: 18px
+	height: 6px
+	background: white
 
 .menu-toggle__btn span::before,
 .menu-toggle__btn span::after
-	position: absolute;
-	display: block;
-	left: 0;
-	width: 100%;
-	height: 6px;
-	background-color: #fff;
-	content: "";
+	position: absolute
+	display: block
+	left: 0
+	width: 100%
+	height: 6px
+	background-color: #fff
+	content: ""
 
 
 .menu-toggle__btn span::before
-	top: -27px;
+	top: -27px
 
 
 .menu-toggle__btn span::after
-	bottom: -27px;
+	bottom: -27px
 
 .menu-toggle__btn span
-	display: block;
-	position: absolute;
-	top: 35px;
-	left: 18px;
-	right: 18px;
-	height: 6px;
-	background: white;
+	display: block
+	position: absolute
+	top: 35px
+	left: 18px
+	right: 18px
+	height: 6px
+	background: white
  
 .menu-toggle__btn span::before,
 .menu-toggle__btn span::after
-	position: absolute;
-	display: block;
-	left: 0;
-	width: 100%;
-	height: 6px;
-	background-color: #fff;
-	content: "";
+	position: absolute
+	display: block
+	left: 0
+	width: 100%
+	height: 6px
+	background-color: #fff
+	content: ""
  
 .menu-toggle__btn span::before
-	top: -22px;
+	top: -22px
  
 .menu-toggle__btn span::after
-	bottom: -21px;
+	bottom: -21px
 
 .arrivals
-    display: flex
-    flex-direction: column
-    justify-content: center
-    padding-bottom: 140px
-    padding-top: 160px
-    .arrivals
-        &__appeal
-            font-family: 'Lato', sans-serif;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 72.1376px;
-            text-align: center;
-            letter-spacing: 3.60792px;
-            text-transform: uppercase;
-            color: #303030;
-        &__explanation
-            font-family: 'Kameron', serif;
-            margin-bottom: 40px
-            font-style: italic;
-            font-weight: normal;
-            line-height: 35px;
-            font-size: 24.0459px;
-            text-align: center;
-            letter-spacing: 1.20264px;
-            color: #606060;
-    .btn-arrivals
-        font-family: 'Lato', sans-serif;
-        font-size: 14.0268px;
-        text-transform: uppercase;
-        width: 200px;
-        height: 58px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        color: #000;
-        padding: 20px 12px
+	display: flex
+	flex-direction: column
+	justify-content: center
+	padding-bottom: 140px
+	padding-top: 160px
+	.arrivals
+		&__appeal
+			font-family: 'Lato', sans-serif
+			font-style: normal
+			font-weight: normal
+			font-size: 72.1376px
+			text-align: center
+			letter-spacing: 3.60792px
+			text-transform: uppercase
+			color: #303030
+		&__explanation
+			font-family: 'Kameron', serif
+			margin-bottom: 40px
+			font-style: italic
+			font-weight: normal
+			line-height: 35px
+			font-size: 24.0459px
+			text-align: center
+			letter-spacing: 1.20264px
+			color: #606060
+	.btn-arrivals
+		font-family: 'Lato', sans-serif
+		font-size: 14.0268px
+		text-transform: uppercase
+		width: 200px
+		height: 58px
+		margin: 0 auto
+		display: flex
+		align-items: center
+		justify-content: center
+		text-decoration: none
+		color: #000
+		padding: 20px 12px
 .row
-    display: flex
-    flex-flow: row wrap
+	display: flex
+	flex-flow: row wrap
 .column
-    width: 100%
-    max-width: 25%
+	width: 100%
+	max-width: 25%
 
 .section-1
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
 
 .section-link
-    width: 100%
-    display: flex
-    position: relative
-    overflow: hidden
-    text-decoration: none
-    //background-color: #000
-    flex-direction: column
-    justify-content: center
-    align-items: center
-    z-index: 3
-    &:hover
-        .arrow, .line-wrap.line
-            opacity: 1
-            transition: opacity .16s ease-in-out;
-    &.left-hover:hover
-        .fon-link
-            left: -100%
-            transition: left .5s ease-in-out;
-    &.right-hover:hover
-        .fon-link
-            left: 100%;
-            transition: right .5s ease-in-out, left .5s ease-in-out; 
-    &.top-hover:hover
-        .fon-link
-           top: -100%;
-           transition: top .5s ease-in-out; 
-    &.bottom-hover:hover
-        .fon-link
-           top: 100%;
-           transition: top .5s ease-in-out;   
-    .fon-link
-        width: 100%
-        height: 100%
-        z-index: -1
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        position: absolute
-        left: 0
-        top: 0
-        transition: left .5s ease-in-out, right .5s ease-in-out, top .5s ease-in-out, bottom.5s ease-in-out;
-        &::before
-            content: ""
-            width: 100%
-            height: 100%
-            background: #0000003b
-            position: absolute
-            top: 0
-            left: 0
-    &__title
-        font-family: 'Lato', sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        line-height: 27px;
-        font-size: 24px;
-        text-align: center;
-        letter-spacing: 1.2px;
-        text-transform: uppercase;
-        color: #fff
-    &__info
-        font-family: 'Kameron', serif;
-        font-style: italic;
-        font-weight: normal;
-        line-height: 27px;
-        font-size: 18px;
-        text-align: center;
-        letter-spacing: 0.9px;
-        text-transform: uppercase;
-        color: #fff
-    &__usinfo
-        text-align: center;
-        padding: 0px 30px;
-        color: #ffffff
-        font-family: 'Kameron', serif;
-        font-style: italic;
-        font-weight: normal;
-        line-height: 19px;
-        font-size: 16px;
-        text-align: center;
-        letter-spacing: 0.7px;
-    &__usname,&__price
-        font-family: 'Lato', sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        line-height: 19px;
-        font-size: 16px;
-        text-align: center;
-        letter-spacing: 0.7px;
-        color: #FFFFFF;
-    .line-wrap.line
-        display: flex
-        justify-content: space-between
-        width: 100%
-        padding: 0px 60px;
-        opacity: 0
-        transition: opacity .16s ease-in-out;
-        .line__left,.line__rigt
-            width: 20px;
-            color: #fff;
-            background: #fff;
-            height: 2px;
-    .arrow
-        color: #fff
-        opacity: 0
-        transition: opacity .16s ease-in-out;
+	width: 100%
+	display: flex
+	position: relative
+	overflow: hidden
+	text-decoration: none
+	//background-color: #000
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	z-index: 3
+	&:hover
+		.arrow, .line-wrap.line
+			opacity: 1
+			transition: opacity 0.16s ease-in-out
+	&.left-hover:hover
+		.fon-link
+			left: -100%
+			transition: left 0.5s ease-in-out
+	&.right-hover:hover
+		.fon-link
+			left: 100%
+			transition: right 0.5s ease-in-out, left 0.5s ease-in-out
+	&.top-hover:hover
+		.fon-link
+			top: -100%
+			transition: top 0.5s ease-in-out
+	&.bottom-hover:hover
+		.fon-link
+			top: 100%
+			transition: top 0.5s ease-in-out
+	.fon-link
+		width: 100%
+		height: 100%
+		z-index: -1
+		background-repeat: no-repeat
+		background-size: 100% 100%
+		position: absolute
+		left: 0
+		top: 0
+		transition: left 0.5s ease-in-out, right 0.5s ease-in-out, top 0.5s ease-in-out, bottom 0.5s ease-in-out
+		&::before
+			content: ""
+			width: 100%
+			height: 100%
+			background: #0000003b
+			position: absolute
+			top: 0
+			left: 0
+	&__title
+		font-family: 'Lato', sans-serif
+		font-style: normal
+		font-weight: bold
+		line-height: 27px
+		font-size: 24px
+		text-align: center
+		letter-spacing: 1.2px
+		text-transform: uppercase
+		color: #fff
+	&__info
+		font-family: 'Kameron', serif
+		font-style: italic
+		font-weight: normal
+		line-height: 27px
+		font-size: 18px
+		text-align: center
+		letter-spacing: 0.9px
+		text-transform: uppercase
+		color: #fff
+	&__usinfo
+		text-align: center
+		padding: 0px 30px
+		color: #ffffff
+		font-family: 'Kameron', serif
+		font-style: italic
+		font-weight: normal
+		line-height: 19px
+		font-size: 16px
+		text-align: center
+		letter-spacing: 0.7px
+	&__usname,&__price
+		font-family: 'Lato', sans-serif
+		font-style: normal
+		font-weight: bold
+		line-height: 19px
+		font-size: 16px
+		text-align: center
+		letter-spacing: 0.7px
+		color: #FFFFFF
+	.line-wrap.line
+		display: flex
+		justify-content: space-between
+		width: 100%
+		padding: 0px 60px
+		opacity: 0
+		transition: opacity .16s ease-in-out
+		.line__left,.line__rigt
+			width: 20px
+			color: #fff
+			background: #fff
+			height: 2px
+	.arrow
+		color: #fff
+		opacity: 0
+		transition: opacity .16s ease-in-out
 
 .link_h298
-    height: 400px;
+	height: 400px
 .link_h593
-    height: 800px
+	height: 800px
 
 .bg-color_1
-    background-color: #606060
+	background-color: #606060
 .bg-color_2
-    background-color: #F68236
+	background-color: #F68236
 .bg-color_3
-    background-color: #1e66ce
+	background-color: #1e66ce
 .bg-color_4
-    background-color: #007d3f
+	background-color: #007d3f
 
 .sign-up
-    width: 100%
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: column
-    padding-top: 150px;
+	width: 100%
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	padding-top: 150px
 
 .content-title
-    width: 100%
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: column
-    &__title
-        font-family: 'Lato', sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        line-height: 35px;
-        font-size: 36px;
-        text-align: center;
-        letter-spacing: 1.8px;
-        text-transform: uppercase;
-        color: #303030;
-    &__sub-title
-        font-family: 'Kameron', serif;
-        font-style: italic;
-        font-weight: normal;
-        line-height: 35px;
-        font-size: 18px;
-        text-align: center;
-        letter-spacing: 0.9px;
-        color: #606060;
+	width: 100%
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	&__title
+		font-family: 'Lato', sans-serif
+		font-style: normal
+		font-weight: bold
+		line-height: 35px
+		font-size: 36px
+		text-align: center
+		letter-spacing: 1.8px
+		text-transform: uppercase
+		color: #303030
+	&__sub-title
+		font-family: 'Kameron', serif
+		font-style: italic
+		font-weight: normal
+		line-height: 35px
+		font-size: 18px
+		text-align: center
+		letter-spacing: 0.9px
+		color: #606060
 
 .subscription
-    width: 100%
-    display: flex
-    align-items: center
-    justify-content: center
-    flex-flow: row wrap;
-    .subscription__input
-        height: 59px;
-        width: 472px
-        border: 1px solid #959595;
-        font-family: 'Lato', sans-serif;
-        font-style: italic;
-        font-weight: normal;
-        line-height: 43px;
-        font-size: 14px;
-        letter-spacing: 0.7px;
-        color: #606060;
-        padding-left: 6px
-        padding-right: 6px
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-        &:focus 
-            border-color: #F68236;
-            outline: 0;
-            box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.33);
-    .subscription__btn
-        font-family: 'Lato', sans-serif;
-        width: 98px;
-        height: 59px;
-        background: #F68236;
-        border: 1px solid #E67429;
-        box-sizing: border-box;
-        color: #ffffff
-        outline: 0
-        &:hover
-            opacity: 0.6
-    .subscription__sps
-        width: 100%
-        text-align: center
-        font-family: 'Kameron', serif;
-        font-style: italic;
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-flow: row wrap
+	.subscription__input
+		height: 59px
+		width: 472px
+		border: 1px solid #959595
+		font-family: 'Lato', sans-serif
+		font-style: italic
+		font-weight: normal
+		line-height: 43px
+		font-size: 14px
+		letter-spacing: 0.7px
+		color: #606060
+		padding-left: 6px
+		padding-right: 6px
+		transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+		&:focus 
+			border-color: #F68236
+			outline: 0
+			box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.33)
+	.subscription__btn
+		font-family: 'Lato', sans-serif
+		width: 98px
+		height: 59px
+		background: #F68236
+		border: 1px solid #E67429
+		box-sizing: border-box
+		color: #ffffff
+		outline: 0
+		&:hover
+			opacity: 0.6
+	.subscription__sps
+		width: 100%
+		text-align: center
+		font-family: 'Kameron', serif
+		font-style: italic
 .top-product
-    background: #BBBBBB
-    padding-top: 2px
-    padding-bottom: 2px
-    margin-top: 60px;
-    .slick-prev, .slick-next
-        background: #D4D4D4;
-        height: 100%;
-        width: 3%;
-        z-index: 1;
-        &:hover
-            background: #F68236
-        &:focus
-            background: #F68236;
-    .slick-arrow
-        &__icon
-            color: #fff;
-            font-size: 56px;
-    .slick-next:before, .slick-prev:before
-        display: none
+	background: #BBBBBB
+	padding-top: 2px
+	padding-bottom: 2px
+	margin-top: 60px
+	.slick-prev, .slick-next
+		background: #D4D4D4
+		height: 100%
+		width: 3%
+		z-index: 1
+		&:hover
+			background: #F68236
+		&:focus
+			background: #F68236
+	.slick-arrow
+		&__icon
+			color: #fff
+			font-size: 56px
+	.slick-next:before, .slick-prev:before
+		display: none
 
 .box-product
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: column;
-    background: #fff
-    border: 3px solid #f68236;
-    margin-left: 5px
-    margin-right: 5px
-    border-radius: 5px
-    .preview
-        width: 49%;
-        height: 238px;
-        &__img
-            width: 100%
-            height: 100%
-    .cat-link
-        text-decoration: none
-        display: flex
-        flex-direction: column
-        align-items: center
-        &:hover
-            transform: scale(0.8)
-        &__name,&__cat
-            font-family: 'Lato', sans-serif;
-            font-weight: normal;
-            line-height: 43px;
-            letter-spacing: 0.7px;
-        &__name
-            font-size: 20px;
-            color: #f68236
-            padding: 0
-        &__cat
-            font-size: 16px;
-            font-style: italic;
-            color: #606060;
-    &__add-btn
-        margin-bottom: 5px
-        border-radius: 5px
-        font-size: 18px
-        text-align: center
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	background: #fff
+	border: 3px solid #f68236
+	margin-left: 5px
+	margin-right: 5px
+	border-radius: 5px
+	.preview
+		width: 49%
+		height: 238px
+		&__img
+			width: 100%
+			height: 100%
+	.cat-link
+		text-decoration: none
+		display: flex
+		flex-direction: column
+		align-items: center
+		&:hover
+			transform: scale(0.8)
+		&__name,&__cat
+			font-family: 'Lato', sans-serif
+			font-weight: normal
+			line-height: 43px
+			letter-spacing: 0.7px
+		&__name
+			font-size: 20px
+			color: #f68236
+			padding: 0
+		&__cat
+			font-size: 16px
+			font-style: italic
+			color: #606060
+	&__add-btn
+		margin-bottom: 5px
+		border-radius: 5px
+		font-size: 18px
+		text-align: center
 
 .footer-nav,.footer-info
-    width: 25%
+	width: 25%
 .ft-menu
-    display: flex
-    flex-direction: column
-    .ft-menu__title
-        font-family: 'Lato', sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        line-height: 35px;
-        font-size: 21px;
-        letter-spacing: 0.7px;
-        text-transform: uppercase;
-        color: #303030;
+	display: flex
+	flex-direction: column
+	.ft-menu__title
+		font-family: 'Lato', sans-serif
+		font-style: normal
+		font-weight: bold
+		line-height: 35px
+		font-size: 21px
+		letter-spacing: 0.7px
+		text-transform: uppercase
+		color: #303030
 .footer
-    display: flex
-    flex-flow: row wrap
-    width: 100%
-    padding-top: 45px
-    padding-bottom: 5px
-    justify-content: space-between;
+	display: flex
+	flex-flow: row wrap
+	width: 100%
+	padding-top: 45px
+	padding-bottom: 5px
+	justify-content: space-between
 .menu-ft
-    list-style: none
-    padding: 0
-    margin: 0;
-    &__item
-        width: 100%
-    .item-ft__link
-        text-decoration: none
-    .link-ft__name
-        font-family: 'Lato', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 23px;
-        font-size: 16px;
-        letter-spacing: 0.6px;
-        color: #303030;
-        &:hover
-            color: #F68236
+	list-style: none
+	padding: 0
+	margin: 0
+	&__item
+		width: 100%
+	.item-ft__link
+		text-decoration: none
+	.link-ft__name
+		font-family: 'Lato', sans-serif
+		font-style: normal
+		font-weight: normal
+		line-height: 23px
+		font-size: 16px
+		letter-spacing: 0.6px
+		color: #303030
+		&:hover
+			color: #F68236
 
 .footer-info
-    .footer-info
-        &__title
-            font-family: 'Lato', sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            line-height: 35px;
-            font-size: 21px;
-            letter-spacing: 0.7px;
-            text-transform: uppercase;
-            color: #303030;
-        &__copyraite
-            font-family: 'Lato', sans-serif;
-            font-style: normal;
-            font-weight: normal;
-            line-height: 23px;
-            font-size: 16px;
-            letter-spacing: 0.6px;
-            color: #303030;
+	.footer-info
+		&__title
+			font-family: 'Lato', sans-serif
+			font-style: normal
+			font-weight: bold
+			line-height: 35px
+			font-size: 21px
+			letter-spacing: 0.7px
+			text-transform: uppercase
+			color: #303030
+		&__copyraite
+			font-family: 'Lato', sans-serif
+			font-style: normal
+			font-weight: normal
+			line-height: 23px
+			font-size: 16px
+			letter-spacing: 0.6px
+			color: #303030
 .social
-    width: 80%
-    display: flex
-    flex-flow: row wrap
-    .social__btn
-        width: 54px;
-        height: 54px;
-        color: #606060;
-        display: flex
-        justify-content: center
-        align-items: center
-        margin-right: 12px
+	width: 80%
+	display: flex
+	flex-flow: row wrap
+	.social__btn
+		width: 54px
+		height: 54px
+		color: #606060
+		display: flex
+		justify-content: center
+		align-items: center
+		margin-right: 12px
 
 .btn_load-media
-    width: 100%;
-    margin-top: 32px;
-    text-align: center;
-    padding: 10px;
-    font-family: 'Lato', sans-serif;
+	width: 100%
+	margin-top: 32px
+	text-align: center
+	padding: 10px
+	font-family: 'Lato', sans-serif
 
 
 .preview
-    &.preview__about_size
-        width: 100%;
-        height: 25vw;
-        margin-bottom: 10px
-    .preview__img
-        width: 100%
-        height: 100%
+	&.preview__about_size
+		width: 100%
+		height: 25vw
+		margin-bottom: 10px
+	.preview__img
+		width: 100%
+		height: 100%
 
 .container-about
-    padding-top: 45px;
+	padding-top: 45px
 .about_h2
-    font-family: 'Lato', sans-serif
-    font-style: normal
+	font-family: 'Lato', sans-serif
+	font-style: normal
 .about-wrap
-    display: flex
-    flex-flow: row wrap
-    padding-top: 45px;
-    .about
-        width: 50%
-        &:nth-child(1)
-            padding-right: 9px
-        &:nth-child(2)
-            padding-left: 9px
+	display: flex
+	flex-flow: row wrap
+	padding-top: 45px
+	.about
+		width: 50%
+		&:nth-child(1)
+			padding-right: 9px
+		&:nth-child(2)
+			padding-left: 9px
 .content
-    .content__text_about
-        font-family: 'Lato', sans-serif;
-        font-style: normal;
-        line-height: 36px;
-        letter-spacing: 1.2px;
-        padding-right: 55px
-    .content__text
-        font-size: 18px;
-        color: #303030
+	.content__text_about
+		font-family: 'Lato', sans-serif
+		font-style: normal
+		line-height: 36px
+		letter-spacing: 1.2px
+		padding-right: 55px
+	.content__text
+		font-size: 18px
+		color: #303030
 
 .nav-site
-    display: flex
-    .bar-link
-        text-decoration: none
-        &:hover
-           .bar-link__name
-                -moz-transition: all 200ms linear
-                -ms-transition: all 200ms linear
-                -o-transition: all 200ms linear
-                -webkit-transition: all 200ms linear
-                transition: all 200ms linear
-                color: #F68236 
+	display: flex
+	.bar-link
+		text-decoration: none
+		&:hover
+			.bar-link__name
+				-moz-transition: all 200ms linear
+				-ms-transition: all 200ms linear
+				-o-transition: all 200ms linear
+				-webkit-transition: all 200ms linear
+				transition: all 200ms linear
+				color: #F68236 
 
 .bar-link .bar-link__name,.sl,.url-now .url-now__name
-    -moz-transition: all 200ms linear
-    -ms-transition: all 200ms linear
-    -o-transition: all 200ms linear
-    -webkit-transition: all 200ms linear
-    transition: all 200ms linear
-    font-family: 'Lato', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 43px;
-    font-size: 18px;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    color: #606060;
+	-moz-transition: all 200ms linear
+	-ms-transition: all 200ms linear
+	-o-transition: all 200ms linear
+	-webkit-transition: all 200ms linear
+	transition: all 200ms linear
+	font-family: 'Lato', sans-serif
+	font-style: normal
+	font-weight: normal
+	line-height: 43px
+	font-size: 18px
+	letter-spacing: 0.6px
+	text-transform: uppercase
+	color: #606060
 .sl
-    margin-left: 10px
-    margin-right: 10px
+	margin-left: 10px
+	margin-right: 10px
 
 .container-fluid
-    width: 56%;
-    margin: 0 auto;
+	width: 56%
+	margin: 0 auto
 
 .form-group
-    display: flex
-    justify-content: center
-    flex-direction: column;
-    font-family: 'Lato', sans-serif;
-    padding-bottom: 27px;
-    label
-        font-family: 'Lato', sans-serif;
-        line-height: 43px;
-        font-size: 14px;
-        letter-spacing: 0.6px;
-        text-transform: uppercase;
+	display: flex
+	justify-content: center
+	flex-direction: column
+	font-family: 'Lato', sans-serif
+	padding-bottom: 27px
+	label
+		font-family: 'Lato', sans-serif
+		line-height: 43px
+		font-size: 14px
+		letter-spacing: 0.6px
+		text-transform: uppercase
 
 .contact_select,.contact_input
-    width: 100%
-    height: 45px;
+	width: 100%
+	height: 45px
 
 .form-group__usinfo
-    width: 47%
-    &:nth-child(1),&:nth-child(3)
-        margin-right: 6%;
+	width: 47%
+	&:nth-child(1),&:nth-child(3)
+		margin-right: 6%
 .form-group_margin
-    margin-right: 6%;
+	margin-right: 6%
 .contact_error
-    border: 1px solid red!important
+	border: 1px solid red!important
 
 
 
 .form-control
-    background: #FFFFFF;
-    border: 1px solid #C2C2C2;
-    box-sizing: border-box;
-    &.form-control__resize
-        resize: none
+	background: #FFFFFF
+	border: 1px solid #C2C2C2
+	box-sizing: border-box
+	&.form-control__resize
+		resize: none
 
 .us-info
-    display: flex;
-    flex-flow: row wrap;
+	display: flex
+	flex-flow: row wrap
 
 .btn-form 
-    width: 197px;
-    height: 55px;
-    font-family: 'Lato', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 43px;
-    font-size: 14.0268px;
-    text-align: center;
-    letter-spacing: 0.70154px;
-    text-transform: uppercase;
-    &.btn-form__primary
-        background: #F68236;
-        border: 1px solid #E67429;
-        box-sizing: border-box;
-        color: #fff
-        &:hover
-            background: #fff;
-            color: #000
-    &:disabled
-         background: #000000;
+	width: 197px
+	height: 55px
+	font-family: 'Lato', sans-serif
+	font-style: normal
+	font-weight: normal
+	line-height: 43px
+	font-size: 14.0268px
+	text-align: center
+	letter-spacing: 0.70154px
+	text-transform: uppercase
+	&.btn-form__primary
+		background: #F68236
+		border: 1px solid #E67429
+		box-sizing: border-box
+		color: #fff
+		&:hover
+			background: #fff
+			color: #000
+	&:disabled
+		background: #000000
 
 .slider-vert
-    padding-right: 9.8vmax
-    .slick-list
-        overflow: hidden
-        padding-left: 9.8vmax
-    .slick-dots
-        position: absolute
-        top: 20px;
-        left: 12vw;
-        display: flex!important
-        flex-direction: column
-    .slick-dots li
-        width: 81px;
-        height: 81px;
-    .slick-slide
-        width: 62vw !important;
-    .dot-custom
-        .dot-custom__bg
-            border: 1px solid rgba(0, 0, 0, 0.2)
-            -webkit-transition: .3s ease-in-out;
-            -o-transition: .3s ease-in-out;
-            transition: .3s ease-in-out;
-            &:hover
-                border-color: #007d3f 
-                -webkit-transform: scale(0.8);
-                -ms-transform: scale(0.8);
-                transform: scale(0.8);
-                -webkit-transition: .3s ease-in-out;
-                -o-transition: .3s ease-in-out;
-                transition: .3s ease-in-out;
-    .slick-dots .slick-active .dot-custom .dot-custom__bg
-        border-color: #f68236
-    .slick-dots 
-        width: 7%!important
-    .slick-arrow
-        display: none!important
-    .sliderV-item
-        img
-            width: 100%
-            height: 600px
+	padding-right: 9.8vmax
+	.slick-list
+		overflow: hidden
+		padding-left: 9.8vmax
+	.slick-dots
+		position: absolute
+		top: 20px
+		left: 12vw
+		display: flex!important
+		flex-direction: column
+	.slick-dots li
+		width: 81px
+		height: 81px
+	.slick-slide
+		width: 62vw !important
+	.dot-custom
+		.dot-custom__bg
+			border: 1px solid rgba(0, 0, 0, 0.2)
+			-webkit-transition: .3s ease-in-out
+			-o-transition: .3s ease-in-out
+			transition: .3s ease-in-out
+			&:hover
+				border-color: #007d3f 
+				-webkit-transform: scale(0.8)
+				-ms-transform: scale(0.8)
+				transform: scale(0.8)
+				-webkit-transition: .3s ease-in-out
+				-o-transition: .3s ease-in-out
+				transition: .3s ease-in-out
+	.slick-dots .slick-active .dot-custom .dot-custom__bg
+		border-color: #f68236
+	.slick-dots 
+		width: 7%!important
+	.slick-arrow
+		display: none!important
+	.sliderV-item
+		img
+			width: 100%
+			height: 600px
 
 .product-content
-    position: relative
-    .product-content
-        &__html-content
-            display: flex
-            flex-direction: column
-            padding-left: 60px
-            padding-right: 60px
-            iframe
-                margin: 0 auto;
-            p
-                font-family: 'Lato', sans-serif;
-                font-style: normal;
-                font-weight: normal;
-                line-height: 24px;
-                font-size: 18px;
-                text-align: center;
-                letter-spacing: 0.7px;
-                color: #606060;
+	position: relative
+	.product-content
+		&__html-content
+			display: flex
+			flex-direction: column
+			padding-left: 60px
+			padding-right: 60px
+			iframe
+				margin: 0 auto
+			p
+				font-family: 'Lato', sans-serif
+				font-style: normal
+				font-weight: normal
+				line-height: 24px
+				font-size: 18px
+				text-align: center
+				letter-spacing: 0.7px
+				color: #606060
 
 .product-cart-send
-    padding-top: 30px
-    padding-bottom: 20px
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
+	padding-top: 30px
+	padding-bottom: 20px
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
 .btn-bg
-    background: #F68236;
-    border: 1px solid #E67429;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 43px;
-    font-size: 16px;
-    text-align: center;
-    letter-spacing: 0.70154px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    &:hover
-        background: transparent;
-        color: #F68236
-    &_size-1
-        width: 197px;
-        height: 53px;
+	background: #F68236
+	border: 1px solid #E67429
+	box-sizing: border-box
+	font-family: 'Lato', sans-serif
+	font-style: normal
+	font-weight: normal
+	line-height: 43px
+	font-size: 16px
+	text-align: center
+	letter-spacing: 0.70154px
+	text-transform: uppercase
+	color: #FFFFFF
+	&:hover
+		background: transparent
+		color: #F68236
+	&_size-1
+		width: 197px
+		height: 53px
 
 .size
-    margin: 12px 0 28px 0;
-    display: flex;
-    list-style: none;
-    width: 31%;
-    justify-content: space-between;
-    align-items: center;
-    .size
-        &__item
-            margin: 0;
-            border: 1px solid #959595;
-            box-sizing: border-box;
-            padding: 5px 10px 5px 10px;
-            cursor: pointer
-            font-family: "Lato", sans-serif;
-            font-style: normal;
-            font-weight: normal;
-            line-height: 43px;
-            text-align: center;
-            letter-spacing: 0.7px;
-            text-transform: uppercase;
-            color: #464542;
-            &:hover
-                border: 1px solid #E67429;
-                color: #E67429
-            &_active
-                background: #E67429
-                color: #fff
+	margin: 12px 0 28px 0
+	display: flex
+	list-style: none
+	width: 31%
+	justify-content: space-between
+	align-items: center
+	.size
+		&__item
+			margin: 0
+			border: 1px solid #959595
+			box-sizing: border-box
+			padding: 5px 10px 5px 10px
+			cursor: pointer
+			font-family: "Lato", sans-serif
+			font-style: normal
+			font-weight: normal
+			line-height: 43px
+			text-align: center
+			letter-spacing: 0.7px
+			text-transform: uppercase
+			color: #464542
+			&:hover
+				border: 1px solid #E67429
+				color: #E67429
+			&_active
+				background: #E67429
+				color: #fff
 
 .animated-list
-    position: fixed;
-    right: 10vw;
-    z-index: 1;
-    .add-info
-        background: #f68236;
-        color: #fff;
-        padding: 45px;
+	position: fixed
+	right: 10vw
+	z-index: 1
+	.add-info
+		background: #f68236
+		color: #fff
+		padding: 45px
 .product-cat
-    display: flex
-    flex-flow: row  wrap
-    justify-content: center;
+	display: flex
+	flex-flow: row  wrap
+	justify-content: center
 .card-product
-    &.card-product__link
-        width: 211px;
-        height: 323px;
-        text-decoration: none
-        &:hover
-            transform: scale(0.9);
-            .card-product__preview
-                -moz-transition: all 200ms linear
-                -ms-transition: all 200ms linear
-                -o-transition: all 200ms linear
-                -webkit-transition: all 200ms linear
-                transition: all 200ms linear
-                border: 1px solid #f68236;
-    &_margin
-        margin: 12px 4vw 12px 4vw;
-    .card-product__preview
-        width: 211px;
-        height: 258px;
-        border: 1px solid #E5E5E5;
-        box-sizing: border-box;
-        -moz-transition: all 200ms linear
-        -ms-transition: all 200ms linear
-        -o-transition: all 200ms linear
-        -webkit-transition: all 200ms linear
-        transition: all 200ms linear
-        &-size
-            width: 100%
-            height: 100%
-            padding: 3px;
-    .cart-product__name,.cart-product__price
-        font-family: "Lato", sans-serif;
-        font-style: normal;
-        line-height: 24px;
-        font-size: 14px;
-        text-align: center;
-        letter-spacing: 0.7px;
-        color: #303030;
-    .cart-product_weight-b
-        font-weight: bold;
-    .cart-product_weight-n
-        font-weight: normal;
+	&.card-product__link
+		width: 211px
+		height: 323px
+		text-decoration: none
+		&:hover
+			transform: scale(0.9)
+			.card-product__preview
+				-moz-transition: all 200ms linear
+				-ms-transition: all 200ms linear
+				-o-transition: all 200ms linear
+				-webkit-transition: all 200ms linear
+				transition: all 200ms linear
+				border: 1px solid #f68236
+	&_margin
+		margin: 12px 4vw 12px 4vw
+	.card-product__preview
+		width: 211px
+		height: 258px
+		border: 1px solid #E5E5E5
+		box-sizing: border-box
+		-moz-transition: all 200ms linear
+		-ms-transition: all 200ms linear
+		-o-transition: all 200ms linear
+		-webkit-transition: all 200ms linear
+		transition: all 200ms linear
+		&-size
+			width: 100%
+			height: 100%
+			padding: 3px
+	.cart-product__name,.cart-product__price
+		font-family: "Lato", sans-serif
+		font-style: normal
+		line-height: 24px
+		font-size: 14px
+		text-align: center
+		letter-spacing: 0.7px
+		color: #303030
+	.cart-product_weight-b
+		font-weight: bold
+	.cart-product_weight-n
+		font-weight: normal
 
 .pagination
-    width: 100%
-    display: flex
-    flex-flow: row wrap
-    justify-content: center
-    .pagination
-        &__link:not(.pagination_active)
-            background: transparent;
-            color: #606060
-            border: 1px solid #606060;
-        &__link
-            width: 28px;
-            height: 28px;
-            text-align: center
-            text-decoration: none
-            margin: 0 10px 0 10px
-            &:hover
-                color: #fff;
-                background: #f68236;
-                border: 1px solid #f68236;
-                box-sizing: border-box;
-    &_active
-        color: #fff;
-        background: #f68236;
-        border: 1px solid #f68236;
-        box-sizing: border-box;
+	width: 100%
+	display: flex
+	flex-flow: row wrap
+	justify-content: center
+	.pagination
+		&__link:not(.pagination_active)
+			background: transparent
+			color: #606060
+			border: 1px solid #606060
+		&__link
+			width: 28px
+			height: 28px
+			text-align: center
+			text-decoration: none
+			margin: 0 10px 0 10px
+			&:hover
+				color: #fff
+				background: #f68236
+				border: 1px solid #f68236
+				box-sizing: border-box
+	&_active
+		color: #fff
+		background: #f68236
+		border: 1px solid #f68236
+		box-sizing: border-box
 
 .filter
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    padding: 34px 0 50px 0;
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-around
+	padding: 34px 0 50px 0
 
 .form-control-cat
-    background: transparent;
-    border-bottom: 1px solid #303030;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    outline: none
-    cursor: pointer
-    font-family: 'Caveat', cursive;
-    font-style: italic;
-    font-weight: normal;
-    line-height: 36px;
-    font-size: 18px;
-    letter-spacing: 0.7px;
-    color:  #303030;
+	background: transparent
+	border-bottom: 1px solid #303030
+	border-top: none
+	border-left: none
+	border-right: none
+	outline: none
+	cursor: pointer
+	font-family: 'Caveat', cursive
+	font-style: italic
+	font-weight: normal
+	line-height: 36px
+	font-size: 18px
+	letter-spacing: 0.7px
+	color:  #303030
 
 .form-group-cat
-    width: 182px
+	width: 182px
 
 .link__cat
-    text-decoration: none
-    &:hover
-        color: rgb(246, 130, 54)
+	text-decoration: none
+	&:hover
+		color: rgb(246, 130, 54)
 
 .sessionCreate-wrap
-    display: none
+	display: none
 
 .us-full-info
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
+	display: -webkit-flex
+	display: flex
+	-webkit-flex-flow: row wrap
+	flex-flow: row wrap
 
 .term
-    display: flex
-    justify-content: center
-    align-items: center
-    &__good
-        margin-left: 10px
+	display: flex
+	justify-content: center
+	align-items: center
+	&__good
+		margin-left: 10px
 
 @import mini-cart
 @import gallary/gallary

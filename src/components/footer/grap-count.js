@@ -1,8 +1,7 @@
-import React,{ Component } from "react"
+import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 
 function CountCatProd(props) {
-    console.log( props.data)
     return <h1>{props.data.men.edges.length}</h1>
 }
 

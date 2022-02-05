@@ -17,10 +17,6 @@ class Cart extends React.Component {
         return str.substring(0, str.length - 1)
     }
 
-    consoleLog(a,msg){
-        console.log(msg,a)
-    }
-
     render() {
  
     const urlImg = withPrefix('/img/')
@@ -36,7 +32,6 @@ class Cart extends React.Component {
                         </div>
                         <div className="cart-table-list__item cart-table_w183">
                             {
-                                //this.consoleLog(cartItem.size,"size")
                                 cartItem.size.length === 1 ? cartItem.size : this.printSize(cartItem.size)
                             }
                         </div>

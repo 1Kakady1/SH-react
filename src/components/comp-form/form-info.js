@@ -1,5 +1,5 @@
 import React from "react";
-function textInfo(params) {
+function formMsg(params) {
     switch (params) {
         case 1:
             return <p className="form-info__msg">Сообщение отправлино</p>
@@ -12,7 +12,7 @@ function textInfo(params) {
 const FormInfo = props => {
   return (
     <div className="form-info">
-        {textInfo(props.info)}
+        {formMsg(props.info)}
     </div>
   );
 };

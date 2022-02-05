@@ -3,10 +3,6 @@ import { withPrefix } from 'gatsby'
 import PropTypes from 'prop-types';
 
 export default class CenterMode extends Component {
-    //constructor(props) {
-    //    super(props)
-   // }
-
     render() {
     const urlImg = withPrefix('/img/')
       return (
